@@ -1,13 +1,15 @@
 // import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../consts';
+// import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
 
 const emptySignupState = {
   username: '',
   password: '',
 };
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function SignupForm() {
   const [signupState, setSignupState] = useState(emptySignupState);
@@ -41,12 +43,12 @@ function SignupForm() {
       console.log('Signup success');
 
       //   navigate(isSignup ? "/login": "/profile");
-      navigate('/backendadmin');
+      navigate('/login');
     } catch (err) {
       console.error(err);
     }
 
-    console.log('We reach here...');
+    console.log('We reach here...SignupForm');
     setSignupState(emptySignupState);
   };
 
