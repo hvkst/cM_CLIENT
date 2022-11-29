@@ -10,7 +10,7 @@ function BackendAdmin() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      await fetch(BASE_URL + '/auth/logout', {
+      await fetch(BASE_URL + '/logout', {
         method: 'POST',
         credentials: 'include',
       });
@@ -29,7 +29,7 @@ function BackendAdmin() {
   return (
     <>
       <h1>TEst</h1>
-      {user && <h1>Hello there {user.username} </h1>}
+      {user && <h1>Hello there {user.id} </h1>}
       <button onClick={logout}>Logout</button>
     </>
   );

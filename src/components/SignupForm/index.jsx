@@ -1,7 +1,7 @@
 // import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { BASE_URL } from '../../consts';
+import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
 
 const emptySignupState = {
@@ -9,7 +9,7 @@ const emptySignupState = {
   password: '',
 };
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function SignupForm() {
   const [signupState, setSignupState] = useState(emptySignupState);
@@ -25,7 +25,7 @@ function SignupForm() {
       const formBody = signupState;
       console.log(formBody);
 
-      const url = BASE_URL + '/auth/signup';
+      const url = BASE_URL + '/signup';
       // console.log(isSignup, url);
 
       const res = await fetch(url, {

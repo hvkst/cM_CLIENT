@@ -25,7 +25,7 @@ function LoginForm() {
       const formBody = loginState;
       console.log(formBody);
 
-      const url = BASE_URL + '/auth/login';
+      const url = BASE_URL + '/login';
       // console.log(isSignup, url);
 
       const res = await fetch(url, {
