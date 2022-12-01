@@ -5,7 +5,7 @@ import { UserContext } from '../../context/UserContext';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function BackendAdmin() {
+function BackendUser() {
   const { user, logoutUser } = useContext(UserContext);
   const navigate = useNavigate();
   const logout = async () => {
@@ -28,10 +28,10 @@ function BackendAdmin() {
 
   return (
     <>
-      <h1>BackendAdmin</h1>
+      <h1>BackendUser</h1>
       {user && <h1>Hello there {user.id} </h1>}
       <button onClick={logout}>Logout</button>
     </>
   );
 }
-export default BackendAdmin;
+export default BackendUser;

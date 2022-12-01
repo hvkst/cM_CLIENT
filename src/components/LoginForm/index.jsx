@@ -1,7 +1,7 @@
 // import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { BASE_URL } from '../../consts';
+import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
 
 const emptyLoginState = {
@@ -9,7 +9,7 @@ const emptyLoginState = {
   password: '',
 };
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function LoginForm() {
   const [loginState, setLoginState] = useState(emptyLoginState);
@@ -25,11 +25,11 @@ function LoginForm() {
       const formBody = loginState;
       console.log(formBody);
 
-      const url = BASE_URL + '/login';
-      // console.log(isSignup, url);
+      const url = BASE_URL + '/auth/login';
+      console.log('url:', url);
 
       const res = await fetch(url, {
-        method: 'POST', // or 'PUT'
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },

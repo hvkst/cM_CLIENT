@@ -25,11 +25,11 @@ function SignupForm() {
       const formBody = signupState;
       console.log(formBody);
 
-      const url = BASE_URL + '/signup';
+      const url = BASE_URL + '/auth/signup';
       // console.log(isSignup, url);
 
       const res = await fetch(url, {
-        method: 'POST', // or 'PUT'
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
