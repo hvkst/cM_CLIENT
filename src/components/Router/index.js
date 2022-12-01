@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, useLoaderData } from 'react-router-dom';
 import Navbar from '../Navbar';
 import SignupForm from '../SignupForm';
 import LoginForm from '../LoginForm';
@@ -6,6 +6,13 @@ import BackendAdmin from '../BackendAdmin';
 import BackendUser from '../BackendUser';
 import Homepage from '../Homepage';
 import ErrorBoundary from '../ErrorBoundary';
+// import { useContext } from 'react';
+
+// function loader() {}
+
+// function User() {
+//   const user = useLoaderData();
+// }
 
 export const router = createBrowserRouter([
   {
@@ -21,3 +28,7 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+{
+  /* <Route exact path="start" element={loggedIn ? <Start /> : <Navigate replace to={'/'} />} />; */
+}
