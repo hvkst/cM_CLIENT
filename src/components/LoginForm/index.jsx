@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
@@ -14,7 +14,13 @@ const emptyLoginState = {
 function LoginForm() {
   const [loginState, setLoginState] = useState(emptyLoginState);
   const navigate = useNavigate();
-  const { loginUser } = useContext(UserContext);
+  const { loginUser, user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   const handleChange = (e) => {
     setLoginState((old) => ({ ...old, [e.target.name]: e.target.value }));
@@ -37,12 +43,11 @@ function LoginForm() {
         body: JSON.stringify(formBody),
       });
       const data = await res.json();
-      console.log('data:', data);
+      console.log('data.user:', data.user);
 
       loginUser(data.user);
       console.log('Login success');
 
-      //   navigate(isSignup ? "/login": "/profile");
       navigate('/backendadmin');
     } catch (err) {
       console.error(err);

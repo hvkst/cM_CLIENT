@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
@@ -21,15 +21,16 @@ function BackendUser() {
     }
   };
 
-  // if (!user) {
-  //   navigate('/login');
-  //   return null;
-  // }
+  useEffect(() => {
+    if (user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   return (
     <>
       <h1>BackendUser</h1>
-      {user && <h1>Hello there {user.id} </h1>}
+      {user && <h1>Hello there {user.username} </h1>}
       <button onClick={logout}>Logout</button>
     </>
   );

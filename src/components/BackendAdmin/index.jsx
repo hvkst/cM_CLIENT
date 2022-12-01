@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
@@ -10,7 +10,7 @@ function BackendAdmin() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      await fetch(BASE_URL + '/logout', {
+      await fetch(BASE_URL + '/auth/logout', {
         method: 'POST',
         credentials: 'include',
       });
@@ -21,17 +21,29 @@ function BackendAdmin() {
     }
   };
 
-  // if (!user) {
-  //   navigate('/login');
-  //   return null;
-  // }
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
+
+  if (user.isAdmin === true) {
+    return (
+      <>
+        <h1>BackendAdmin</h1>
+        {user && <h1>Hello there {user.username} </h1>}
+        <button onClick={logout}>Logout</button>
+      </>
+    );
+  }
 
   return (
     <>
-      <h1>BackendAdmin</h1>
-      {user && <h1>Hello there {user.id} </h1>}
+      <h1>You shouldn´t be here, this is for Admins</h1>
+      {user && <h1> {user.username} </h1>}
       <button onClick={logout}>Logout</button>
     </>
   );
 }
+
 export default BackendAdmin;

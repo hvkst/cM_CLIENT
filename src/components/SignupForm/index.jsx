@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
@@ -14,11 +14,17 @@ const emptySignupState = {
 function SignupForm() {
   const [signupState, setSignupState] = useState(emptySignupState);
   const navigate = useNavigate();
-  const { loginUser } = useContext(UserContext);
+  const { loginUser, user } = useContext(UserContext);
 
   const handleChange = (e) => {
     setSignupState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   const sendToServer = async () => {
     try {
