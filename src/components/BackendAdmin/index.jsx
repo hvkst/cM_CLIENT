@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
+import CreateUserForm from '../CreateUserForm';
 
 // const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -36,8 +37,8 @@ function BackendAdmin() {
       {user && (
         <>
           <h1>BackendAdmin</h1>
-          <h1> {user.username} </h1>
-          <button onClick={logout}>Logout</button>
+          <hr />
+          <CreateUserForm />
         </>
       )}
     </>
