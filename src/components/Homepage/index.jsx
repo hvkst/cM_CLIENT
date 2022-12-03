@@ -5,7 +5,7 @@ import { UserContext } from '../../context/UserContext';
 
 function Homepage() {
   const { user, logoutUser } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
   return <Wrapper>Homepage</Wrapper>;
 }
 export default Homepage;
