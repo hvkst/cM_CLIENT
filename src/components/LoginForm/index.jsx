@@ -9,8 +9,6 @@ const emptyLoginState = {
   password: '',
 };
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
-
 function LoginForm() {
   const [loginState, setLoginState] = useState(emptyLoginState);
   const navigate = useNavigate();
@@ -51,15 +49,11 @@ function LoginForm() {
 
       loginUser(data.user);
       console.log('Login success');
-
-      // if (user) {
-      //   navigate('/backendadmin');
-      // }
     } catch (err) {
       console.error(err);
     }
 
-    console.log('We reach here...');
+    console.log('We reach here...LOGIN_CLIENT');
     setLoginState(emptyLoginState);
   };
 

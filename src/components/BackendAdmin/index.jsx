@@ -1,3 +1,4 @@
+import { styled } from '@mui/system';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
@@ -5,10 +6,8 @@ import { UserContext } from '../../context/UserContext';
 import UserCard from '../Card';
 import CreateUserForm from '../CreateUserForm';
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
-
 function BackendAdmin() {
-  const { user, logoutUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [allUsers, setallUsers] = useState();
 
   const navigate = useNavigate();
@@ -51,10 +50,7 @@ function BackendAdmin() {
           <h1>BackendAdmin</h1>
           <hr />
           <CreateUserForm />
-          <div>
-            Here are all the Users! Boom!
-            {allUsers && allUsers.map((user) => <UserCard {...{ user }} />)}
-          </div>
+          <Flexdiv>{allUsers && allUsers.map((user) => <UserCard {...{ user }} />)}</Flexdiv>
         </>
       )}
     </>
@@ -62,3 +58,7 @@ function BackendAdmin() {
 }
 
 export default BackendAdmin;
+
+const Flexdiv = styled('div')`
+  display: flex;
+`;

@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
@@ -9,22 +9,14 @@ const emptySignupState = {
   password: '',
 };
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
-
 function SignupForm() {
   const [signupState, setSignupState] = useState(emptySignupState);
   const navigate = useNavigate();
-  const { loginUser, user } = useContext(UserContext);
+  const { loginUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     setSignupState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
-
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate('/');
-  //   }
-  // }, [user, navigate]);
 
   const sendToServer = async () => {
     try {
@@ -32,7 +24,6 @@ function SignupForm() {
       console.log(formBody);
 
       const url = BASE_URL + '/auth/signup';
-      // console.log(isSignup, url);
 
       const res = await fetch(url, {
         method: 'POST',
@@ -48,7 +39,6 @@ function SignupForm() {
       loginUser(data.user);
       console.log('Signup success');
 
-      //   navigate(isSignup ? "/login": "/profile");
       navigate('/login');
     } catch (err) {
       console.error(err);

@@ -1,4 +1,4 @@
-import { createBrowserRouter, useLoaderData } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Navbar from '../Navbar';
 import SignupForm from '../SignupForm';
 import LoginForm from '../LoginForm';
@@ -28,7 +28,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-
-{
-  /* <Route exact path="start" element={loggedIn ? <Start /> : <Navigate replace to={'/'} />} />; */
-}

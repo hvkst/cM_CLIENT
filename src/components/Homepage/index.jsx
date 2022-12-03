@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import styled from 'styled-components';
 
-import { UserContext } from '../../context/UserContext';
-
 function Homepage() {
-  const { user, logoutUser } = useContext(UserContext);
-  // console.log(user);
-  return <Wrapper>Homepage</Wrapper>;
+  return (
+    <Wrapper>
+      <h2>Homepage</h2>
+    </Wrapper>
+  );
 }
 export default Homepage;
 

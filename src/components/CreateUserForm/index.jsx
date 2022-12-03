@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 
-const workingTimeFormat = () => {};
-
 const emptyNewUserState = {
   username: '',
   password: '',
