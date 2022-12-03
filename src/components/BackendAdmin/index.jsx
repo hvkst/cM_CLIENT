@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { BASE_URL } from '../../consts';
+import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function BackendAdmin() {
   const { user, logoutUser } = useContext(UserContext);
@@ -24,24 +24,22 @@ function BackendAdmin() {
   useEffect(() => {
     if (!user) {
       navigate('/login');
+    } else if (user) {
+      if (!user.isAdmin) {
+        navigate('/backenduser');
+      }
     }
   }, [user, navigate]);
 
-  if (user.isAdmin === true) {
-    return (
-      <>
-        <h1>BackendAdmin</h1>
-        {user && <h1>Hello there {user.username} </h1>}
-        <button onClick={logout}>Logout</button>
-      </>
-    );
-  }
-
   return (
     <>
-      <h1>You shouldn´t be here, this is for Admins</h1>
-      {user && <h1> {user.username} </h1>}
-      <button onClick={logout}>Logout</button>
+      {user && (
+        <>
+          <h1>BackendAdmin</h1>
+          <h1> {user.username} </h1>
+          <button onClick={logout}>Logout</button>
+        </>
+      )}
     </>
   );
 }

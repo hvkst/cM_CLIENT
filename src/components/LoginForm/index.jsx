@@ -18,7 +18,11 @@ function LoginForm() {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      if (user.isAdmin) {
+        navigate('/backendadmin');
+      } else if (!user.isAdmin) {
+        navigate('/backenduser');
+      }
     }
   }, [user, navigate]);
 
@@ -48,7 +52,9 @@ function LoginForm() {
       loginUser(data.user);
       console.log('Login success');
 
-      navigate('/backendadmin');
+      // if (user) {
+      //   navigate('/backendadmin');
+      // }
     } catch (err) {
       console.error(err);
     }

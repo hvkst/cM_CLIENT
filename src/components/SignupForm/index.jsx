@@ -20,11 +20,11 @@ function SignupForm() {
     setSignupState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
-  useEffect(() => {
-    if (user) {
-      navigate('/');
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate('/');
+  //   }
+  // }, [user, navigate]);
 
   const sendToServer = async () => {
     try {

@@ -10,7 +10,7 @@ function BackendUser() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      await fetch(BASE_URL + '/logout', {
+      await fetch(BASE_URL + '/auth/logout', {
         method: 'POST',
         credentials: 'include',
       });
@@ -22,16 +22,24 @@ function BackendUser() {
   };
 
   useEffect(() => {
-    if (user) {
+    if (!user) {
       navigate('/login');
+    } else if (user) {
+      if (user.isAdmin) {
+        navigate('/backendadmin');
+      }
     }
   }, [user, navigate]);
 
   return (
     <>
       <h1>BackendUser</h1>
-      {user && <h1>Hello there {user.username} </h1>}
-      <button onClick={logout}>Logout</button>
+      {user && (
+        <>
+          <h1> {user.username} </h1>
+          <button onClick={logout}>Logout</button>
+        </>
+      )}
     </>
   );
 }

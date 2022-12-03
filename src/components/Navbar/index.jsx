@@ -1,15 +1,47 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 function Navbar() {
+  const { user, logoutUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const logout = async () => {
+    try {
+      await fetch(BASE_URL + '/auth/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      logoutUser();
+      navigate('/');
+    } catch (error) {
+      console.warn(error.message);
+    }
+  };
+
   return (
     <>
       <CustomNavbar>
-        <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'/login'}>Login</NavLink>
-        <NavLink to={'/signup'}>Signup</NavLink>
-        <NavLink to={'/backendadmin'}>A-Backend</NavLink>
-        <NavLink to={'/backenduser'}>U-Backend</NavLink>
+        {user ? (
+          <div>
+            <p>{user.username}</p>
+            <p>{user.isAdmin ? 'Admin' : 'User'}</p>
+            <button onClick={logout}>Logout</button>{' '}
+          </div>
+        ) : (
+          <div>
+            <NavLink to={'/login'}>Login</NavLink>
+            <NavLink to={'/signup'}>Signup</NavLink>
+          </div>
+        )}
+        <div>
+          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to={'/backendadmin'}>A-Backend</NavLink>
+          <NavLink to={'/backenduser'}>U-Backend</NavLink>
+        </div>
       </CustomNavbar>
       <Outlet />
     </>
@@ -20,9 +52,16 @@ export default Navbar;
 const CustomNavbar = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   border-bottom: 1px solid grey;
   > * {
-    margin: 5px 20px 0 0;
+    margin: 5px 20px 0 20px;
+  }
+  > div {
+    display: flex;
+    justify-content: flex-start;
+    > * {
+      margin: 5px 20px 0 0;
+    }
   }
 `;
