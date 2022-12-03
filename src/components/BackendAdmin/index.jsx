@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
+import UserCard from '../Card';
 import CreateUserForm from '../CreateUserForm';
 
 // const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -52,7 +53,7 @@ function BackendAdmin() {
           <CreateUserForm />
           <div>
             Here are all the Users! Boom!
-            {allUsers && allUsers.map((user) => <p>{user.username}</p>)}
+            {allUsers && allUsers.map((user) => <UserCard {...{ user }} />)}
           </div>
         </>
       )}

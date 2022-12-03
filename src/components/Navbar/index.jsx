@@ -1,8 +1,10 @@
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
+import Button from '@mui/material/Button';
+import { styled } from '@mui/system';
+
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -29,7 +31,7 @@ function Navbar() {
           <div>
             <p>{user.username}</p>
             <p>{user.isAdmin ? 'Admin' : 'User'}</p>
-            <button onClick={logout}>Logout</button>{' '}
+            <Button onClick={logout}>Logout</Button>{' '}
           </div>
         ) : (
           <div>
@@ -49,18 +51,18 @@ function Navbar() {
 }
 export default Navbar;
 
-const CustomNavbar = styled.div`
+const CustomNavbar = styled('div')`
   width: 100vw;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid grey;
-  > * {
+  & * {
     margin: 5px 20px 0 20px;
   }
-  > div {
+  & div {
     display: flex;
     justify-content: flex-start;
-    > * {
+    & * {
       margin: 5px 20px 0 0;
     }
   }
