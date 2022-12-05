@@ -6,6 +6,7 @@ import BackendAdmin from '../BackendAdmin';
 import BackendUser from '../BackendUser';
 import Homepage from '../Homepage';
 import ErrorBoundary from '../ErrorBoundary';
+import AdminUserPage from '../AdminUserPage';
 // import { useContext } from 'react';
 
 // function loader() {}
@@ -23,8 +24,9 @@ export const router = createBrowserRouter([
       { path: '/', element: <Homepage /> },
       { path: '/login', element: <LoginForm /> },
       { path: '/signup', element: <SignupForm /> },
-      { path: '/backendadmin', element: <BackendAdmin /> },
-      { path: '/backenduser', element: <BackendUser /> },
+      { path: '/adminbackend', element: <BackendAdmin /> },
+      { path: '/adminbackend/user/:id', element: <AdminUserPage /> },
+      { path: '/userbackend', element: <BackendUser /> },
     ],
   },
 ]);

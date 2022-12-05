@@ -17,9 +17,9 @@ function LoginForm() {
   useEffect(() => {
     if (user) {
       if (user.isAdmin) {
-        navigate('/backendadmin');
+        navigate('/adminbackend');
       } else if (!user.isAdmin) {
-        navigate('/backenduser');
+        navigate('/userbackend');
       }
     }
   }, [user, navigate]);

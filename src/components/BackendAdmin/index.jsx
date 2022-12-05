@@ -12,6 +12,7 @@ function BackendAdmin() {
 
   const navigate = useNavigate();
 
+  // Get all users
   useEffect(() => {
     const getAllUsers = async () => {
       try {
@@ -33,6 +34,7 @@ function BackendAdmin() {
     getAllUsers();
   }, []);
 
+  // Check if user is Admin
   useEffect(() => {
     if (!user) {
       navigate('/login');

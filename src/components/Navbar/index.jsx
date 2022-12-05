@@ -41,8 +41,8 @@ function Navbar() {
         )}
         <div>
           <NavLink to={'/'}>Home</NavLink>
-          <NavLink to={'/backendadmin'}>A-Backend</NavLink>
-          <NavLink to={'/backenduser'}>U-Backend</NavLink>
+          <NavLink to={'/adminbackend'}>A-Backend</NavLink>
+          <NavLink to={'/userbackend'}>U-Backend</NavLink>
         </div>
       </CustomNavbar>
       <Outlet />

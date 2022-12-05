@@ -6,8 +6,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import { Paper } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function UserCard({ user }) {
+  const projectLink = `/adminbackend/user/${user._id}`;
+
   return (
     <UCard>
       <CardContent>
@@ -17,7 +20,9 @@ export default function UserCard({ user }) {
         <Typography variant="body2">Maybe contact Info here</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">{user.project[0].title}</Button>
+        <Link to={projectLink} size="small">
+          {user.project[0].title}
+        </Link>
         <Button size="small">Edit user </Button>
       </CardActions>
     </UCard>
