@@ -33,11 +33,15 @@ function AdminUserPage({ user }) {
   return (
     <>
       <h1>AdminUserPage</h1>
-      <p>params.id {params.id}</p>
-      <p>user: {fullUserData.user[0].username}</p>
-      <p>project: {fullUserData.user[0].project[0].title}</p>
-      <p>created at: {shorterTime(fullUserData.user[0].project[0].createdAt)}</p>
-      <p>due date: {fullUserData.user[0].project[0].dueDate}</p>
+      {fullUserData && (
+        <>
+          <p>params.id {params.id}</p>
+          <p>user: {fullUserData.user[0].username}</p>
+          <p>project: {fullUserData.user[0].project[0].title}</p>
+          <p>created at: {shorterTime(fullUserData.user[0].project[0].createdAt)}</p>
+          <p>due date: {fullUserData.user[0].project[0].dueDate}</p>
+        </>
+      )}
     </>
   );
 }
