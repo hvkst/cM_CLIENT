@@ -40,7 +40,7 @@ function CreateUserForm() {
 
       console.log('New User created on Clientside');
 
-      navigate('/backendadmin');
+      navigate('/adminbackend');
     } catch (err) {
       console.error(err);
     }
