@@ -6,12 +6,15 @@ import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './components/Router';
 import { UserContextProvider } from './context/UserContext';
+import { ProjectContextProvider } from './context/ProjectContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserContextProvider>
-      <RouterProvider router={router} />
+      <ProjectContextProvider>
+        <RouterProvider router={router} />
+      </ProjectContextProvider>
     </UserContextProvider>
   </React.StrictMode>
 );

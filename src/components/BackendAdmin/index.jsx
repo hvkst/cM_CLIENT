@@ -37,7 +37,7 @@ function BackendAdmin() {
           <h1>BackendAdmin</h1>
           <hr />
           <CreateUserForm />
-          <Flexdiv>{allUsers && allUsers.map((user) => <UserCard {...{ user }} />)}</Flexdiv>
+          <Flexdiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user }} />)}</Flexdiv>
         </>
       )}
     </>

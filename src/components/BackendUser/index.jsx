@@ -1,9 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { BASE_URL } from '../../consts';
+import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
-
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function BackendUser() {
   const { user, logoutUser } = useContext(UserContext);
@@ -26,7 +24,7 @@ function BackendUser() {
       navigate('/login');
     } else if (user) {
       if (user.isAdmin) {
-        navigate('/backendadmin');
+        navigate('/adminbackend');
       }
     }
   }, [user, navigate]);
