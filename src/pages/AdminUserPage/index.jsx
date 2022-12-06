@@ -39,7 +39,7 @@ function AdminUserPage({ user }) {
           <p>
             Sections:{' '}
             {project.sections.map((section) => {
-              return <span>{section.title}, </span>;
+              return <span key={section.id}>{section.title} | </span>;
             })}
           </p>
           <AddSection {...{ project, updateproject }} />

@@ -12,7 +12,7 @@ const emptyNewUserState = {
 
 // const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function CreateUserForm() {
+function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);
   const navigate = useNavigate();
 
@@ -37,6 +37,8 @@ function CreateUserForm() {
       });
       const data = await res.json();
       console.log('data:', data);
+      setAllUsers(data.allUsers);
+      // Fetch all user again
 
       console.log('New User created on Clientside');
 

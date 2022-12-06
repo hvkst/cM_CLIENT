@@ -7,13 +7,16 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './components/Router';
 import { UserContextProvider } from './context/UserContext';
 import { ProjectContextProvider } from './context/ProjectContext';
+import { AllUserContextProvider } from './context/AllUserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserContextProvider>
       <ProjectContextProvider>
-        <RouterProvider router={router} />
+        <AllUserContextProvider>
+          <RouterProvider router={router} />
+        </AllUserContextProvider>
       </ProjectContextProvider>
     </UserContextProvider>
   </React.StrictMode>

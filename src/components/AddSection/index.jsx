@@ -46,7 +46,6 @@ function EditSection({ project, updateproject }) {
 
   return (
     <>
-      <h2>{project.title}</h2>
       <input type="text" name="section" value={sectionState.section} placeholder="section" onChange={handleChange} />
 
       <Button onClick={sendToServer}>Add</Button>

@@ -5,7 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
-import { Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export default function UserCard({ user }) {
@@ -14,16 +13,17 @@ export default function UserCard({ user }) {
   return (
     <UCard>
       <CardContent>
-        <Typography variant="h5" component="div">
-          {user.username}
-        </Typography>
-        <Typography variant="body2">Maybe contact Info here</Typography>
+        <Typography variant="h5">{user.username}</Typography>
       </CardContent>
       <CardActions>
-        <Link to={projectLink} size="small">
-          {user.project[0].title}
-        </Link>
-        <Button size="small">Edit user </Button>
+        <MyLink to={projectLink} size="small">
+          <Button variant="outlined" size="small">
+            {user.project[0].title}
+          </Button>
+        </MyLink>
+        <Button variant="outlined" size="small">
+          Edit user{' '}
+        </Button>
       </CardActions>
     </UCard>
   );
@@ -32,4 +32,8 @@ export default function UserCard({ user }) {
 const UCard = styled(Card)`
   width: fit-content;
   margin: 10px;
+`;
+
+const MyLink = styled(Link)`
+  text-decoration: none;
 `;
