@@ -31,7 +31,7 @@ function AdminUserPage({ user }) {
         <>
           <p>params.id {params.id}</p>
           <p>user: {fullUserData.user[0].username}</p>
-          {/* <p>
+          <p>
             project: {project.title} - {project._id}
           </p>
           <p>created at: {shorterTime(project.createdAt)}</p>
@@ -46,7 +46,7 @@ function AdminUserPage({ user }) {
               </>
             )}
           </p>
-          <AddSection {...{ project, setProject }} /> */}
+          <AddSection {...{ project, setProject }} />
         </>
       )}
     </>

@@ -19,7 +19,7 @@ export default function UserCard({ user, setAllUsers }) {
       <CardActions>
         <MyLink to={projectLink} size="small">
           <Button variant="outlined" size="small">
-            {/* {user.projects[0].title} */}
+            {user.projects[0].title}
           </Button>
         </MyLink>
         <Button variant="outlined" size="small">
