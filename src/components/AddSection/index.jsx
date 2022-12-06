@@ -1,13 +1,14 @@
 // import axios from 'axios';
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 
 const emptySectionState = {
   section: '',
 };
-function EditSection({ project }) {
+
+function EditSection({ project, updateproject }) {
   const [sectionState, setSectionState] = useState(emptySectionState);
   const navigate = useNavigate();
 
@@ -31,7 +32,7 @@ function EditSection({ project }) {
       });
       const data = await res.json();
       console.log('data:', data);
-
+      updateproject(data.project);
       console.log('Project edited on Client');
 
       navigate();

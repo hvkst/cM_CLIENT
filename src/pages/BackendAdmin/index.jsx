@@ -2,8 +2,8 @@ import { styled } from '@mui/system';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import UserCard from '../Card';
-import CreateUserForm from '../CreateUserForm';
+import UserCard from '../../components/Card';
+import CreateUserForm from '../../components/CreateUserForm';
 import { useGetFetch } from '../../hooks/useGetFetch';
 
 function BackendAdmin() {
