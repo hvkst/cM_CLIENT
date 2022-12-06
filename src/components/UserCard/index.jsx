@@ -6,8 +6,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
+import { deleteUser } from '../../utils';
 
-export default function UserCard({ user }) {
+export default function UserCard({ user, setAllUsers }) {
   const projectLink = `/adminbackend/user/${user._id}`;
 
   return (
@@ -18,11 +19,20 @@ export default function UserCard({ user }) {
       <CardActions>
         <MyLink to={projectLink} size="small">
           <Button variant="outlined" size="small">
-            {user.project[0].title}
+            {/* {user.projects[0].title} */}
           </Button>
         </MyLink>
         <Button variant="outlined" size="small">
           Edit user{' '}
+        </Button>
+        <Button
+          variant="outlined"
+          size="small"
+          onClick={() => {
+            deleteUser(user._id, setAllUsers);
+          }}
+        >
+          X
         </Button>
       </CardActions>
     </UCard>

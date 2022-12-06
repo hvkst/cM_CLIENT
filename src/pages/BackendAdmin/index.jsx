@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import UserCard from '../../components/UserCard';
@@ -9,8 +9,7 @@ import { AllUserContext } from '../../context/AllUserContext';
 
 function BackendAdmin() {
   const { user } = useContext(UserContext);
-  const { allUsers, setAllUsers, updateAllUsers } = useContext(AllUserContext);
-  // const [allUsers, setAllUsers] = useState();
+  const { allUsers, setAllUsers } = useContext(AllUserContext);
 
   const navigate = useNavigate();
 
@@ -39,7 +38,7 @@ function BackendAdmin() {
           <h1>BackendAdmin</h1>
           <hr />
           <CreateUserForm {...{ setAllUsers }} />
-          <Flexdiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user }} />)}</Flexdiv>
+          <Flexdiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</Flexdiv>
         </>
       )}
     </>

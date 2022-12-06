@@ -8,7 +8,7 @@ const emptySectionState = {
   section: '',
 };
 
-function EditSection({ project, updateproject }) {
+function EditSection({ project, setProject }) {
   const [sectionState, setSectionState] = useState(emptySectionState);
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function EditSection({ project, updateproject }) {
       });
       const data = await res.json();
       console.log('data:', data);
-      updateproject(data.project);
+      setProject(data.project);
       console.log('Project edited on Client');
 
       navigate();

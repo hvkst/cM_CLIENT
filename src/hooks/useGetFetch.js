@@ -1,4 +1,4 @@
-import { API_URL } from './config';
+import { BASE_URL } from './config';
 
 import { useEffect, useState } from 'react';
 
@@ -8,7 +8,7 @@ export const useGetFetch = (url) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(API_URL + url, {
+        const res = await fetch(BASE_URL + url, {
           method: 'GET',
           credentials: 'include',
         });
