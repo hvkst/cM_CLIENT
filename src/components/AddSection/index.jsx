@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import { Button } from '@mui/material';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 
@@ -18,10 +18,10 @@ function EditSection({ project, setProject }) {
 
   const sendToServer = async () => {
     try {
-      const formBody = sectionState;
+      const formBody = { ...sectionState, projectId: project._id };
       console.log(formBody);
 
-      const url = `${BASE_URL}/admin/addsection/${project._id}`;
+      const url = `${BASE_URL}/admin/user/section/add`;
       const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -35,7 +35,7 @@ function EditSection({ project, setProject }) {
       setProject(data.project);
       console.log('Project edited on Client');
 
-      navigate();
+      // navigate();
     } catch (err) {
       console.error(err);
     }

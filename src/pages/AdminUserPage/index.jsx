@@ -14,7 +14,7 @@ function AdminUserPage({ user }) {
   // Get full user
   const data = useGetFetch('/admin/user/' + params.id);
 
-  console.log('DATA', data);
+  // console.log('DATA', data);
 
   useEffect(() => {
     data && setFullUserdata(data);

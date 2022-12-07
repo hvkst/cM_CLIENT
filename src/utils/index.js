@@ -13,7 +13,7 @@ async function deleteUser(id, setAllUsers) {
     const url = BASE_URL + '/admin/user/remove';
 
     const res = await fetch(url, {
-      method: 'POST',
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -33,5 +33,34 @@ async function deleteUser(id, setAllUsers) {
 
   console.log('The end of...deleteUser');
 }
+
+// async function deleteSection(id, setAllUsers) {
+//   try {
+//     const body = { userId: id };
+//     console.log('delete this', body);
+
+//     const url = BASE_URL + '/admin/user/remove';
+
+//     const res = await fetch(url, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       credentials: 'include',
+//       body: JSON.stringify(body),
+//     });
+//     const data = await res.json();
+//     console.log('data:', data);
+//     setAllUsers(data.allUsers);
+
+//     console.log('User deleted on Clientside');
+
+//     // navigate('/adminbackend');
+//   } catch (err) {
+//     console.error(err);
+//   }
+
+//   console.log('The end of...deleteUser');
+// }
 
 export { shorterTime, deleteUser };
