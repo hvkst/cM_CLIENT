@@ -19,7 +19,7 @@ function AdminUserPage({ user }) {
   // console.log('DATA', data);
 
   useEffect(() => {
-    data && setFullUserdata(data);
+    data && setFullUserdata(data.user[0]);
   }, [data]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function AdminUserPage({ user }) {
       {fullUserData && (
         <>
           <p>params.id {params.id}</p>
-          <p>user: {fullUserData.user[0].username}</p>
+          <p>user: {fullUserData.username}</p>
           <p>
             project: {project.title} - {project._id}
           </p>
@@ -43,7 +43,7 @@ function AdminUserPage({ user }) {
             <>
               <FlexDiv>
                 {project.sections.map((section) => {
-                  return <SectionCard {...{ section, project, setProject }} />;
+                  return <SectionCard key={section._id} {...{ section, project, setProject }} />;
                 })}
               </FlexDiv>
             </>

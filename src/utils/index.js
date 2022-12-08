@@ -22,7 +22,6 @@ async function deleteUser(id, setAllUsers) {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    // console.log('data:', data);
     setAllUsers(data.allUsers);
 
     console.log('User deleted on Clientside');
@@ -50,7 +49,6 @@ async function deleteSection(section, project, setProject) {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    // console.log('data:', data);
     setProject(data.updatedProject);
 
     console.log('Section deleted on Clientside');
@@ -76,7 +74,8 @@ async function updateSection(newSectionData, section, project, setProject) {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    setProject(data.updatedProject);
+    // console.log('server ANSWER', data.updatedProject[0]);
+    setProject(data.updatedProject[0]);
 
     console.log('Section updated on Clientside');
   } catch (err) {

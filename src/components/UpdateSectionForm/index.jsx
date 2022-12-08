@@ -3,8 +3,12 @@ import TextField from '@mui/material/TextField';
 import { Button, FormControl } from '@mui/material';
 import { useState } from 'react';
 import { updateSection } from '../../utils';
+import { useContext } from 'react';
+import { ProjectContext } from '../../context/ProjectContext';
 
-function UpdateSectionForm({ section, project, setProject }) {
+function UpdateSectionForm({ section }) {
+  const { project, setProject } = useContext(ProjectContext);
+
   const defaultState = {
     title: section.title,
     description: section.description,
@@ -23,22 +27,19 @@ function UpdateSectionForm({ section, project, setProject }) {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleClick = (e) => {
+    // e.preventDefault();
     updateSection(state, section, project, setProject);
   };
 
   return (
     <div>
       <Box
-        component="form"
         sx={{
           '& .MuiTextField-root': { m: 1 },
           display: 'flex',
           justifyContent: 'center',
         }}
-        autoComplete="off"
-        onSubmit={handleSubmit}
       >
         <div
           style={{
@@ -46,16 +47,16 @@ function UpdateSectionForm({ section, project, setProject }) {
             flexDirection: 'column',
           }}
         >
-          <FormControl>
-            <TextField onChange={handleChange} value={state.title} id="title" name="title" label="Title" />
-            <TextField onChange={handleChange} value={state.description} name="description" label="Description" />
-            <TextField onChange={handleChange} value={state.prep} name="prep" label="Prep" />
-            <TextField onChange={handleChange} value={state.main} name="main" label="Main" />
-            <TextField onChange={handleChange} value={state.final} name="final" label="Final" />
-            <Button type="submit" variant="outlined">
-              save
-            </Button>
-          </FormControl>
+          {/* <FormControl> */}
+          <TextField onChange={handleChange} value={state.title} id="title" name="title" label="Title" />
+          <TextField onChange={handleChange} value={state.description} name="description" label="Description" />
+          <TextField onChange={handleChange} value={state.prep} name="prep" label="Prep" />
+          <TextField onChange={handleChange} value={state.main} name="main" label="Main" />
+          <TextField onChange={handleChange} value={state.final} name="final" label="Final" />
+          <Button onClick={handleClick} variant="outlined">
+            save
+          </Button>
+          {/* </FormControl> */}
         </div>
       </Box>
     </div>

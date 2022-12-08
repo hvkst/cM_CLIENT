@@ -1,6 +1,5 @@
 // import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 
 const emptyNewUserState = {
@@ -20,7 +19,9 @@ function CreateUserForm({ setAllUsers }) {
     setNewUserState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
-  const sendToServer = async () => {
+  const sendToServer = async (e) => {
+    e.preventDefault(); // ?
+
     try {
       const formBody = newUserState;
       console.log(formBody);
@@ -38,11 +39,8 @@ function CreateUserForm({ setAllUsers }) {
       const data = await res.json();
       console.log('data:', data);
       setAllUsers(data.allUsers);
-      // Fetch all user again
 
       console.log('New User created on Clientside');
-
-      // navigate('/adminbackend');
     } catch (err) {
       console.error(err);
     }
