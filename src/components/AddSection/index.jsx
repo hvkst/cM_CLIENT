@@ -1,7 +1,6 @@
 // import axios from 'axios';
 import { Button } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
 
 const emptySectionState = {
@@ -10,7 +9,6 @@ const emptySectionState = {
 
 function EditSection({ project, setProject }) {
   const [sectionState, setSectionState] = useState(emptySectionState);
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSectionState((old) => ({ ...old, [e.target.name]: e.target.value }));

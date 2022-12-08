@@ -4,6 +4,8 @@ import { useGetFetch } from '../../hooks/useGetFetch';
 import { shorterTime } from '../../utils';
 import AddSection from '../../components/AddSection';
 import { ProjectContext } from '../../context/ProjectContext';
+import SectionCard from '../../components/SectionCard';
+import { FlexDiv } from '../../styles';
 
 function AdminUserPage({ user }) {
   const { project, setProject } = useContext(ProjectContext);
@@ -36,16 +38,17 @@ function AdminUserPage({ user }) {
           </p>
           <p>created at: {shorterTime(project.createdAt)}</p>
           <p>due date: {project.dueDate}</p>
-          <p>
-            {project.sections && (
-              <>
-                Sections:{' '}
+          <p>Sections: </p>
+          {project.sections && (
+            <>
+              <FlexDiv>
                 {project.sections.map((section) => {
-                  return <span key={section.id}>{section.title} | </span>;
+                  return <SectionCard {...{ section, project, setProject }} />;
                 })}
-              </>
-            )}
-          </p>
+              </FlexDiv>
+            </>
+          )}
+
           <AddSection {...{ project, setProject }} />
         </>
       )}

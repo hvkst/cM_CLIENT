@@ -1,4 +1,4 @@
-import { styled } from '@mui/system';
+// import { styled } from '@mui/system';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
@@ -6,6 +6,7 @@ import UserCard from '../../components/UserCard';
 import CreateUserForm from '../../components/CreateUserForm';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { AllUserContext } from '../../context/AllUserContext';
+import { FlexDiv } from '../../styles';
 
 function BackendAdmin() {
   const { user } = useContext(UserContext);
@@ -38,7 +39,7 @@ function BackendAdmin() {
           <h1>BackendAdmin</h1>
           <hr />
           <CreateUserForm {...{ setAllUsers }} />
-          <Flexdiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</Flexdiv>
+          <FlexDiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</FlexDiv>
         </>
       )}
     </>
@@ -46,11 +47,3 @@ function BackendAdmin() {
 }
 
 export default BackendAdmin;
-
-const Flexdiv = styled('div')`
-  display: flex;
-  flex-wrap: wrap;
-  & Button {
-    margin: 2px;
-  }
-`;

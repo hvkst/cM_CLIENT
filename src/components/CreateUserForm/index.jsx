@@ -14,7 +14,7 @@ const emptyNewUserState = {
 
 function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChange = (e) => {
     setNewUserState((old) => ({ ...old, [e.target.name]: e.target.value }));
@@ -42,7 +42,7 @@ function CreateUserForm({ setAllUsers }) {
 
       console.log('New User created on Clientside');
 
-      navigate('/adminbackend');
+      // navigate('/adminbackend');
     } catch (err) {
       console.error(err);
     }

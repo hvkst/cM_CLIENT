@@ -1,6 +1,7 @@
 import { BASE_URL } from '../hooks/config';
 
 function shorterTime(str) {
+  if (str === undefined) return null;
   const letterT = str.indexOf('T');
   return str.substring(0, letterT);
 }
@@ -21,12 +22,10 @@ async function deleteUser(id, setAllUsers) {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    console.log('data:', data);
+    // console.log('data:', data);
     setAllUsers(data.allUsers);
 
     console.log('User deleted on Clientside');
-
-    // navigate('/adminbackend');
   } catch (err) {
     console.error(err);
   }
@@ -34,33 +33,57 @@ async function deleteUser(id, setAllUsers) {
   console.log('The end of...deleteUser');
 }
 
-// async function deleteSection(id, setAllUsers) {
-//   try {
-//     const body = { userId: id };
-//     console.log('delete this', body);
+async function deleteSection(section, project, setProject) {
+  try {
+    const body = { sectionId: section._id, projectId: project._id };
 
-//     const url = BASE_URL + '/admin/user/remove';
+    console.log(typeof setProject);
 
-//     const res = await fetch(url, {
-//       method: 'DELETE',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       credentials: 'include',
-//       body: JSON.stringify(body),
-//     });
-//     const data = await res.json();
-//     console.log('data:', data);
-//     setAllUsers(data.allUsers);
+    const url = BASE_URL + '/admin/user/section/remove';
 
-//     console.log('User deleted on Clientside');
+    const res = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    // console.log('data:', data);
+    setProject(data.updatedProject);
 
-//     // navigate('/adminbackend');
-//   } catch (err) {
-//     console.error(err);
-//   }
+    console.log('Section deleted on Clientside');
+  } catch (err) {
+    console.error(err);
+  }
 
-//   console.log('The end of...deleteUser');
-// }
+  console.log('The end of...deleteSection');
+}
 
-export { shorterTime, deleteUser };
+async function updateSection(newSectionData, section, project, setProject) {
+  try {
+    const body = { ...newSectionData, sectionId: section._id, projectId: project._id };
+
+    const url = BASE_URL + '/admin/user/section/update';
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    setProject(data.updatedProject);
+
+    console.log('Section updated on Clientside');
+  } catch (err) {
+    console.error(err);
+  }
+
+  console.log('The end of...section update');
+}
+
+export { shorterTime, deleteUser, deleteSection, updateSection };
