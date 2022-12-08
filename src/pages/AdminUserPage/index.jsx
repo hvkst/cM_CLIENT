@@ -31,11 +31,8 @@ function AdminUserPage({ user }) {
       <h1>AdminUserPage</h1>
       {fullUserData && (
         <>
-          <p>params.id {params.id}</p>
           <p>user: {fullUserData.username}</p>
-          <p>
-            project: {project.title} - {project._id}
-          </p>
+          <p>project: {project.title}</p>
           <p>created at: {shorterTime(project.createdAt)}</p>
           <p>due date: {project.dueDate}</p>
           <p>Sections: </p>
