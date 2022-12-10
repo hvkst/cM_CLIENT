@@ -2,16 +2,16 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import { deleteSection } from '../../../utils';
+import { confirmDelete } from '../../../utils';
 import SimpleAccordion from '../../Main/SimpleAccordion';
 import UpdateSectionForm from '../UpdateSectionForm';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { IconButton } from '@mui/material';
 
 export default function SectionCard({ section, project, setProject }) {
-  // const projectLink = `/adminbackend/user/${user._id}`;
-
   return (
     <UCard>
       <CardContent>
@@ -22,23 +22,17 @@ export default function SectionCard({ section, project, setProject }) {
         <Typography variant="h6">{section.final}</Typography>
       </CardContent>
       <CardActions>
-        {/* <MyLink to={projectLink} size="small">
-          <Button variant="outlined" size="small">
-            {user.projects[0].title}
-          </Button>
-        </MyLink> */}
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => {
-            deleteSection(section, project, setProject);
-          }}
-        >
-          X
-        </Button>
         <SimpleAccordion title="edit">
           <UpdateSectionForm key={section._id} {...{ section, project, setProject }} />
         </SimpleAccordion>
+        <IconButton
+          color="primary"
+          onClick={() => {
+            confirmDelete(deleteSection, section, project, setProject);
+          }}
+        >
+          <DeleteForeverIcon />
+        </IconButton>
       </CardActions>
     </UCard>
   );

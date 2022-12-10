@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import { deleteUser } from '../../../utils';
+import { confirmDelete, deleteUser } from '../../../utils';
 
 export default function UserCard({ user, setAllUsers }) {
   const projectLink = `/adminbackend/user/${user._id}`;
@@ -29,7 +29,7 @@ export default function UserCard({ user, setAllUsers }) {
           variant="outlined"
           size="small"
           onClick={() => {
-            deleteUser(user._id, setAllUsers);
+            confirmDelete(deleteUser, user._id, setAllUsers);
           }}
         >
           X

@@ -4,13 +4,13 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function SimpleAccordion({ title, children }) {
   return (
     <div>
       <ThisAccordion>
-        <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+        <AccordionSummary aria-controls="panel1a-content" expandIcon={<ExpandMoreIcon />} id="panel1a-header">
           <Typography>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>{children}</AccordionDetails>

@@ -1,5 +1,8 @@
 // import { BASE_URL } from '../hooks/config';
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function shorterTime(str) {
@@ -32,6 +35,22 @@ async function deleteUser(id, setAllUsers) {
   }
 
   console.log('The end of...deleteUser');
+}
+
+async function confirmDelete(callback, arg1, arg2, arg3) {
+  confirmAlert({
+    title: 'Confirm to DELETE',
+    message: 'Are you sure to do this?',
+    buttons: [
+      {
+        label: 'Yes',
+        onClick: () => callback(arg1, arg2, arg3),
+      },
+      {
+        label: 'No',
+      },
+    ],
+  });
 }
 
 async function deleteSection(section, project, setProject) {
@@ -87,4 +106,4 @@ async function updateSection(newSectionData, section, project, setProject) {
   console.log('The end of...section update');
 }
 
-export { shorterTime, deleteUser, deleteSection, updateSection };
+export { shorterTime, deleteUser, confirmDelete, deleteSection, updateSection };
