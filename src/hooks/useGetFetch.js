@@ -1,6 +1,7 @@
-import { BASE_URL } from './config';
+// import { BASE_URL } from './config';
 
 import { useEffect, useState } from 'react';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const useGetFetch = (url) => {
   const [data, setData] = useState(null);

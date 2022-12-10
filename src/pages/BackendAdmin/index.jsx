@@ -2,8 +2,8 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import UserCard from '../../components/UserCard';
-import CreateUserForm from '../../components/CreateUserForm';
+import UserCard from '../../components/Admin/UserCard';
+import CreateUserForm from '../../components/Admin/CreateUserForm';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { AllUserContext } from '../../context/AllUserContext';
 import { FlexDiv } from '../../styles';

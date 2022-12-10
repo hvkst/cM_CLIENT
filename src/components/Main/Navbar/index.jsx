@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../../../context/UserContext';
 
 import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
@@ -42,7 +42,7 @@ function Navbar() {
         <div>
           <NavLink to={'/'}>Home</NavLink>
           <NavLink to={'/adminbackend'}>A-Backend</NavLink>
-          <NavLink to={'/userbackend'}>U-Backend</NavLink>
+          <NavLink to={'/userbackend'}>U-Backend</NavLink>|<i class="fa-solid fa-user"></i>|
         </div>
       </CustomNavbar>
       <Outlet />

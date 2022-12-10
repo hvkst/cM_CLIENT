@@ -1,7 +1,9 @@
 // import axios from 'axios';
 import { Button } from '@mui/material';
 import { useState } from 'react';
-import { BASE_URL } from '../../consts';
+// import { BASE_URL } from '../../../consts'; //FIX THIS!
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const emptySectionState = {
   section: '',

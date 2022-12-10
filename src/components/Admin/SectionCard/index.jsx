@@ -5,8 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
-import { deleteSection } from '../../utils';
-import SimpleAccordion from '../SimpleAccordion';
+import { deleteSection } from '../../../utils';
+import SimpleAccordion from '../../Main/SimpleAccordion';
 import UpdateSectionForm from '../UpdateSectionForm';
 
 export default function SectionCard({ section, project, setProject }) {
@@ -36,7 +36,7 @@ export default function SectionCard({ section, project, setProject }) {
         >
           X
         </Button>
-        <SimpleAccordion>
+        <SimpleAccordion title="edit">
           <UpdateSectionForm key={section._id} {...{ section, project, setProject }} />
         </SimpleAccordion>
       </CardActions>

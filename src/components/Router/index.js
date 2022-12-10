@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Navbar from '../Navbar';
-import SignupForm from '../SignupForm';
-import LoginForm from '../LoginForm';
+import Navbar from '../Main/Navbar';
+import SignupForm from '../Admin/SignupForm';
+import LoginForm from '../Admin/LoginForm';
 import BackendAdmin from '../../pages/BackendAdmin';
 import BackendUser from '../../pages/BackendUser';
 import Homepage from '../../pages/Homepage';
-import ErrorBoundary from '../ErrorBoundary';
+import ErrorBoundary from '../Main/ErrorBoundary';
 import AdminUserPage from '../../pages/AdminUserPage';
 // import { useContext } from 'react';
 

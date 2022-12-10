@@ -2,9 +2,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl } from '@mui/material';
 import { useState } from 'react';
-import { updateSection } from '../../utils';
+import { updateSection } from '../../../utils';
 import { useContext } from 'react';
-import { ProjectContext } from '../../context/ProjectContext';
+import { ProjectContext } from '../../../context/ProjectContext';
 
 function UpdateSectionForm({ section }) {
   const { project, setProject } = useContext(ProjectContext);

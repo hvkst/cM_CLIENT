@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import { useState } from 'react';
-import { BASE_URL } from '../../consts';
+// import { BASE_URL } from '../../../consts';
 
 const emptyNewUserState = {
   username: '',
@@ -9,7 +9,7 @@ const emptyNewUserState = {
   duedate: '',
 };
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);

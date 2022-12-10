@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import { deleteUser } from '../../utils';
+import { deleteUser } from '../../../utils';
 
 export default function UserCard({ user, setAllUsers }) {
   const projectLink = `/adminbackend/user/${user._id}`;

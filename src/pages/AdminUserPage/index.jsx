@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { shorterTime } from '../../utils';
-import AddSection from '../../components/AddSection';
+import AddSection from '../../components/Admin/AddSection';
 import { ProjectContext } from '../../context/ProjectContext';
-import SectionCard from '../../components/SectionCard';
+import SectionCard from '../../components/Admin/SectionCard';
 import { FlexDiv } from '../../styles';
 
 function AdminUserPage({ user }) {

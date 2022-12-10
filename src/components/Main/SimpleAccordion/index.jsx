@@ -6,12 +6,12 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function SimpleAccordion({ children }) {
+export default function SimpleAccordion({ title, children }) {
   return (
     <div>
       <ThisAccordion>
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
-          <Typography>Edit</Typography>
+          <Typography>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>{children}</AccordionDetails>
       </ThisAccordion>
