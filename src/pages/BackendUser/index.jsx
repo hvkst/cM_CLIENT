@@ -1,25 +1,35 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserSectionCard from '../../components/User/UserSectionCard';
+import { ProjectContext } from '../../context/ProjectContext';
 // import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
+import { useGetFetch } from '../../hooks/useGetFetch';
+import { FlexDiv } from '../../styles';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function BackendUser() {
-  const { user, logoutUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+  const { project, setProject } = useContext(ProjectContext);
+  const [fullUserData, setFullUserdata] = useState();
+  // const [projectData, setProjectData] = useState();
+  // const params = useParams();
   const navigate = useNavigate();
-  const logout = async () => {
-    try {
-      await fetch(BASE_URL + '/auth/logout', {
-        method: 'POST',
-        credentials: 'include',
-      });
-      logoutUser();
-      navigate('/');
-    } catch (error) {
-      console.warn(error.message);
-    }
-  };
+  // Get full user
+  const data = useGetFetch('/admin/user/' + user.id);
+  console.log(user.id);
+  console.log('DATA', data);
+
+  useEffect(() => {
+    data && setFullUserdata(data.user[0]);
+  }, [data]);
+
+  // This might be unnecessary if there is only one project,
+  //  same could be done with const project = data.user[0].projects[0]
+  useEffect(() => {
+    data && setProject(data.user[0].projects[0]);
+  }, [data, setProject]);
 
   useEffect(() => {
     if (!user) {
@@ -37,7 +47,16 @@ function BackendUser() {
       {user && (
         <>
           <h1> {user.username} </h1>
-          <button onClick={logout}>Logout</button>
+          {project && (
+            <>
+              <h2> {project.title} </h2>
+              <FlexDiv>
+                {project.sections.map((section) => {
+                  return <UserSectionCard kex={section._id} {...{ section }}></UserSectionCard>;
+                })}
+              </FlexDiv>
+            </>
+          )}
         </>
       )}
     </>

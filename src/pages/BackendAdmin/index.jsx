@@ -20,7 +20,7 @@ function BackendAdmin() {
       navigate('/login');
     } else if (user) {
       if (!user.isAdmin) {
-        navigate('/backenduser');
+        navigate('/userbackend');
       }
     }
   }, [user, navigate]);

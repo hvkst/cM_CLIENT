@@ -7,7 +7,7 @@ import { ProjectContext } from '../../context/ProjectContext';
 import SectionCard from '../../components/Admin/SectionCard';
 import { FlexDiv } from '../../styles';
 
-function AdminUserPage({ user }) {
+function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
   // const [projectData, setProjectData] = useState();
@@ -21,6 +21,9 @@ function AdminUserPage({ user }) {
   useEffect(() => {
     data && setFullUserdata(data.user[0]);
   }, [data]);
+
+  // This might be unnecessary if there is only one project,
+  //  same could be done with const project = data.user[0].projects[0]
 
   useEffect(() => {
     data && setProject(data.user[0].projects[0]);
