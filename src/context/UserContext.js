@@ -7,6 +7,7 @@ export const UserContext = createContext();
 
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const logoutUser = () => {
     setUser(null);
@@ -29,6 +30,7 @@ export function UserContextProvider({ children }) {
         console.log('data.user:', data.user);
 
         setUser(data.user);
+        setLoading(false);
         console.log('Found User (from Context)');
       } catch (err) {
         console.error('UserContext', err);
@@ -37,5 +39,5 @@ export function UserContextProvider({ children }) {
     getUser();
   }, []);
 
-  return <UserContext.Provider value={{ user, loginUser: setUser, logoutUser }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ user, loginUser: setUser, logoutUser, loading }}>{children}</UserContext.Provider>;
 }

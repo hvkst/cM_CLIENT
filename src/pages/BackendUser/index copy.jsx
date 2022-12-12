@@ -4,16 +4,32 @@ import UserSectionCard from '../../components/User/UserSectionCard';
 import { ProjectContext } from '../../context/ProjectContext';
 // import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
-// import { useGetFetch } from '../../hooks/useGetFetch';
+import { useGetFetch } from '../../hooks/useGetFetch';
 import { FlexDiv } from '../../styles';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function BackendUser() {
-  const { user, loading } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
+  // const [projectData, setProjectData] = useState();
+  // const params = useParams();
   const navigate = useNavigate();
+  // Get full user
+  const data = useGetFetch('/admin/user/' + user.id);
+  console.log(user.id);
+  console.log('DATA', data);
+
+  useEffect(() => {
+    data && setFullUserdata(data.user[0]);
+  }, [data]);
+
+  // This might be unnecessary if there is only one project,
+  //  same could be done with const project = data.user[0].projects[0]
+  useEffect(() => {
+    data && setProject(data.user[0].projects[0]);
+  }, [data, setProject]);
 
   useEffect(() => {
     if (!user) {
@@ -25,49 +41,18 @@ function BackendUser() {
     }
   }, [user, navigate]);
 
-  // Get full user
-  // const data = useGetFetch('/admin/user/' + user.id);
-  // console.log(user.id);
-  // console.log('DATA', data);
-
-  useEffect(() => {
-    if (user) {
-      const {id} = user
-    async function fetchData() {
-      try {
-        const res = await fetch(BASE_URL + '/admin/user/' + id, {
-          method: 'GET',
-          credentials: 'include',
-        });
-        
-        const resData = await res.json();
-        console.log(resData)
-        if (res.ok) {
-          setFullUserdata(resData.user[0]);
-          setProject(resData.user[0].projects[0])
-        } else {
-          throw new Error(resData.error);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData(); }
-  }, [user, loading, setProject]);
-
-  
   return (
     <>
       <h1>BackendUser</h1>
-      {fullUserData && (
+      {user && (
         <>
-          <h1> {fullUserData.username} </h1>
+          <h1> {user.username} </h1>
           {project && (
             <>
               <h2> {project.title} </h2>
               <FlexDiv>
                 {project.sections.map((section) => {
-                  return <UserSectionCard key={section._id} {...{ section }}></UserSectionCard>;
+                  return <UserSectionCard kex={section._id} {...{ section }}></UserSectionCard>;
                 })}
               </FlexDiv>
             </>
