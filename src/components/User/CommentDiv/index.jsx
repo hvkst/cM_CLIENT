@@ -17,8 +17,9 @@ export default CommentDiv;
 
 const Cdiv = styled('div')`
   display: flex;
+  width: 90%;
   justify-content: space-between;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   border-radius: 2px;
   margin: 2px;
   & p {

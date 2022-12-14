@@ -6,6 +6,7 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import CommentForm from '../../Main/CommentForm';
 import CommentDiv from '../CommentDiv';
+import UploadForm from '../UploadForm';
 
 export default function UserSectionCard({ section }) {
   return (
@@ -40,15 +41,12 @@ export default function UserSectionCard({ section }) {
           })}
         </div>
         {/* </Udiv> */}
-        <Button variant="outlined" size="small">
-          upload files / data here
-        </Button>{' '}
-        <br />
-        <Button variant="outlined" size="small">
-          chat / comment here
-        </Button>{' '}
-        <br />
         <CommentForm {...{ section }} />
+        <br />
+        <UploadForm {...{ section }} />
+        {/* <Button variant="outlined" size="small">
+          upload files / data here
+        </Button>{' '} */}
       </CardContent>
     </UCard>
   );
