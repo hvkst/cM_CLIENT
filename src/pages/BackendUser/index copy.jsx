@@ -52,7 +52,7 @@ function BackendUser() {
               <h2> {project.title} </h2>
               <FlexDiv>
                 {project.sections.map((section) => {
-                  return <UserSectionCard kex={section._id} {...{ section }}></UserSectionCard>;
+                  return <UserSectionCard key={section._id} {...{ section }}></UserSectionCard>;
                 })}
               </FlexDiv>
             </>

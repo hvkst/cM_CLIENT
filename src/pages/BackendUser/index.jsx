@@ -32,30 +32,30 @@ function BackendUser() {
 
   useEffect(() => {
     if (user) {
-      const {id} = user
-    async function fetchData() {
-      try {
-        const res = await fetch(BASE_URL + '/admin/user/' + id, {
-          method: 'GET',
-          credentials: 'include',
-        });
-        
-        const resData = await res.json();
-        console.log(resData)
-        if (res.ok) {
-          setFullUserdata(resData.user[0]);
-          setProject(resData.user[0].projects[0])
-        } else {
-          throw new Error(resData.error);
+      const { id } = user;
+      async function fetchData() {
+        try {
+          const res = await fetch(BASE_URL + '/admin/user/' + id, {
+            method: 'GET',
+            credentials: 'include',
+          });
+
+          const resData = await res.json();
+          console.log(resData);
+          if (res.ok) {
+            setFullUserdata(resData.user[0]);
+            setProject(resData.user[0].projects[0]);
+          } else {
+            throw new Error(resData.error);
+          }
+        } catch (error) {
+          console.error(error);
         }
-      } catch (error) {
-        console.error(error);
       }
+      fetchData();
     }
-    fetchData(); }
   }, [user, loading, setProject]);
 
-  
   return (
     <>
       <h1>BackendUser</h1>
@@ -67,7 +67,7 @@ function BackendUser() {
               <h2> {project.title} </h2>
               <FlexDiv>
                 {project.sections.map((section) => {
-                  return <UserSectionCard key={section._id} {...{ section }}></UserSectionCard>;
+                  return <UserSectionCard key={section._id} {...{ section, project }}></UserSectionCard>; // No need for full project here
                 })}
               </FlexDiv>
             </>

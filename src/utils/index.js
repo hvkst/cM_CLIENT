@@ -11,6 +11,11 @@ function shorterTime(str) {
   return str.substring(0, letterT);
 }
 
+// 2022-12-14T14:50:31.924Z -> 14.12. 15:50
+function commentTime(str) {
+  if (str === undefined) return null;
+}
+
 async function deleteUser(id, setAllUsers) {
   try {
     const body = { userId: id };
