@@ -17,20 +17,22 @@ function UploadForm() {
 
   const sendToServer = async (e) => {
     e.preventDefault(); // ?
-
+    console.log(images);
     try {
-      const formBody = images;
-      console.log(formBody);
+      const formData = new FormData();
+      images.forEach((image, i) => {
+        formData.append(`image-${i}`, image.file, image.file.name);
+      });
 
       const url = BASE_URL + '/upload/images';
 
       const res = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': '"multipart/form-data"',
         },
         credentials: 'include',
-        body: JSON.stringify(formBody),
+        body: formData,
       });
       const data = await res.json();
       console.log('data:', data);
