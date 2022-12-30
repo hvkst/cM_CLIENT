@@ -16,6 +16,19 @@ function commentTime(str) {
   if (str === undefined) return null;
 }
 
+async function logout(logoutUser) {
+  try {
+    await fetch(BASE_URL + '/auth/logout', {
+      method: 'POST',
+      credentials: 'include',
+    });
+    logoutUser();
+    // navigate('/');
+  } catch (error) {
+    console.warn(error.message);
+  }
+}
+
 async function deleteUser(id, setAllUsers) {
   try {
     const body = { userId: id };
