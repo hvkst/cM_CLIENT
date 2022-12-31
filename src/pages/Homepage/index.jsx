@@ -1,24 +1,29 @@
-import { Button, Container } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 
 function Homepage() {
   return (
     <>
       <TopSection>
-        <TopSectionDiv>
-          <p>
-            Let´s build
-            <br /> your dream!
-          </p>
-        </TopSectionDiv>
-        <StartButton variant="contained">Start today</StartButton>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <TopSectionDiv>
+            <p>
+              Let's build
+              <br /> your dream!
+            </p>
+          </TopSectionDiv>
+          <Button variant="contained" color="secondary" sx={{ alignSelf: 'flex-end' }}>
+            Start today
+          </Button>
+        </div>
       </TopSection>
+      <MidSection></MidSection>
     </>
   );
 }
 export default Homepage;
 
-const TopSection = styled('div')`
+const TopSection = styled('Section')`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -33,10 +38,10 @@ const TopSection = styled('div')`
 `;
 
 const TopSectionDiv = styled('div')`
-  backdrop-filter: blur(5px); // sepia(30%); // hue-rotate(12deg);
+  backdrop-filter: blur(5px) sepia(30%);
   display: block;
-  margin: 10px;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
   border-radius: 10px;
   transition: all 0.5s ease-out;
   & p {
@@ -50,8 +55,6 @@ const TopSectionDiv = styled('div')`
   }
 `;
 
-const StartButton = styled.Button`
-  background-color: red;
-  ${TopSectionDiv}:hover & {
-  }
+const MidSection = styled('Section')`
+  height: 1500px;
 `;
