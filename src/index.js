@@ -3,22 +3,24 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
-import { RouterProvider } from 'react-router-dom';
-import { router } from './components/Router';
 import { UserContextProvider } from './context/UserContext';
 import { ProjectContextProvider } from './context/ProjectContext';
 import { AllUserContextProvider } from './context/AllUserContext';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <ThemeProvider theme={theme}>
+      <CssBaseline /> */}
     <UserContextProvider>
       <ProjectContextProvider>
         <AllUserContextProvider>
-          <RouterProvider router={router} />
+          <App />
         </AllUserContextProvider>
       </ProjectContextProvider>
     </UserContextProvider>
+    {/* </ThemeProvider> */}
   </React.StrictMode>
 );
 

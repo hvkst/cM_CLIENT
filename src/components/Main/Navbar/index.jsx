@@ -6,9 +6,6 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -89,12 +86,12 @@ function DrawerAppBar(props) {
   return (
     <>
       <Box sx={{ display: 'flex' }}>
-        <AppBar component="nav">
+        <AppBar component="nav" color="secondary">
           <Toolbar>
             <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { sm: 'none' } }}>
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+            <Typography variant="h6" component="div" sx={{ color: '#fff', flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
               CustoMe
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
