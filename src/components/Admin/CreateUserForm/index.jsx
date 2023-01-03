@@ -1,7 +1,8 @@
 // import axios from 'axios';
 import { useState } from 'react';
+import { DataInput } from '../../../styles';
 // import { BASE_URL } from '../../../consts';
-import { DataInput, FormContainer, Button } from './CreateUserForm.style';
+import { FormContainer, Button } from './CreateUserForm.style';
 
 const emptyNewUserState = {
   username: '',
@@ -52,10 +53,12 @@ function CreateUserForm({ setAllUsers }) {
 
   return (
     <>
+      <h2>Create User</h2>
       <FormContainer>
-        <h2>Create User</h2>
         <DataInput type="text" name="username" value={newUserState.username} onChange={handleChange} placeholder="User" />
         <DataInput type="password" name="password" value={newUserState.password} placeholder="Password" onChange={handleChange} />
+      </FormContainer>
+      <FormContainer>
         <DataInput type="text" name="project" value={newUserState.project} placeholder="Project" onChange={handleChange} />
         <DataInput type="date" name="duedate" value={newUserState.duedate} placeholder="Due Date" onChange={handleChange} />
         <Button onClick={sendToServer}>Create</Button>

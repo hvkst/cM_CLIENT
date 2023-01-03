@@ -39,9 +39,7 @@ function BackendAdmin() {
         <>
           <h1>BackendAdmin</h1>
           <hr />
-          <SimpleAccordion title="create User">
-            <CreateUserForm {...{ setAllUsers }} />
-          </SimpleAccordion>
+          <CreateUserForm {...{ setAllUsers }} />
           <FlexDiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</FlexDiv>
         </>
       )}

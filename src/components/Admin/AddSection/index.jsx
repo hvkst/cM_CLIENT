@@ -1,6 +1,7 @@
 // import axios from 'axios';
 import { Button } from '@mui/material';
 import { useState } from 'react';
+import { DataInput } from '../../../styles';
 // import { BASE_URL } from '../../../consts'; //FIX THIS!
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -46,7 +47,7 @@ function EditSection({ project, setProject }) {
 
   return (
     <>
-      <input type="text" name="section" value={sectionState.section} placeholder="section" onChange={handleChange} />
+      <DataInput type="text" name="section" value={sectionState.section} placeholder="new section" onChange={handleChange} />
 
       <Button onClick={sendToServer}>Add</Button>
     </>

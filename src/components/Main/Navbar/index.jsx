@@ -31,7 +31,9 @@ function Navbar() {
               <NavbarLink to="/products"> Products</NavbarLink>
               <NavbarLink to="/contact"> Contact Us</NavbarLink>
               <NavbarLink to="/about"> About Us</NavbarLink>
-              {user && <NavbarLink to="/dashboard"> Dashboard</NavbarLink>}
+              {user && user.isAdmin && <NavbarLink to="/adminbackend"> Dashboard</NavbarLink>}
+              {user && !user.isAdmin && <NavbarLink to="/userbackend"> Dashboard</NavbarLink>}
+
               <OpenLinksButton
                 onClick={() => {
                   setExtendNavbar((curr) => !curr);
@@ -42,8 +44,7 @@ function Navbar() {
             </NavbarLinkContainer>
           </LeftContainer>
           <RightContainer>
-            {' '}
-            <Logo src={LogoImg}></Logo>{' '}
+            <Logo src={LogoImg}></Logo>
           </RightContainer>
         </NavbarInnerContainer>
         {extendNavbar && (
