@@ -1,33 +1,38 @@
 import { Button } from '@mui/material';
 import { styled } from '@mui/system';
+import ProductCard from '../../components/Main/ProductCard';
 
 function Homepage() {
   return (
     <>
       <TopSection>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <TopSectionDiv>
-            <p>
-              Let's build
-              <br /> your dream!
-            </p>
-          </TopSectionDiv>
-          <Button variant="contained" color="secondary" sx={{ alignSelf: 'flex-end' }}>
-            Start today
-          </Button>
-        </div>
+        {/* <div style={{ display: 'flex', flexDirection: 'column' }}> */}
+        <HeroSection>
+          <p>
+            Let's build
+            <br /> your dream!
+          </p>
+        </HeroSection>
+        <Button variant="contained" color="secondary" sx={{ alignSelf: 'flex-end' }}>
+          Start today
+        </Button>
+        {/* </div> */}
       </TopSection>
-      <MidSection></MidSection>
+
+      <MidSection>
+        <ProductCard></ProductCard>
+        <ProductCard></ProductCard>
+        <ProductCard></ProductCard>
+      </MidSection>
     </>
   );
 }
 export default Homepage;
 
 const TopSection = styled('Section')`
+  background-color: aqua;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +42,8 @@ const TopSection = styled('Section')`
   background-repeat: no-repeat;
 `;
 
-const TopSectionDiv = styled('div')`
+const HeroSection = styled('div')`
+  border: 3px solid transparent;
   backdrop-filter: blur(5px) sepia(30%);
   display: block;
   margin-bottom: 10px;
@@ -52,6 +58,8 @@ const TopSectionDiv = styled('div')`
   }
   &:hover {
     backdrop-filter: none;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 

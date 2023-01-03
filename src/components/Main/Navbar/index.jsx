@@ -1,144 +1,58 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import {
+  NavbarContainer,
+  LeftContainer,
+  RightContainer,
+  NavbarExtendedContainer,
+  NavbarInnerContainer,
+  NavbarLinkContainer,
+  NavbarLink,
+  Logo,
+  OpenLinksButton,
+  NavbarLinkExtended,
+} from './Navbar.style';
+import LogoImg from './logo.png';
 
-import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
-import { StaticRouter } from 'react-router-dom/server';
-
-function Router(props) {
-  const { children } = props;
-  if (typeof window === 'undefined') {
-    return <StaticRouter location="/">{children}</StaticRouter>;
-  }
-
-  return <MemoryRouter>{children}</MemoryRouter>;
-}
-
-Router.propTypes = {
-  children: PropTypes.node,
-};
-
-// export default function ButtonRouter() {
-//   return (
-//     <div>
-//       <Router>
-
-//         <br />
-//         <Button component={LinkBehavior}>With inlining</Button>
-//       </Router>
-//     </div>
-//   );
-// }
-
-const drawerWidth = 240;
-const navItems = ['Home', 'Portflio', 'Contact', 'Dashboard'];
-
-function DrawerAppBar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        CustoMe
-      </Typography>
-      <Divider />
-      <List>
-        <Button component={RouterLink} to="/">
-          Home
-        </Button>
-        <Button component={RouterLink} to="/portfolio">
-          Portflio
-        </Button>
-        <Button component={RouterLink} to="/contact">
-          Contact
-        </Button>
-        <Button component={RouterLink} to="/adminbackend">
-          Dashboard
-        </Button>
-        {/* {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
+function Navbar() {
+  const [extendNavbar, setExtendNavbar] = useState(false);
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
-        <AppBar component="nav" color="secondary">
-          <Toolbar>
-            <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { sm: 'none' } }}>
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ color: '#fff', flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-              CustoMe
-            </Typography>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Button sx={{ color: '#fff' }} component={RouterLink} to="/">
-                Home
-              </Button>
-              <Button sx={{ color: '#fff' }} component={RouterLink} to="/portfolio">
-                Portflio
-              </Button>
-              <Button sx={{ color: '#fff' }} component={RouterLink} to="/contact">
-                Contact
-              </Button>
-              <Button sx={{ color: '#fff' }} component={RouterLink} to="/adminbackend">
-                Dashboard
-              </Button>
-              {/* {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
-                </Button>
-              ))} */}
-            </Box>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main" sx={{ p: 3 }}>
-          <Toolbar />
-        </Box>
-      </Box>
+      <NavbarContainer extendNavbar={extendNavbar}>
+        <NavbarInnerContainer>
+          <LeftContainer>
+            <NavbarLinkContainer>
+              <NavbarLink to="/"> Home</NavbarLink>
+              <NavbarLink to="/products"> Products</NavbarLink>
+              <NavbarLink to="/contact"> Contact Us</NavbarLink>
+              <NavbarLink to="/about"> About Us</NavbarLink>
+              <OpenLinksButton
+                onClick={() => {
+                  setExtendNavbar((curr) => !curr);
+                }}
+              >
+                {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
+              </OpenLinksButton>
+            </NavbarLinkContainer>
+          </LeftContainer>
+          <RightContainer>
+            {' '}
+            <Logo src={LogoImg}></Logo>{' '}
+          </RightContainer>
+        </NavbarInnerContainer>
+        {extendNavbar && (
+          <NavbarExtendedContainer>
+            <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
+            <NavbarLinkExtended to="/products"> Products</NavbarLinkExtended>
+            <NavbarLinkExtended to="/contact"> Contact Us</NavbarLinkExtended>
+            <NavbarLinkExtended to="/about"> About Us</NavbarLinkExtended>
+          </NavbarExtendedContainer>
+        )}
+      </NavbarContainer>
       <Outlet />
     </>
   );
 }
 
-export default DrawerAppBar;
+export default Navbar;
