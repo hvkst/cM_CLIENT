@@ -1,35 +1,30 @@
-import { Button } from '@mui/material';
-import { styled } from '@mui/system';
+import styled from 'styled-components';
+
 import ProductCard from '../../components/Main/ProductCard';
+import SomeIcon from '../../assets/someIcon.png';
+import Hero from '../../components/Main/Hero';
+
+const lorem25 =
+  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
 
 function Homepage() {
   return (
     <>
       <TopSection>
-        {/* <div style={{ display: 'flex', flexDirection: 'column' }}> */}
-        <HeroSection>
-          <p>
-            Let's build
-            <br /> your dream!
-          </p>
-        </HeroSection>
-        <Button variant="contained" color="secondary" sx={{ alignSelf: 'flex-end' }}>
-          Start today
-        </Button>
-        {/* </div> */}
+        <Hero></Hero>
       </TopSection>
 
       <MidSection>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
+        <ProductCard icon={SomeIcon} content={lorem25}></ProductCard>
+        <ProductCard icon={SomeIcon} content={lorem25}></ProductCard>
+        <ProductCard icon={SomeIcon} content={lorem25}></ProductCard>
       </MidSection>
     </>
   );
 }
 export default Homepage;
 
-const TopSection = styled('Section')`
+const TopSection = styled.section`
   background-color: aqua;
   width: 100%;
   height: 50vh;
@@ -42,27 +37,8 @@ const TopSection = styled('Section')`
   background-repeat: no-repeat;
 `;
 
-const HeroSection = styled('div')`
-  border: 3px solid transparent;
-  backdrop-filter: blur(5px) sepia(30%);
-  display: block;
-  margin-bottom: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  transition: all 0.5s ease-out;
-  & p {
-    color: #fff;
-    font-size: 50px;
-    font-weight: 700;
-    margin: 0;
-  }
-  &:hover {
-    backdrop-filter: none;
-    border: 3px solid white;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-`;
-
-const MidSection = styled('Section')`
-  height: 1500px;
+const MidSection = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
