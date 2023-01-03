@@ -1,17 +1,20 @@
-import styled from 'styled-components';
-
 import ProductCard from '../../components/Main/ProductCard';
 import SomeIcon from '../../assets/someIcon.png';
-import Hero from '../../components/Main/Hero';
-
-const lorem25 =
-  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
+import { TopSection, HeroContainer, HeroContent, MidSection, lorem25 } from './Homepage.style';
+import Button from '@mui/material/Button';
 
 function Homepage() {
   return (
     <>
       <TopSection>
-        <Hero></Hero>
+        <HeroContainer>
+          <HeroContent>
+            <p>
+              Let's build <br /> your dream
+            </p>
+          </HeroContent>
+          <Button variant="contained">Start Today</Button>
+        </HeroContainer>
       </TopSection>
 
       <MidSection>
@@ -23,22 +26,3 @@ function Homepage() {
   );
 }
 export default Homepage;
-
-const TopSection = styled.section`
-  background-color: aqua;
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-image: url('/pictures/lights.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-`;
-
-const MidSection = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-`;

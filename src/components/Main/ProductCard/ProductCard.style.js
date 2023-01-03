@@ -5,8 +5,10 @@ export const ProductCardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 300px;
-  background-color: grey;
-  margin: 10px;
+  background-color: azure;
+  margin: 25px 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(92, 81, 159);
 `;
 
 export const Icon = styled.img`

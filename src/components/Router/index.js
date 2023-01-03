@@ -7,6 +7,7 @@ import BackendUser from '../../pages/BackendUser';
 import Homepage from '../../pages/Homepage';
 import ErrorBoundary from '../Main/ErrorBoundary';
 import AdminUserPage from '../../pages/AdminUserPage';
+import ContactForm from '../../pages/ContactForm';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: '/adminbackend', element: <BackendAdmin /> },
       { path: '/adminbackend/user/:id', element: <AdminUserPage /> },
       { path: '/userbackend', element: <BackendUser /> },
+      { path: '/contactform', element: <ContactForm /> },
     ],
   },
 ]);

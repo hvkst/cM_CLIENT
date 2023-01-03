@@ -29,7 +29,7 @@ function Navbar() {
             <NavbarLinkContainer>
               <NavbarLink to="/"> Home</NavbarLink>
               <NavbarLink to="/products"> Products</NavbarLink>
-              <NavbarLink to="/contact"> Contact Us</NavbarLink>
+              <NavbarLink to="/contactform"> Contact Us</NavbarLink>
               <NavbarLink to="/about"> About Us</NavbarLink>
               {user && user.isAdmin && <NavbarLink to="/adminbackend"> Dashboard</NavbarLink>}
               {user && !user.isAdmin && <NavbarLink to="/userbackend"> Dashboard</NavbarLink>}
