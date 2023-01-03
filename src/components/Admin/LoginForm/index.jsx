@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { BASE_URL } from '../../../consts';
 import { UserContext } from '../../../context/UserContext';
+import { UserDataInput, LoginFormContainer, Button } from './LoginForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -61,11 +62,13 @@ function LoginForm() {
 
   return (
     <>
-      <h2>Login Form</h2>
-      <input type="text" name="username" value={loginState.username} onChange={handleChange} placeholder="Enter your name here" />
-      <input type="password" name="password" value={loginState.password} placeholder="Enter your password here" onChange={handleChange} />
+      <LoginFormContainer>
+        <h2>Login</h2>
+        <UserDataInput type="text" name="username" value={loginState.username} onChange={handleChange} placeholder="Enter your name here" />
+        <UserDataInput type="password" name="password" value={loginState.password} placeholder="Enter your password here" onChange={handleChange} />
 
-      <button onClick={sendToServer}>Signup</button>
+        <Button onClick={sendToServer}>Signup</Button>
+      </LoginFormContainer>
     </>
   );
 }

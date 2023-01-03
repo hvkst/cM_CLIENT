@@ -7,6 +7,7 @@ import CreateUserForm from '../../components/Admin/CreateUserForm';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { AllUserContext } from '../../context/AllUserContext';
 import { FlexDiv } from '../../styles';
+import SimpleAccordion from '../../components/Main/SimpleAccordion';
 
 function BackendAdmin() {
   const { user } = useContext(UserContext);
@@ -38,7 +39,9 @@ function BackendAdmin() {
         <>
           <h1>BackendAdmin</h1>
           <hr />
-          <CreateUserForm {...{ setAllUsers }} />
+          <SimpleAccordion title="create User">
+            <CreateUserForm {...{ setAllUsers }} />
+          </SimpleAccordion>
           <FlexDiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</FlexDiv>
         </>
       )}

@@ -1,4 +1,4 @@
-import { styled } from '@mui/system';
+import styled from 'styled-components';
 import { shorterTime } from '../../../utils';
 
 function CommentDiv({ comment }) {
@@ -7,15 +7,13 @@ function CommentDiv({ comment }) {
       <Cdiv>
         <p>{comment.content}</p>
         <p id="date">{shorterTime(comment.createdAt)}</p>
-        {/* <p id="username">Example User</p> */}
-        {/* <p>{comment.createdAt}</p> */}
       </Cdiv>
     </>
   );
 }
 export default CommentDiv;
 
-const Cdiv = styled('div')`
+const Cdiv = styled.div`
   display: flex;
   width: 90%;
   justify-content: space-between;
