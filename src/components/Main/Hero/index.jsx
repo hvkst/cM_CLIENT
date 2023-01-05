@@ -9,7 +9,6 @@ function Hero() {
           Let's build <br /> your dream
         </p>
       </HeroContent>
-      <Button label="Start today" color="transparent" />
     </HeroContainer>
   );
 }

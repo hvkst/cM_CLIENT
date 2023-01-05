@@ -11,8 +11,9 @@ export const ProductCardContainer = styled.div`
   border: 1px solid rgb(92, 81, 159);
 `;
 
-export const Icon = styled.img`
-  margin: 10px auto;
+export const Icon = styled.p`
+  font-size: 36px;
+  margin: 20px auto 0;
   max-width: 50px;
   height: auto;
 `;
