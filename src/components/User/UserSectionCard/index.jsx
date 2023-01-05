@@ -6,50 +6,35 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import CommentForm from '../../Main/CommentForm';
 import CommentDiv from '../CommentDiv';
-import UploadForm from '../UploadForm';
 
 export default function UserSectionCard({ section }) {
-  return <></>;
+  return (
+    <UCard>
+      <CardContent>
+        <h4>{section.title}</h4>
+        <Udiv>
+          <p>- {section.description}</p>
+          <p>- {section.prep}</p>
+          <p>- {section.main}</p>
+          <p>- {section.final}</p>
+        </Udiv>
+
+        <p>Comments:</p>
+        <div>
+          {section.comments.map((comment) => {
+            return (
+              <div key={comment.id}>
+                <CommentDiv {...{ comment }}></CommentDiv>
+              </div>
+            );
+          })}
+        </div>
+        <CommentForm {...{ section }} />
+        <br />
+      </CardContent>
+    </UCard>
+  );
 }
-// <UCard>
-//   <CardContent>
-//     <Udiv variant="h5">{section.title}</Udiv>
-//     <Udiv>
-//       {/* <p>Description:</p> */}
-//       <p>{section.description}</p>
-//     </Udiv>
-//     <Udiv>
-//       {/* <p>Preparation:</p> */}
-//       <p> {section.prep}</p>
-//     </Udiv>
-//     <Udiv>
-//       {/* <p>Main: </p> */}
-//       <p>{section.main}</p>
-//     </Udiv>
-//     <Udiv>
-//       {/* <p>Final</p> */}
-//       <p>{section.final}</p>
-//     </Udiv>
-//     <p>Comments:</p>
-//     {/* <Udiv> */}
-//     <div>
-//       {section.comments.map((comment) => {
-//         return (
-//           <div key={comment.id}>
-//             <CommentDiv {...{ comment }}></CommentDiv>
-//           </div>
-//         );
-//       })}
-//     </div>
-//     {/* </Udiv> */}
-//     <CommentForm {...{ section }} />
-//     <br />
-//     <UploadForm {...{ section }} />
-//     {/* <Button variant="outlined" size="small">
-//       upload files / data here
-//     </Button>{' '} */}
-//   </CardContent>
-// </UCard>
 
 const UCard = styled(Card)`
   width: fit-content;
@@ -58,6 +43,7 @@ const UCard = styled(Card)`
 
 const Udiv = styled('div')`
   display: flex;
+  flex-direction: column;
 `;
 
 const Li = styled('li')`

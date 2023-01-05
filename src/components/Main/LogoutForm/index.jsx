@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserContext';
-import { Navigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { LogLink, LogoutFormContainer } from './LogoutForm.style';
 
@@ -8,7 +8,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function LogoutForm() {
   const { user, logoutUser } = useContext(UserContext);
-
+  const navigate = useNavigate();
   const logout = async () => {
     try {
       await fetch(BASE_URL + '/auth/logout', {
@@ -16,7 +16,7 @@ function LogoutForm() {
         credentials: 'include',
       });
       logoutUser();
-      Navigate('/');
+      navigate('/');
     } catch (error) {
       console.warn(error.message);
     }

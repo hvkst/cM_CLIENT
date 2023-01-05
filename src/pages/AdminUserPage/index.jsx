@@ -6,6 +6,7 @@ import AddSection from '../../components/Admin/AddSection';
 import { ProjectContext } from '../../context/ProjectContext';
 import SectionCard from '../../components/Admin/SectionCard';
 import { FlexDiv } from '../../styles';
+import { AdminUserPageContainer, UserDataContainer } from './AdminUserPage.style';
 
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
@@ -30,15 +31,17 @@ function AdminUserPage() {
   }, [data, setProject]);
 
   return (
-    <>
-      <h1>AdminUserPage</h1>
+    <AdminUserPageContainer>
       {fullUserData && (
         <>
-          <p>user: {fullUserData.username}</p>
-          <p>project: {project.title}</p>
-          <p>created at: {shorterTime(project.createdAt)}</p>
-          <p>due date: {project.dueDate}</p>
-          <p>Sections: </p>
+          <UserDataContainer>
+            <h1>{fullUserData.username}</h1>
+            <p>{project.title}</p>
+            <p>created at: {shorterTime(project.createdAt)}</p>
+            <p>due date: {project.dueDate}</p>
+          </UserDataContainer>
+          <AddSection {...{ project, setProject }} />
+
           {project.sections && (
             <>
               <FlexDiv>
@@ -48,11 +51,10 @@ function AdminUserPage() {
               </FlexDiv>
             </>
           )}
-
-          <AddSection {...{ project, setProject }} />
         </>
       )}
-    </>
+    </AdminUserPageContainer>
   );
 }
+
 export default AdminUserPage;

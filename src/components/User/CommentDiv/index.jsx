@@ -14,6 +14,7 @@ function CommentDiv({ comment }) {
 export default CommentDiv;
 
 const Cdiv = styled.div`
+  align-self: flex-end;
   display: flex;
   width: 90%;
   justify-content: space-between;

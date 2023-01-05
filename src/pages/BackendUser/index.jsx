@@ -67,7 +67,7 @@ function BackendUser() {
               <h2> {project.title} </h2>
               <FlexDiv>
                 {project.sections.map((section) => {
-                  return <UserSectionCard key={section._id} {...{ section, project }}></UserSectionCard>; // No need for full project here
+                  return <UserSectionCard key={section._id} {...{ section }}></UserSectionCard>; // No need for full project here
                 })}
               </FlexDiv>
             </>
