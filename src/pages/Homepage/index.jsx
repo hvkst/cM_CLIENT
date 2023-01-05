@@ -1,5 +1,4 @@
 import ProductCard from '../../components/Main/ProductCard';
-import SomeIcon from '../../assets/someIcon.png';
 import { TopSection, HeroContainer, HeroContent, MidSection, lorem25 } from './Homepage.style';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
@@ -25,9 +24,9 @@ function Homepage() {
       </TopSection>
 
       <MidSection>
-        <ProductCard icon={<HomeRepairServiceIcon color="secondary" fontSize="large" />} content={lorem25}></ProductCard>
-        <ProductCard icon={<ManageAccountsIcon color="secondary" fontSize="large" />} content={lorem25}></ProductCard>
-        <ProductCard icon={<FactCheckIcon color="secondary" fontSize="large" />} content={lorem25}></ProductCard>
+        <ProductCard icon={<HomeRepairServiceIcon color="primary" fontSize="large" />} content={lorem25}></ProductCard>
+        <ProductCard icon={<ManageAccountsIcon color="primary" fontSize="large" />} content={lorem25}></ProductCard>
+        <ProductCard icon={<FactCheckIcon color="primary" fontSize="large" />} content={lorem25}></ProductCard>
       </MidSection>
     </>
   );

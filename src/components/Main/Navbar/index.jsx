@@ -15,11 +15,14 @@ import {
 import LogoImg from './logo.png';
 import LogoutForm from '../LogoutForm';
 import { UserContext } from '../../../context/UserContext';
+import { useTheme } from '@mui/material';
 
 function Navbar() {
   const { user } = useContext(UserContext);
 
   const [extendNavbar, setExtendNavbar] = useState(false);
+
+  const theme = useTheme();
 
   return (
     <>
