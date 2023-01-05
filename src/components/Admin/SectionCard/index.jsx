@@ -10,6 +10,8 @@ import SimpleAccordion from '../../Main/SimpleAccordion';
 import UpdateSectionForm from '../UpdateSectionForm';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { IconButton } from '@mui/material';
+import CommentDiv from '../../Main/Comments';
+import CommentForm from '../../Main/CommentForm';
 
 export default function SectionCard({ section, project, setProject }) {
   return (
@@ -34,11 +36,26 @@ export default function SectionCard({ section, project, setProject }) {
           <DeleteForeverIcon />
         </IconButton>
       </CardActions>
+      <CardContent>
+        <p>Comments:</p>
+        <div>
+          {section.comments.map((comment) => {
+            return (
+              <div key={comment.id}>
+                <CommentDiv {...{ comment }}></CommentDiv>
+              </div>
+            );
+          })}
+        </div>
+        <CommentForm {...{ section }} />
+      </CardContent>
     </UCard>
   );
 }
 
 const UCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
   width: fit-content;
   margin: 10px;
 `;

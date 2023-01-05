@@ -1,11 +1,9 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
-import { Button } from '@mui/material';
 import CommentForm from '../../Main/CommentForm';
-import CommentDiv from '../CommentDiv';
+import CommentDiv from '../../Main/Comments';
 
 export default function UserSectionCard({ section }) {
   return (

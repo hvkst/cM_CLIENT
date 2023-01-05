@@ -21,6 +21,16 @@ export function germanDate(str) {
   return `${day}.${month}.${year}`;
 }
 
+export function commentTime(str) {
+  if (str === undefined) return null;
+  const newOrder = str.split('-');
+  const day = newOrder[2].substring(0, 2);
+  const month = newOrder[1];
+  const year = newOrder[0];
+  const time = newOrder[2].substring(3, 8);
+  return `${day}.${month} - ${time}`;
+}
+
 async function logout(logoutUser) {
   try {
     await fetch(BASE_URL + '/auth/logout', {
