@@ -4,16 +4,13 @@ export const lorem25 =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
 
 export const TopSection = styled.section`
-  background-color: aqua;
+  background-color: #3d8b48;
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url('/pictures/lights.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 export const HeroContainer = styled.div`
@@ -24,7 +21,8 @@ export const HeroContainer = styled.div`
 
 export const HeroContent = styled.div`
   border: 3px solid transparent;
-  backdrop-filter: blur(5px) sepia(30%);
+  /* backdrop-filter: blur(5px) sepia(30%); */
+  background-color: rgba(92, 81, 159, 0.4);
   display: block;
   margin-bottom: 10px;
   padding: 20px;
@@ -39,11 +37,11 @@ export const HeroContent = styled.div`
   &:hover {
     backdrop-filter: none;
     border: 3px solid white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(92, 81, 159, 0.8);
   }
 `;
 
-export const MidSection = styled.section`
+export const ProductCards = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
