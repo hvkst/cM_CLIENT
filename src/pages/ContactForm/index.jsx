@@ -1,92 +1,104 @@
 // import axios from 'axios';
-import { Box, Button, FormControl, InputLabel, MenuItem, NativeSelect, Select, TextField } from '@mui/material';
-import { useContext, useEffect, useState } from 'react';
-import { DataInput } from '../../styles';
+import { Button, Checkbox, FormControl, FormControlLabel, MenuItem, TextField } from '@mui/material';
+import { useState } from 'react';
 // import { BASE_URL } from '../../../consts';
 // import { DataInput } from '../../styles';
-import {} from './ContactForm.style';
+import { ContactFormContainer } from './ContactForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const defaultState = {
-  title: '',
-  description: '',
-  prep: '',
-  main: '',
-  final: '',
+  name: '',
+  phone: '',
+  mail: '',
+  product: '',
+  message: '',
 };
 
 function ContactForm() {
   const [state, setState] = useState(defaultState);
+  const [checked, setChecked] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   const handleChange = (event) => {
+    if (state.name !== '' && state.mail !== '') setIsValid(true);
+
     setState((old) => {
       let newValue = event.target.value;
-
       return { ...old, [event.target.name]: newValue };
     });
   };
 
-  const handleClick = (e) => {
-    // e.preventDefault();
-    // updateSection(state, section, project, setProject);
+  const handleCheck = (event) => {
+    setChecked(event.target.checked);
   };
 
   const sendToServer = async () => {
     try {
-      const formBody = state;
+      const formBody = {
+        name: state.name,
+        phone: state.phone,
+        mail: state.mail,
+        product: state.product,
+        message: state.message,
+        callback: checked,
+      };
       console.log(formBody);
 
-      const url = BASE_URL + '/auth/login';
+      const url = `${BASE_URL}/contact/sendform`;
       console.log('url:', url);
 
-      // const res = await fetch(url, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   credentials: 'include',
-      //   body: JSON.stringify(formBody),
-      // });
-      // const data = await res.json();
-      // console.log('data.user:', data.user);
+      console.log('sending');
 
-      // loginUser(data.user);
-      // console.log('Login success');
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(formBody),
+      });
+      const data = await res.json();
+      console.log(data);
+
+      console.log('contact form send');
     } catch (err) {
       console.error(err);
     }
 
-    console.log('We reach here...LOGIN_CLIENT');
+    console.log('We reach here...CONTACT_FORM');
     setState(defaultState);
+    setChecked(false);
+    setIsValid(false);
   };
 
   return (
-    <>
-      <h2>Contact Us!</h2>
+    <ContactFormContainer>
       <FormControl
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, width: '50ch' },
         }}
       >
+        <h2>Contact Us!</h2>
         <TextField onChange={handleChange} value={state.name} name="name" label="Name" required />
         <TextField onChange={handleChange} value={state.phone} name="phone" label="Phone" type="number" />
         <TextField onChange={handleChange} value={state.mail} name="mail" label="Email" type="email" required />
-        <TextField id="outlined-select-currency" select label="Product / Service" defaultValue="Website Small Business">
-          <MenuItem value={'Website Small Business'}>Website</MenuItem>
+        <TextField onChange={handleChange} label="Product / Service" name="product" value={state.product} select>
+          <MenuItem value={'Website'}>Website</MenuItem>
           <MenuItem value={'Online Shop'}>Online Shop</MenuItem>
           <MenuItem value={'Consultation'}>Consultation</MenuItem>
           <MenuItem value={'Printer SetUp'}>Printer Set Up</MenuItem>
         </TextField>
 
-        <TextField multiline onChange={handleChange} value={state.text} id="outlined-multiline-flexible" name="text" label="Message" />
-        <Button onClick={handleClick} variant="outlined">
-          send
-        </Button>
+        <TextField multiline onChange={handleChange} value={state.message} id="outlined-multiline-flexible" name="message" label="Message" />
+        <FormControlLabel sx={{ m: 1 }} onChange={handleCheck} name="callback" control={<Checkbox />} label="Call me back!" />
+        {isValid && (
+          <Button sx={{ m: 1, width: '50%', alignSelf: 'flex-end' }} onClick={sendToServer} variant="outlined">
+            send
+          </Button>
+        )}
       </FormControl>
-      {/* <Button onClick={sendToServer}>Signup</Button> */}
-      {/* </ContactFormContainer> */}
-    </>
+    </ContactFormContainer>
   );
 }
 
