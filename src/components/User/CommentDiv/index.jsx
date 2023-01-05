@@ -1,31 +1,14 @@
-import styled from 'styled-components';
-import { shorterTime } from '../../../utils';
+import { germanDate } from '../../../utils';
+import { CommentContainer } from './Comment.style';
 
 function CommentDiv({ comment }) {
   return (
     <>
-      <Cdiv>
+      <CommentContainer isAdmin={comment.isAdmin}>
         <p>{comment.content}</p>
-        <p id="date">{shorterTime(comment.createdAt)}</p>
-      </Cdiv>
+        <p id="date">{germanDate(comment.createdAt)}</p>
+      </CommentContainer>
     </>
   );
 }
 export default CommentDiv;
-
-const Cdiv = styled.div`
-  align-self: flex-end;
-  display: flex;
-  width: 90%;
-  justify-content: space-between;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  margin: 2px;
-  & p {
-    margin: 1px;
-  }
-  & #date {
-    font-size: 10px;
-    align-self: flex-end;
-  }
-`;

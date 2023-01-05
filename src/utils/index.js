@@ -12,8 +12,13 @@ function shorterTime(str) {
 }
 
 // 2022-12-14T14:50:31.924Z -> 14.12. 15:50
-function commentTime(str) {
+export function germanDate(str) {
   if (str === undefined) return null;
+  const newOrder = str.split('-');
+  const day = newOrder[2].substring(0, 2);
+  const month = newOrder[1];
+  const year = newOrder[0];
+  return `${day}.${month}.${year}`;
 }
 
 async function logout(logoutUser) {
