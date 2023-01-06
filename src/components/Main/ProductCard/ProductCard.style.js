@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-export const ProductCardContainer = styled.div`
+export const SingleProductCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  width: 300px;
-  background-color: rgba(184, 162, 255, 0.8);
+  min-width: 320px;
+  width: ${(props) => props.width};
+  background-color: rgba(184, 162, 255, 0.2);
   margin: 25px 10px;
   border-radius: 10px;
-  /* border: 1px solid rgb(92, 81, 159); */
   h2 {
     margin: 0;
   }
@@ -17,8 +17,10 @@ export const ProductCardContainer = styled.div`
 
 export const Icon = styled.p`
   margin: 20px auto 0;
-  /* max-width: 150px; */
   height: auto;
+  & svg {
+    font-size: 3.5rem;
+  }
 `;
 
 export const Content = styled.p`

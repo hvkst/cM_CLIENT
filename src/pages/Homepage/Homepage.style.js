@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/mediaQueries';
 
 export const lorem25 =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
@@ -16,56 +17,77 @@ export const consulting =
   "Are you looking to improve your online presence, but not sure where to start? Our team of web consultants can help. With years of experience in the industry, we have the knowledge and expertise to assess your current website and online strategy, and provide actionable recommendations on how to improve. Whether you need help with website design, search engine optimization, social media marketing, or any other aspect of your online presence, we're here to help. Let us help you take your business to the next level with our web consulting services.";
 
 export const TopSection = styled.section`
+  box-sizing: border-box;
+  border: 0.5rem solid white;
   background-color: #3d8b48;
+  border-radius: 1rem;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  @media ${device.mobile} {
+    height: 60vh;
+  }
+  @media ${device.tablet} {
+    height: 75vh;
+  }
+  @media ${device.laptop} {
+    height: 90vh;
+  }
 `;
 
 export const HeroOuterContainer = styled.div`
   width: 500px;
-  height: 500px;
+  height: auto;
   position: relative;
-  margin-right: 200px;
+  margin-right: 12.5rem;
+
+  @media ${device.mobile} {
+    width: 200px;
+    height: auto;
+    margin-right: 0;
+  }
+  @media ${device.tablet} {
+    width: 300px;
+    height: auto;
+    margin-right: 0;
+  }
+  @media ${device.laptop} {
+    width: 350px;
+    height: auto;
+    /* margin-right: 6rem; */
+  }
 `;
-// export const HeroInnerborder = styled.div`
-//   width: 500px;
-//   height: 500px;
-//   position: relative;
-//   margin-right: 200px;
-// `;
 
 export const HeroContainer = styled.div`
   position: relative;
-  z-index: 100;
+  z-index: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: #ffc071;
-  padding: 50px;
+  padding: 3.5rem;
 
   & #herobutton {
     margin: 10px;
     align-self: flex-end;
     border-radius: 0;
-    padding: 10px 20px;
+    padding: 0.6rem 1.5rem;
     transition: all 0.5s ease-in-out;
 
     &:hover {
       /* background-color: #3d8b48; */
       border-color: white;
       color: white;
-      box-shadow: inset 0 -4em 0 #3d8b48;
+      box-shadow: inset 0 -3rem 0 #3d8b48;
     }
   }
   &:after {
     width: 100%;
     height: 100%;
-    border: 3px solid white;
+    border: 0.3rem solid white;
     transform: rotate(4deg);
     position: absolute;
     left: 0;
@@ -76,7 +98,17 @@ export const HeroContainer = styled.div`
   }
   &:hover:after {
     transform: rotate(0deg);
-    transform: rotate(-2deg);
+    /* border: 0.2rem solid white; */
+  }
+
+  @media ${device.mobile} {
+    padding: 1.2rem;
+  }
+  @media ${device.tablet} {
+    padding: 1.7rem;
+  }
+  @media ${device.laptop} {
+    padding: 2.5rem;
   }
 `;
 
@@ -94,6 +126,34 @@ export const HeroContent = styled.div`
     margin: 0;
     margin-top: 10px;
   }
+
+  @media ${device.mobile} {
+    & h2 {
+      font-size: 1em;
+    }
+    & p {
+      letter-spacing: 0px;
+      font-size: 0.6em;
+    }
+  }
+  @media ${device.tablet} {
+    & h2 {
+      font-size: 1.2em;
+    }
+    & p {
+      letter-spacing: 0px;
+      font-size: 0.8em;
+    }
+  }
+  @media ${device.laptop} {
+    & h2 {
+      font-size: 1.4em;
+    }
+    & p {
+      letter-spacing: 1px;
+      font-size: 1em;
+    }
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -101,13 +161,25 @@ export const ImageContainer = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 300px;
-  bottom: 60px;
+  left: 50%;
+  bottom: 10%;
 
   & img {
     width: 115%;
     height: 115%;
     object-fit: cover;
+  }
+
+  @media ${device.mobile} {
+    display: none;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
+  @media ${device.laptop} {
+    width: 100%;
+    height: 100%;
+    left: 25%;
   }
 `;
 
@@ -116,42 +188,23 @@ export const MidSection = styled.section`
   flex-direction: column;
   align-items: center;
   #heading {
-    font-size: 40px;
-    margin: 20px 0 0 0;
+    font-size: 2.5rem;
+    margin: 2rem 0;
     padding: 0 5px;
-    box-shadow: inset 0 -0.4em 0 #3d8b48;
+    box-shadow: inset 0 -0.4em 0 darkslateblue;
     transition: all 0.5s ease-in-out;
 
     &:hover {
-      box-shadow: inset 0 -1.4em 0 #3d8b48;
+      box-shadow: inset 0 -1.4em 0 darkslateblue;
       color: white;
-      /* border-radius: 5px; */
     }
   }
 `;
 
-export const ProductCardContainer = styled.div`
+export const ProductCardsContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 `;
 
-export const LowerMidSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  #heading {
-    font-size: 40px;
-    margin: 20px 0 0 0;
-    padding: 0 5px;
-    box-shadow: inset 0 -0.4em 0 #3d8b48;
-    transition: all 0.5s ease-in-out;
-    border: 0.01em solid transparent;
-    border-radius: 0px;
-    &:hover {
-      box-shadow: inset 0 -0em 0 #3d8b48;
-      border: 0.01em solid #3d8b48;
-      border-radius: 5px;
-    }
-  }
-`;
+export const LowerMidSection = styled(MidSection)``;

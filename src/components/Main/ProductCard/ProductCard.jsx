@@ -1,12 +1,12 @@
-import { ProductCardContainer, Icon, Content } from './ProductCard.style';
+import { SingleProductCardContainer, Icon, Content } from './ProductCard.style';
 
-function ProductCard({ icon, heading, content }) {
+function ProductCard({ icon, heading, content, width }) {
   return (
-    <ProductCardContainer>
-      <Icon>{icon}</Icon>
+    <SingleProductCardContainer width={width}>
+      <Icon className="icon">{icon}</Icon>
       <h2>{heading}</h2>
       <Content>{content}</Content>
-    </ProductCardContainer>
+    </SingleProductCardContainer>
   );
 }
 export default ProductCard;
