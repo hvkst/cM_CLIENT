@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserSectionCard from '../../components/User/UserSectionCard';
+import UserSectionCard from '../../components/User/UserSectionCard/UserSectionCard';
 import { ProjectContext } from '../../context/ProjectContext';
 // import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';

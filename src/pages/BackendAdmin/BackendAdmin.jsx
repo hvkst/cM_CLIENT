@@ -2,12 +2,12 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import UserCard from '../../components/Admin/UserCard';
-import CreateUserForm from '../../components/Admin/CreateUserForm';
+import UserCard from '../../components/Admin/UserCard/UserCard';
+import CreateUserForm from '../../components/Admin/CreateUserForm/CreateUserForm';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { AllUserContext } from '../../context/AllUserContext';
 import { FlexDiv } from '../../styles';
-import SimpleAccordion from '../../components/Main/SimpleAccordion';
+import SimpleAccordion from '../../components/Main/SimpleAccordion/SimpleAccordion';
 
 function BackendAdmin() {
   const { user } = useContext(UserContext);

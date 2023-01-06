@@ -13,16 +13,16 @@ import {
   NavbarLinkExtended,
 } from './Navbar.style';
 import LogoImg from './logo.png';
-import LogoutForm from '../LogoutForm';
+import LogoutForm from '../LogoutForm/LogoutForm';
 import { UserContext } from '../../../context/UserContext';
-import { useTheme } from '@mui/material';
+// import { useTheme } from '@mui/material';
 
 function Navbar() {
   const { user } = useContext(UserContext);
 
   const [extendNavbar, setExtendNavbar] = useState(false);
 
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <>

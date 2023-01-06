@@ -6,12 +6,12 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import { deleteSection } from '../../../utils';
 import { confirmDelete } from '../../../utils';
-import SimpleAccordion from '../../Main/SimpleAccordion';
-import UpdateSectionForm from '../UpdateSectionForm';
+import SimpleAccordion from '../../Main/SimpleAccordion/SimpleAccordion';
+import UpdateSectionForm from '../UpdateSectionForm/UpdateSectionForm';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { IconButton } from '@mui/material';
-import CommentDiv from '../../Main/Comments';
-import CommentForm from '../../Main/CommentForm';
+import CommentDiv from '../../Main/Comments/Comments';
+import CommentForm from '../../Main/CommentForm/CommentForm';
 
 export default function SectionCard({ section, project, setProject }) {
   return (

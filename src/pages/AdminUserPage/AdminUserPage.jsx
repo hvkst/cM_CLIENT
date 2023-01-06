@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { germanDate } from '../../utils';
-import AddSection from '../../components/Admin/AddSection';
+import AddSection from '../../components/Admin/AddSection/AddSection';
 import { ProjectContext } from '../../context/ProjectContext';
-import SectionCard from '../../components/Admin/SectionCard';
+import SectionCard from '../../components/Admin/SectionCard/SectionCard';
 import { FlexDiv } from '../../styles';
 import { AdminUserPageContainer, UserDataContainer } from './AdminUserPage.style';
 

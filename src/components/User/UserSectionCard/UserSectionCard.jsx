@@ -2,8 +2,8 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { styled } from '@mui/system';
-import CommentForm from '../../Main/CommentForm';
-import CommentDiv from '../../Main/Comments';
+import CommentForm from '../../Main/CommentForm/CommentForm';
+import CommentDiv from '../../Main/Comments/Comments';
 
 export default function UserSectionCard({ section }) {
   return (

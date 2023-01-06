@@ -1,4 +1,4 @@
-import ProductCard from '../../components/Main/ProductCard';
+import ProductCard from '../../components/Main/ProductCard/ProductCard';
 import { TopSection, HeroContainer, HeroContent, ProductCards, lorem25 } from './Homepage.style';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
