@@ -48,6 +48,7 @@ function Navbar() {
           </LeftContainer>
           <RightContainer>
             <Logo src={LogoImg}></Logo>
+            <LogoutForm />
           </RightContainer>
         </NavbarInnerContainer>
         {extendNavbar && (
@@ -59,7 +60,7 @@ function Navbar() {
           </NavbarExtendedContainer>
         )}
       </NavbarContainer>
-      <LogoutForm />
+      {/* <LogoutForm /> */}
       <Outlet />
     </>
   );

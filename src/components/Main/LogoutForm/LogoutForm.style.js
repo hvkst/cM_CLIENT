@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const LogoutFormContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 0;
+  align-self: flex-end;
   position: absolute;
   right: 0;
+  & svg {
+    color: #fff;
+    font-size: 30px;
+  }
 `;

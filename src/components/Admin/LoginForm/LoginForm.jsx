@@ -1,10 +1,9 @@
-// import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { BASE_URL } from '../../../consts';
 import { UserContext } from '../../../context/UserContext';
-import { DataInput } from '../../../styles';
-import { LoginFormContainer, Button } from './LoginForm.style';
+import { LoginFormContainer, ContactPaper, PageContainer } from './LoginForm.style';
+import { Button, FormControl, TextField } from '@mui/material';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -34,6 +33,7 @@ function LoginForm() {
 
   const sendToServer = async () => {
     try {
+      if (loginState.username === '' || loginState.password === '') return;
       const formBody = loginState;
       console.log(formBody);
 
@@ -62,15 +62,24 @@ function LoginForm() {
   };
 
   return (
-    <>
-      <LoginFormContainer>
-        <h2>Login</h2>
-        <DataInput type="text" name="username" value={loginState.username} onChange={handleChange} placeholder="Enter your name here" />
-        <DataInput type="password" name="password" value={loginState.password} placeholder="Enter your password here" onChange={handleChange} />
-
-        <Button onClick={sendToServer}>Signup</Button>
-      </LoginFormContainer>
-    </>
+    <PageContainer>
+      <ContactPaper elevation={5}>
+        <LoginFormContainer>
+          <FormControl
+            sx={{
+              '& .MuiTextField-root': { m: 1, width: '30vw', minWidth: '30ch' },
+            }}
+          >
+            <h2>Login</h2>
+            <TextField type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
+            <TextField type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
+            <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} variant="outlined" onClick={sendToServer}>
+              Login
+            </Button>
+          </FormControl>
+        </LoginFormContainer>
+      </ContactPaper>
+    </PageContainer>
   );
 }
 
