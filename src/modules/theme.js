@@ -11,7 +11,7 @@ const rawTheme = createTheme({
       dark: '#2c2656',
     },
     secondary: {
-      light: '#fff5f8',
+      light: '#f5f5dc',
       main: '#3d8b48',
     },
     warning: {
@@ -52,7 +52,7 @@ const theme = {
     ...rawTheme.palette,
     background: {
       ...rawTheme.palette.background,
-      default: rawTheme.palette.common.white,
+      default: rawTheme.palette.secondary.light,
       placeholder: grey[200],
     },
   },

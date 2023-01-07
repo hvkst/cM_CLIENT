@@ -7,4 +7,5 @@ function SimplePaper({ children }) {
     </Container>
   );
 }
+
 export default SimplePaper;

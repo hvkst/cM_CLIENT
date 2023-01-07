@@ -6,8 +6,7 @@ import UserCard from '../../components/Admin/UserCard/UserCard';
 import CreateUserForm from '../../components/Admin/CreateUserForm/CreateUserForm';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { AllUserContext } from '../../context/AllUserContext';
-import { FlexDiv } from '../../styles';
-import SimpleAccordion from '../../components/Main/SimpleAccordion/SimpleAccordion';
+import { PageContainer, UserCardContainer } from './BackendAdmin.style';
 
 function BackendAdmin() {
   const { user } = useContext(UserContext);
@@ -34,16 +33,15 @@ function BackendAdmin() {
   }, [data, setAllUsers]);
 
   return (
-    <>
+    <PageContainer>
       {user && (
         <>
-          <h1>BackendAdmin</h1>
-          <hr />
+          <h1>AdminBackend</h1>
           <CreateUserForm {...{ setAllUsers }} />
-          <FlexDiv>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</FlexDiv>
+          <UserCardContainer>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</UserCardContainer>
         </>
       )}
-    </>
+    </PageContainer>
   );
 }
 

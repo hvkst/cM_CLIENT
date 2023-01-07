@@ -7,6 +7,7 @@ import { IconButton } from '@mui/material';
 import CommentDiv from '../../Main/Comments/Comments';
 import CommentForm from '../../Main/CommentForm/CommentForm';
 import { SectionContainer, SectionPaper } from './SectionCard.styles';
+import SimpleAccordion from '../../Main/SimpleAccordion/SimpleAccordion';
 
 export default function SectionCard({ section, project, setProject }) {
   return (

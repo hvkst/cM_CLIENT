@@ -4,9 +4,10 @@ import { useGetFetch } from '../../hooks/useGetFetch';
 import AddSection from '../../components/Admin/AddSection/AddSection';
 import { ProjectContext } from '../../context/ProjectContext';
 import SectionCard from '../../components/Admin/SectionCard/SectionCard';
-import { AdminUserPageContainer, SectionContainer, UpperContainer } from './AdminUserPage.style';
+import { AdminUserPageContainer, SectionContainer, UpperContainer, RightContainer } from './AdminUserPage.style';
 import UpdateUserForm from '../../components/Admin/UpdateUserForm/UpdateUserForm';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
+import DeleteUser from '../../components/Admin/DeleteUser/DeleteUser';
 
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
@@ -31,13 +32,17 @@ function AdminUserPage() {
 
   return (
     <AdminUserPageContainer>
+      <h1>AdminUserPage</h1>
       {fullUserData && (
         <>
           <UpperContainer>
             <SimplePaper>
               <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject }} />
             </SimplePaper>
-            <AddSection {...{ project, setProject }} />
+            <RightContainer>
+              <DeleteUser user={fullUserData} />
+              <AddSection {...{ project, setProject }} />
+            </RightContainer>
           </UpperContainer>
           {project.sections && (
             <>

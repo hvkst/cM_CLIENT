@@ -21,7 +21,11 @@ function ContactForm() {
   const [isValid, setIsValid] = useState(false);
 
   const handleChange = (event) => {
-    if (state.name !== '' && state.mail !== '') setIsValid(true);
+    if (state.name !== '' && state.mail !== '') {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
 
     setState((old) => {
       let newValue = event.target.value;

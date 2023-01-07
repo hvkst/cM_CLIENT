@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { confirmDelete, deleteUser, germanDate } from '../../../utils';
+import { confirmDelete, germanDate } from '../../../utils';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 import { UserData } from './UserCard.style';
 import moment from 'moment/moment';
@@ -26,14 +26,14 @@ export default function UserCard({ user, setAllUsers }) {
           </p>
         </UserData>
 
-        <IconButton
+        {/* <IconButton
           color="primary"
           onClick={() => {
             confirmDelete(deleteUser, user._id, setAllUsers);
           }}
         >
           <DeleteForeverIcon />
-        </IconButton>
+        </IconButton> */}
       </SimplePaper>
     </MyLink>
   );

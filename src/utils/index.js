@@ -3,10 +3,11 @@
 import moment from 'moment/moment';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function shorterTime(str) {
+export function shorterTime(str) {
   if (str === undefined) return null;
   const letterT = str.indexOf('T');
   return str.substring(0, letterT);
@@ -32,7 +33,7 @@ export function commentTime(str) {
   return `${day}.${month} - ${time}`;
 }
 
-async function logout(logoutUser) {
+export async function logout(logoutUser) {
   try {
     await fetch(BASE_URL + '/auth/logout', {
       method: 'POST',
@@ -45,33 +46,7 @@ async function logout(logoutUser) {
   }
 }
 
-async function deleteUser(id, setAllUsers) {
-  try {
-    const body = { userId: id };
-    console.log('delete this', body);
-
-    const url = BASE_URL + '/admin/user/remove';
-
-    const res = await fetch(url, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(body),
-    });
-    const data = await res.json();
-    setAllUsers(data.allUsers);
-
-    console.log('User deleted on Clientside');
-  } catch (err) {
-    console.error(err);
-  }
-
-  console.log('The end of...deleteUser');
-}
-
-async function confirmDelete(callback, arg1, arg2, arg3) {
+export async function confirmDelete(callback, arg1, arg2, arg3) {
   confirmAlert({
     title: 'Confirm to DELETE',
     message: 'Are you sure to do this?',
@@ -87,7 +62,7 @@ async function confirmDelete(callback, arg1, arg2, arg3) {
   });
 }
 
-async function deleteSection(section, project, setProject) {
+export async function deleteSection(section, project, setProject) {
   try {
     const body = { sectionId: section._id, projectId: project._id };
 
@@ -114,7 +89,7 @@ async function deleteSection(section, project, setProject) {
   console.log('The end of...deleteSection');
 }
 
-async function updateSection(newSectionData, section, project, setProject) {
+export async function updateSection(newSectionData, section, project, setProject) {
   try {
     const body = { ...newSectionData, sectionId: section._id, projectId: project._id };
 
@@ -167,4 +142,4 @@ export async function updateUser(updatedUserData, setFullUserdata, setProject) {
   console.log('The end of...USER update');
 }
 
-export { shorterTime, deleteUser, confirmDelete, deleteSection, updateSection };
+// export { shorterTime, confirmDelete, deleteSection, updateSection };
