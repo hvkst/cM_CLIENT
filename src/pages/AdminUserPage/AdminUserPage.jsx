@@ -7,12 +7,14 @@ import { ProjectContext } from '../../context/ProjectContext';
 import SectionCard from '../../components/Admin/SectionCard/SectionCard';
 import { FlexDiv } from '../../styles';
 import { AdminUserPageContainer, UserDataContainer } from './AdminUserPage.style';
+import moment from 'moment/moment';
 
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
   // const [projectData, setProjectData] = useState();
   const params = useParams();
+  const timeLeft = new moment().to(moment(project.dueDate), true);
 
   // Get full user
   const data = useGetFetch('/admin/user/' + params.id);
@@ -34,11 +36,12 @@ function AdminUserPage() {
     <AdminUserPageContainer>
       {fullUserData && (
         <>
-          <UserDataContainer>
+          <UserDataContainer {...{ timeLeft }}>
             <h1>{fullUserData.username}</h1>
             <p>{project.title}</p>
             <p>created at: {germanDate(project.createdAt)}</p>
             <p>due date: {germanDate(project.dueDate)}</p>
+            <span className="timeLeftSpan">{timeLeft} left.</span>
           </UserDataContainer>
           <AddSection {...{ project, setProject }} />
 

@@ -11,17 +11,19 @@ import moment from 'moment/moment';
 export default function UserCard({ user, setAllUsers }) {
   const projectLink = `/adminbackend/user/${user._id}`;
 
-  console.log(user);
+  const timeLeft = new moment().to(moment(user.projects[0].dueDate), true);
 
   return (
     <MyLink to={projectLink}>
       <SimplePaper>
-        <UserData>
+        <UserData {...{ timeLeft }}>
           <h3>{user.username}</h3>
           <p>{user.projects[0].title}</p>
           <p>created at: {germanDate(user.projects[0].createdAt)}</p>
           <p>due date: {germanDate(user.projects[0].dueDate)}</p>
-          <p>{new moment().to(moment(user.projects[0].dueDate), true)} left</p>
+          <p>
+            <span className="timeLeftSpan">{timeLeft} left.</span>
+          </p>
         </UserData>
 
         <IconButton

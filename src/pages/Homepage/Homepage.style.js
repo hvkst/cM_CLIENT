@@ -39,24 +39,20 @@ export const TopSection = styled.section`
 
 export const HeroOuterContainer = styled.div`
   width: 500px;
-  height: auto;
+  aspect-ratio: 1 / 1;
   position: relative;
   margin-right: 12.5rem;
 
   @media ${device.mobile} {
     width: 200px;
-    height: auto;
     margin-right: 0;
   }
   @media ${device.tablet} {
     width: 300px;
-    height: auto;
     margin-right: 0;
   }
   @media ${device.laptop} {
     width: 350px;
-    height: auto;
-    /* margin-right: 6rem; */
   }
 `;
 
