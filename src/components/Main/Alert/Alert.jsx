@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 export default function CustomAlert({ closeAlert, alertMessage }) {
   const nicerMessage = () => {
     if (alertMessage.includes('E11000')) return 'Username already in use.';
+    return alertMessage;
   };
 
   return (

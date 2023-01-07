@@ -7,9 +7,9 @@ export const SingleProductCardContainer = styled(Box)`
   align-items: center;
   min-width: 320px;
   width: ${(props) => props.width};
-  background-color: rgba(184, 162, 255, 0.2);
+  background-color: #f5f5dc;
   margin: 25px 10px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   h2 {
     margin: 0;
   }

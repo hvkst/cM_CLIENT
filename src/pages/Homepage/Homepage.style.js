@@ -72,14 +72,14 @@ export const HeroContainer = styled.div`
     align-self: flex-end;
     border-radius: 0;
     padding: 0.6rem 1.5rem;
-    transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
 
-    &:hover {
-      /* background-color: #3d8b48; */
-      border-color: white;
-      color: white;
-      box-shadow: inset 0 -3rem 0 #3d8b48;
-    }
+    /* &:hover { */
+    /* background-color: #3d8b48; */
+    /* border-color: white; */
+    /* color: white; */
+    /* box-shadow: inset 0 -3rem 0 #3d8b48; */
+    /* } */
   }
   &:after {
     width: 100%;
@@ -180,17 +180,23 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const HeadingContainer = styled.div`
-  position: relative;
-  background-color: #ffc071;
-  margin: 3rem 0 1rem;
-  #heading {
-    font-size: 2.5rem;
-    padding: 0 10px;
-    margin: 0.2rem;
-    transition: all 0.5s ease-in-out;
-  }
-`;
+// export const HeadingContainer = styled.div`
+//   position: relative;
+//   background-color: #ffc071;
+//   margin: 3rem 0 1rem;
+//   border-bottom: 3px solid #222;
+//   border-top: 3px solid transparent;
+//   transition: all 0.5s ease-in-out;
+//   #heading {
+//     font-size: 2.5rem;
+//     padding: 0 10px;
+//     margin: 0.2rem;
+//   }
+//   &:hover {
+//     border-bottom: 3px solid transparent;
+//     border-top: 3px solid #000;
+//   }
+// `;
 // export const HeadingContainer = styled.div`
 //   position: relative;
 //   &:after {
@@ -225,6 +231,33 @@ export const HeadingContainer = styled.div`
 //     }
 //   }
 // `;
+export const HeadingContainer = styled.div`
+  position: relative;
+  &:after {
+    width: 50%;
+    height: 70%;
+    background-color: #ffc071;
+    position: absolute;
+    transform: rotate(2deg);
+
+    right: 0;
+    top: 20%;
+    z-index: -1;
+    content: '';
+    transition: all 0.5s ease-in-out;
+    border-bottom: 0.2em solid transparent;
+  }
+  /* &:hover:after {
+    transform: rotate(0deg);
+    border-bottom: 0.3em solid rgba(0, 0, 0, 0.87);
+    background-color: #f5f5dc;
+    top: 15%;
+  } */
+  #heading {
+    font-size: 2.5rem;
+    padding: 0 10px;
+  }
+`;
 
 export const MidSection = styled.section`
   display: flex;

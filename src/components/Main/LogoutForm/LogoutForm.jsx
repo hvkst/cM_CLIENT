@@ -28,7 +28,7 @@ function LogoutForm() {
   };
 
   useEffect(() => {
-    user && setWhoIsLoggedIn(`Logged in as ${user.username} ${user.isAdmin ? ', Admin' : null}`);
+    user && setWhoIsLoggedIn(`Logged in as ${user.username} ${user.isAdmin ? ', Admin' : ''}`);
   }, [user]);
 
   return (

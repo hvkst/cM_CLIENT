@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 
 export const PaperwithPadding = styled(Paper)`
+  /* border-radius: 0; */
   margin: 20px;
   padding: 20px;
 `;

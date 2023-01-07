@@ -3,7 +3,7 @@ import Navbar from '../Main/Navbar/Navbar';
 // import SignupForm from '../Admin/SignupForm/SignupForm';
 import LoginForm from '../Admin/LoginForm/LoginForm';
 import BackendAdmin from '../../pages/BackendAdmin/BackendAdmin';
-import BackendUser from '../../pages/BackendUser/BackendUser';
+import UserBackend from '../../pages/UserBackend/UserBackend';
 import Homepage from '../../pages/Homepage/Homepage';
 import ErrorBoundary from '../Main/ErrorBoundary/ErrorBoundary';
 import AdminUserPage from '../../pages/AdminUserPage/AdminUserPage';
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       // { path: '/signup', element: <SignupForm /> },
       { path: '/adminbackend', element: <BackendAdmin /> },
       { path: '/adminbackend/user/:id', element: <AdminUserPage /> },
-      { path: '/userbackend', element: <BackendUser /> },
+      { path: '/userbackend', element: <UserBackend /> },
       { path: '/contactform', element: <ContactForm /> },
       { path: '/products', element: <Products /> },
       { path: '/about', element: <AboutUs /> },

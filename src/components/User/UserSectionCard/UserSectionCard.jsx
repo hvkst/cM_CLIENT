@@ -4,10 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import { styled } from '@mui/system';
 import CommentForm from '../../Main/CommentForm/CommentForm';
 import CommentDiv from '../../Main/Comments/Comments';
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 
 export default function UserSectionCard({ section }) {
   return (
-    <UCard>
+    <SimplePaper>
       <CardContent>
         <h4>{section.title}</h4>
         <Udiv>
@@ -30,7 +31,7 @@ export default function UserSectionCard({ section }) {
         <CommentForm {...{ section }} />
         <br />
       </CardContent>
-    </UCard>
+    </SimplePaper>
   );
 }
 

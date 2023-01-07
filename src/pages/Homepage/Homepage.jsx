@@ -41,7 +41,7 @@ function Homepage() {
               <p>Are you looking to improve your online presence, but not sure where to start?</p>
               <p>Elevate your business and stand out online with our top-quality website development, design, and marketing services.</p>
             </HeroContent>
-            <Button component={Link} to="/contactform" variant="outlined" id="herobutton">
+            <Button component={Link} to="/contactform" variant="contained" id="herobutton">
               Start Today
             </Button>
           </HeroContainer>
