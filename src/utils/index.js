@@ -1,5 +1,6 @@
 // import { BASE_URL } from '../hooks/config';
 
+import moment from 'moment/moment';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 

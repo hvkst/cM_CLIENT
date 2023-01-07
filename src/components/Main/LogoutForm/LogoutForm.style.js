@@ -6,6 +6,6 @@ export const LogoutFormContainer = styled.div`
   right: 0;
   & svg {
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
   }
 `;

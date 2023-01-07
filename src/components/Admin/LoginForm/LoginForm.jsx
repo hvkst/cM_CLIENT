@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { BASE_URL } from '../../../consts';
 import { UserContext } from '../../../context/UserContext';
-import { LoginFormContainer, ContactPaper, PageContainer } from './LoginForm.style';
+import { LoginFormContainer, PageContainer } from './LoginForm.style';
 import { Button, FormControl, TextField } from '@mui/material';
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -63,7 +64,7 @@ function LoginForm() {
 
   return (
     <PageContainer>
-      <ContactPaper elevation={5}>
+      <SimplePaper>
         <LoginFormContainer>
           <FormControl
             sx={{
@@ -78,7 +79,7 @@ function LoginForm() {
             </Button>
           </FormControl>
         </LoginFormContainer>
-      </ContactPaper>
+      </SimplePaper>
     </PageContainer>
   );
 }

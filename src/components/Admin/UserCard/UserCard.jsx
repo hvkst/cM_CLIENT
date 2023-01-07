@@ -1,48 +1,41 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { confirmDelete, deleteUser } from '../../../utils';
+import { confirmDelete, deleteUser, germanDate } from '../../../utils';
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { UserData } from './UserCard.style';
+import moment from 'moment/moment';
 
 export default function UserCard({ user, setAllUsers }) {
   const projectLink = `/adminbackend/user/${user._id}`;
 
+  console.log(user);
+
   return (
-    <UCard>
-      <CardContent>
-        <Typography variant="h5">{user.username}</Typography>
-      </CardContent>
-      <CardActions>
-        <MyLink to={projectLink} size="small">
-          <Button variant="outlined" size="small">
-            {user.projects[0].title}
-          </Button>
-        </MyLink>
-        <Button variant="outlined" size="small">
-          Edit user{' '}
-        </Button>
-        <Button
-          variant="outlined"
-          size="small"
+    <MyLink to={projectLink}>
+      <SimplePaper>
+        <UserData>
+          <h3>{user.username}</h3>
+          <p>{user.projects[0].title}</p>
+          <p>created at: {germanDate(user.projects[0].createdAt)}</p>
+          <p>due date: {germanDate(user.projects[0].dueDate)}</p>
+          <p>{new moment().to(moment(user.projects[0].dueDate), true)} left</p>
+        </UserData>
+
+        <IconButton
+          color="primary"
           onClick={() => {
             confirmDelete(deleteUser, user._id, setAllUsers);
           }}
         >
-          X
-        </Button>
-      </CardActions>
-    </UCard>
+          <DeleteForeverIcon />
+        </IconButton>
+      </SimplePaper>
+    </MyLink>
   );
 }
-
-const UCard = styled(Card)`
-  width: fit-content;
-  margin: 10px;
-`;
 
 const MyLink = styled(Link)`
   text-decoration: none;

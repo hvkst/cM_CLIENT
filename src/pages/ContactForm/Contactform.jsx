@@ -1,6 +1,7 @@
 // import axios from 'axios';
 import { Button, Checkbox, FormControl, FormControlLabel, MenuItem, TextField } from '@mui/material';
 import { useState } from 'react';
+import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
 // import { BASE_URL } from '../../../consts';
 import { PageContainer, ContactPaper } from './ContactForm.style';
 
@@ -73,8 +74,7 @@ function ContactForm() {
 
   return (
     <PageContainer>
-      {/* <ContactFormContainer> */}
-      <ContactPaper elevation={5}>
+      <SimplePaper>
         <FormControl
           sx={{
             '& .MuiTextField-root': { m: 1, width: '30vw', minWidth: '30ch' },
@@ -93,15 +93,14 @@ function ContactForm() {
           </TextField>
 
           <TextField multiline onChange={handleChange} value={state.message} id="outlined-multiline-flexible" name="message" label="Message" />
-          <FormControlLabel sx={{ m: 1 }} onChange={handleCheck} name="callback" control={<Checkbox />} label="Call me back!" />
+          <FormControlLabel sx={{ m: 1 }} onChange={handleCheck} name="callback" control={<Checkbox />} label="I wish to be called back by phone." />
           {isValid && (
             <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} onClick={sendToServer} variant="outlined">
               send
             </Button>
           )}
         </FormControl>
-      </ContactPaper>
-      {/* </ContactFormContainer> */}
+      </SimplePaper>
     </PageContainer>
   );
 }

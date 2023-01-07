@@ -2,7 +2,11 @@
 import { useState } from 'react';
 import { DataInput } from '../../../styles';
 // import { BASE_URL } from '../../../consts';
-import { FormContainer, Button } from './CreateUserForm.style';
+import { FormContainer } from './CreateUserForm.style';
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { Button, FormControl, TextField, IconButton } from '@mui/material';
+
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 const emptyNewUserState = {
   username: '',
@@ -52,18 +56,35 @@ function CreateUserForm({ setAllUsers }) {
   };
 
   return (
-    <>
-      <h2>Create User</h2>
+    <SimplePaper>
       <FormContainer>
-        <DataInput type="text" name="username" value={newUserState.username} onChange={handleChange} placeholder="User" />
-        <DataInput type="password" name="password" value={newUserState.password} placeholder="Password" onChange={handleChange} />
+        <FormControl
+          sx={{
+            '& .MuiTextField-root': { m: 1 },
+          }}
+        >
+          <h2>Create User</h2>
+          <div>
+            <TextField type="text" name="username" value={newUserState.username} onChange={handleChange} label="Username" />
+            <TextField type="password" name="password" value={newUserState.password} label="Password" onChange={handleChange} />
+          </div>
+          <div>
+            <TextField type="text" name="project" value={newUserState.project} label="Project" onChange={handleChange} />
+            <TextField
+              type="date"
+              name="duedate"
+              value={newUserState.duedate}
+              InputLabelProps={{ shrink: true }}
+              label="Due Date"
+              onChange={handleChange}
+            />
+            <IconButton sx={{ marginTop: '26px' }} color="primary" onClick={sendToServer}>
+              <CheckBoxIcon />
+            </IconButton>
+          </div>
+        </FormControl>
       </FormContainer>
-      <FormContainer>
-        <DataInput type="text" name="project" value={newUserState.project} placeholder="Project" onChange={handleChange} />
-        <DataInput type="date" name="duedate" value={newUserState.duedate} placeholder="Due Date" onChange={handleChange} />
-        <Button onClick={sendToServer}>Create</Button>
-      </FormContainer>
-    </>
+    </SimplePaper>
   );
 }
 export default CreateUserForm;
