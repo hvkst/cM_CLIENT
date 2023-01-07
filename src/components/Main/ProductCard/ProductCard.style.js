@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-
-export const SingleProductCardContainer = styled.div`
+import Box from '@mui/material/Box';
+export const SingleProductCardContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   /* justify-content: center; */

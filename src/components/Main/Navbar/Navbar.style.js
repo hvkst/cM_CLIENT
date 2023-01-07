@@ -86,3 +86,16 @@ export const NavbarExtendedContainer = styled.div`
     display: none;
   }
 `;
+
+export const Footer = styled.section`
+  background-color: #ffc071;
+  /* margin-top: 100px; */
+  /* border-top: 1px solid rgba(0, 0, 0, 0.5); */
+  box-shadow: 0px 12px 37px -4px #000000;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+`;

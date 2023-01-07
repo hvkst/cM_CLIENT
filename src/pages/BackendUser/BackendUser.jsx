@@ -57,7 +57,7 @@ function BackendUser() {
   }, [user, loading, setProject]);
 
   return (
-    <>
+    <div className="content-container">
       <h1>BackendUser</h1>
       {fullUserData && (
         <>
@@ -74,7 +74,7 @@ function BackendUser() {
           )}
         </>
       )}
-    </>
+    </div>
   );
 }
 export default BackendUser;

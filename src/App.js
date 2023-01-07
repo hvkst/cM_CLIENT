@@ -1,3 +1,5 @@
+import './App.css';
+
 import withRoot from './modules/withRoot';
 
 import { RouterProvider } from 'react-router-dom';

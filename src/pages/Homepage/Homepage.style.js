@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../utils/mediaQueries';
+import Box from '@mui/material/Box';
 
 export const lorem25 =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
@@ -179,23 +180,57 @@ export const ImageContainer = styled.div`
   }
 `;
 
+export const HeadingContainer = styled.div`
+  position: relative;
+  background-color: #ffc071;
+  margin: 3rem 0 1rem;
+  #heading {
+    font-size: 2.5rem;
+    padding: 0 10px;
+    margin: 0.2rem;
+    transition: all 0.5s ease-in-out;
+  }
+`;
+// export const HeadingContainer = styled.div`
+//   position: relative;
+//   &:after {
+//     width: 100%;
+//     height: 60%;
+//     background-color: #ffc071;
+//     transform: rotate(2deg);
+//     position: absolute;
+//     left: 0;
+//     top: 22%;
+//     z-index: -1;
+//     content: '';
+//     transition: all 0.5s ease-in-out;
+//     border-bottom: 0.2em solid transparent;
+//   }
+//   &:hover:after {
+//     transform: rotate(0deg);
+//     border-bottom: 0.3em solid rgba(0, 0, 0, 0.87);
+//     background-color: #f5f5dc;
+//     top: 15%;
+//   }
+//   #heading {
+//     font-size: 2.5rem;
+//     padding: 0 10px;
+//     /* box-shadow: inset 0 -0.2em 0 darkslateblue; */
+//     transition: all 0.5s ease-in-out;
+//     &:hover {
+//       /* box-shadow: inset 0 -1.5em 0 #f5f5dc; */
+//       /* border-bottom: 0.2em solid darkslateblue; */
+//       /* box-shadow: inset 0 -0.1em 0 #999; */
+//       /* background-color: white; */
+//     }
+//   }
+// `;
+
 export const MidSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f5f5dc;
-  #heading {
-    font-size: 2.5rem;
-    margin: 2rem 0;
-    padding: 0 5px;
-    box-shadow: inset 0 -0.4em 0 darkslateblue;
-    transition: all 0.5s ease-in-out;
-
-    &:hover {
-      box-shadow: inset 0 -1.4em 0 darkslateblue;
-      color: white;
-    }
-  }
+  /* z-index: -1; */
 `;
 
 export const ProductCardsContainer = styled.div`

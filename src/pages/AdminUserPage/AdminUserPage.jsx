@@ -31,31 +31,33 @@ function AdminUserPage() {
   }, [data, setProject]);
 
   return (
-    <AdminUserPageContainer>
-      <h1>AdminUserPage</h1>
-      {fullUserData && (
-        <>
-          <UpperContainer>
-            <SimplePaper>
-              <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject }} />
-            </SimplePaper>
-            <RightContainer>
-              <DeleteUser user={fullUserData} />
-              <AddSection {...{ project, setProject }} />
-            </RightContainer>
-          </UpperContainer>
-          {project.sections && (
-            <>
-              <SectionContainer>
-                {project.sections.map((section) => {
-                  return <SectionCard key={section._id} {...{ section, project, setProject }} />;
-                })}
-              </SectionContainer>
-            </>
-          )}
-        </>
-      )}
-    </AdminUserPageContainer>
+    <div className="content-container">
+      <AdminUserPageContainer>
+        <h1>AdminUserPage</h1>
+        {fullUserData && (
+          <>
+            <UpperContainer>
+              <SimplePaper>
+                <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject }} />
+              </SimplePaper>
+              <RightContainer>
+                <DeleteUser user={fullUserData} />
+                <AddSection {...{ project, setProject }} />
+              </RightContainer>
+            </UpperContainer>
+            {project.sections && (
+              <>
+                <SectionContainer>
+                  {project.sections.map((section) => {
+                    return <SectionCard key={section._id} {...{ section, project, setProject }} />;
+                  })}
+                </SectionContainer>
+              </>
+            )}
+          </>
+        )}
+      </AdminUserPageContainer>
+    </div>
   );
 }
 

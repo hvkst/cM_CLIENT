@@ -12,6 +12,7 @@ import {
   maintenance,
   ImageContainer,
   consulting,
+  HeadingContainer,
 } from './Homepage.style';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
@@ -22,10 +23,13 @@ import FactCheckIcon from '@mui/icons-material/FactCheck';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import WebIcon from '@mui/icons-material/Web';
 import Groups3Icon from '@mui/icons-material/Groups3';
+import CallIcon from '@mui/icons-material/Call';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 
 function Homepage() {
   return (
-    <>
+    <div className="content-container">
       <TopSection>
         <HeroOuterContainer>
           <ImageContainer>
@@ -44,7 +48,9 @@ function Homepage() {
         </HeroOuterContainer>
       </TopSection>
       <MidSection>
-        <h2 id="heading">Products & Services</h2>
+        <HeadingContainer>
+          <h2 id="heading">Products & Services</h2>
+        </HeadingContainer>
 
         <ProductCardsContainer>
           <ProductCard icon={<WebIcon color="primary" />} heading="Website development" content={website} width="25%"></ProductCard>
@@ -54,7 +60,9 @@ function Homepage() {
       </MidSection>
 
       <LowerMidSection>
-        <h2 id="heading">Consulting</h2>
+        <HeadingContainer>
+          <h2 id="heading">Consulting</h2>
+        </HeadingContainer>
         <ProductCardsContainer>
           <ProductCard
             id="consulting"
@@ -67,18 +75,16 @@ function Homepage() {
       </LowerMidSection>
 
       <LowerMidSection>
-        <h2 id="heading">How it works</h2>
+        <HeadingContainer>
+          <h2 id="heading">How it works</h2>
+        </HeadingContainer>
         <ProductCardsContainer>
-          <ProductCard icon={<HomeRepairServiceIcon color="primary" />} heading="More Content" content="content"></ProductCard>
-          <ProductCard icon={<ManageAccountsIcon color="primary" />} heading="More Content" content="content"></ProductCard>
-          <ProductCard icon={<FactCheckIcon color="primary" />} heading="More Content" content="content"></ProductCard>
+          <ProductCard icon={<CallIcon color="primary" />} heading="More Content" content="content"></ProductCard>
+          <ProductCard icon={<EngineeringIcon color="primary" />} heading="More Content" content="content"></ProductCard>
+          <ProductCard icon={<InsertEmoticonIcon color="primary" />} heading="More Content" content="content"></ProductCard>
         </ProductCardsContainer>
       </LowerMidSection>
-
-      <LowerMidSection>
-        <h2 id="heading">Footer</h2>
-      </LowerMidSection>
-    </>
+    </div>
   );
 }
 export default Homepage;

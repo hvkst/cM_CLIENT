@@ -33,15 +33,17 @@ function BackendAdmin() {
   }, [data, setAllUsers]);
 
   return (
-    <PageContainer>
-      {user && (
-        <>
-          <h1>AdminBackend</h1>
-          <CreateUserForm {...{ setAllUsers }} />
-          <UserCardContainer>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</UserCardContainer>
-        </>
-      )}
-    </PageContainer>
+    <div className="content-container">
+      <PageContainer>
+        {user && (
+          <>
+            <h1>AdminBackend</h1>
+            <CreateUserForm {...{ setAllUsers }} />
+            <UserCardContainer>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</UserCardContainer>
+          </>
+        )}
+      </PageContainer>
+    </div>
   );
 }
 

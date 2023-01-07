@@ -11,11 +11,16 @@ import {
   Logo,
   OpenLinksButton,
   NavbarLinkExtended,
+  Footer,
 } from './Navbar.style';
 import LogoImg from './logo.png';
 import LogoutForm from '../LogoutForm/LogoutForm';
 import { UserContext } from '../../../context/UserContext';
 // import { useTheme } from '@mui/material';
+import { IconButton } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const { user } = useContext(UserContext);
@@ -54,7 +59,7 @@ function Navbar() {
         {extendNavbar && (
           <NavbarExtendedContainer>
             <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
-            <NavbarLinkExtended to="/products"> Products</NavbarLinkExtended>
+            <NavbarLinkExtended to="#products"> Products</NavbarLinkExtended>
             <NavbarLinkExtended to="/contact"> Contact Us</NavbarLinkExtended>
             <NavbarLinkExtended to="/about"> About Us</NavbarLinkExtended>
           </NavbarExtendedContainer>
@@ -62,6 +67,14 @@ function Navbar() {
       </NavbarContainer>
       {/* <LogoutForm /> */}
       <Outlet />
+      <Footer>
+        <IconButton component={Link} to="http://www.github.com" color="primary">
+          <GitHubIcon />
+        </IconButton>
+        <IconButton component={Link} to="http://www.github.com" color="primary">
+          <LinkedInIcon />
+        </IconButton>
+      </Footer>
     </>
   );
 }
