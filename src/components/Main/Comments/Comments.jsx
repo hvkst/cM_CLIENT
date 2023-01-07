@@ -5,8 +5,8 @@ import { CommentContainer, NameAndTimeContainer } from './Comments.style';
 
 function CommentDiv({ comment }) {
   const { user } = useContext(UserContext);
-  console.log(user);
-  console.log(comment.createdAt);
+  // console.log(user);
+  // console.log(comment.createdAt);
   return (
     <>
       <CommentContainer userIsAdmin={user.isAdmin} commentIsAdmin={comment.isAdmin}>

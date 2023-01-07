@@ -140,4 +140,31 @@ async function updateSection(newSectionData, section, project, setProject) {
   console.log('The end of...section update');
 }
 
+export async function updateUser(updatedUserData, setFullUserdata, setProject) {
+  try {
+    const body = { ...updatedUserData };
+
+    const url = BASE_URL + '/admin/user/update';
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+
+    setProject(data.updatedUser.projects[0]);
+    setFullUserdata(data.updatedUser);
+
+    console.log('Section updated on Clientside');
+  } catch (err) {
+    console.error(err);
+  }
+
+  console.log('The end of...USER update');
+}
+
 export { shorterTime, deleteUser, confirmDelete, deleteSection, updateSection };
