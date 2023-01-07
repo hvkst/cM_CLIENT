@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetFetch } from '../../hooks/useGetFetch';
-import { germanDate } from '../../utils';
 import AddSection from '../../components/Admin/AddSection/AddSection';
 import { ProjectContext } from '../../context/ProjectContext';
 import SectionCard from '../../components/Admin/SectionCard/SectionCard';
-import { FlexDiv } from '../../styles';
-import { AdminUserPageContainer, UserDataContainer } from './AdminUserPage.style';
+import { AdminUserPageContainer, SectionContainer, UpperContainer } from './AdminUserPage.style';
 import UpdateUserForm from '../../components/Admin/UpdateUserForm/UpdateUserForm';
+import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
 
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
@@ -34,18 +33,19 @@ function AdminUserPage() {
     <AdminUserPageContainer>
       {fullUserData && (
         <>
-          <UserDataContainer>
-            <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject }} />
-          </UserDataContainer>
-          <AddSection {...{ project, setProject }} />
-
+          <UpperContainer>
+            <SimplePaper>
+              <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject }} />
+            </SimplePaper>
+            <AddSection {...{ project, setProject }} />
+          </UpperContainer>
           {project.sections && (
             <>
-              <FlexDiv>
+              <SectionContainer>
                 {project.sections.map((section) => {
                   return <SectionCard key={section._id} {...{ section, project, setProject }} />;
                 })}
-              </FlexDiv>
+              </SectionContainer>
             </>
           )}
         </>

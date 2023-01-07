@@ -52,7 +52,14 @@ function UpdateUserForm({ fullUserData, setFullUserdata, setProject }) {
             '& .MuiTextField-root': { m: 1 },
           }}
         >
-          <TextField variant="standard" onChange={handleChange} value={state.username} id="Username" name="username" />
+          <TextField
+            inputProps={{ style: { fontSize: 25, lineHeight: 1.2 } }}
+            variant="standard"
+            onChange={handleChange}
+            value={state.username}
+            id="Username"
+            name="username"
+          />
           <TextField variant="standard" onChange={handleChange} value={state.project} id="Username" name="project" />
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker

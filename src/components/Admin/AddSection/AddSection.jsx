@@ -1,8 +1,8 @@
 // import axios from 'axios';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
-import { DataInput } from '../../../styles';
-import { AddSectionContainer } from './AddSection.style';
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+
 // import { BASE_URL } from '../../../consts'; //FIX THIS!
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -20,6 +20,7 @@ function EditSection({ project, setProject }) {
 
   const sendToServer = async () => {
     try {
+      if (sectionState.section === '') return;
       const formBody = { ...sectionState, projectId: project._id };
       console.log(formBody);
 
@@ -47,10 +48,10 @@ function EditSection({ project, setProject }) {
   };
 
   return (
-    <AddSectionContainer>
-      <DataInput type="text" name="section" value={sectionState.section} placeholder="new section" onChange={handleChange} />
+    <SimplePaper>
+      <TextField variant="standard" type="text" name="section" value={sectionState.section} placeholder="new section" onChange={handleChange} />
       <Button onClick={sendToServer}>Add</Button>
-    </AddSectionContainer>
+    </SimplePaper>
   );
 }
 export default EditSection;

@@ -1,19 +1,17 @@
 import styled from 'styled-components';
 
 export const AdminUserPageContainer = styled.div`
+  background-color: #f5f5dc;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   /* justify-content: center; */
 `;
-
-export const UserDataContainer = styled.div`
-  flex-direction: column;
-  border: 1px solid black;
-  margin: 10px;
-  padding: 10px 10px;
-  border-radius: 10px;
-  * {
-    margin: 5px;
-  }
+export const UpperContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+export const SectionContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

@@ -1,10 +1,14 @@
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Button, FormControl } from '@mui/material';
 import { useState } from 'react';
-import { updateSection } from '../../../utils';
+import { updateSection, deleteSection, confirmDelete } from '../../../utils';
 import { useContext } from 'react';
 import { ProjectContext } from '../../../context/ProjectContext';
+
+import { FormControl, TextField, IconButton } from '@mui/material';
+
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { IconContainer, FormContainer, HeadTextField } from './UpdateSectionForm.style';
 
 function UpdateSectionForm({ section }) {
   const { project, setProject } = useContext(ProjectContext);
@@ -33,33 +37,47 @@ function UpdateSectionForm({ section }) {
   };
 
   return (
-    <div>
-      <Box
-        sx={{
-          '& .MuiTextField-root': { m: 1 },
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          {/* <FormControl> */}
-          <TextField onChange={handleChange} value={state.title} id="title" name="title" label="Title" />
-          <TextField onChange={handleChange} value={state.description} name="description" label="Description" />
-          <TextField onChange={handleChange} value={state.prep} name="prep" label="Prep" />
-          <TextField onChange={handleChange} value={state.main} name="main" label="Main" />
-          <TextField onChange={handleChange} value={state.final} name="final" label="Final" />
-          <Button onClick={handleClick} variant="outlined">
-            save
-          </Button>
-          {/* </FormControl> */}
-        </div>
-      </Box>
-    </div>
+    <>
+      <FormContainer>
+        <FormControl>
+          <TextField
+            inputProps={{ style: { fontSize: 25, lineHeight: 1.2 } }}
+            sx={{ m: 2 }}
+            multiline
+            variant="standard"
+            onChange={handleChange}
+            value={state.title}
+            id="title"
+            name="title"
+          />
+          <TextField
+            multiline
+            variant="standard"
+            onChange={handleChange}
+            sx={{ m: 1 }}
+            value={state.description}
+            name="description"
+            label="Description"
+          />
+          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.prep} name="prep" label="Prep" />
+          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.main} name="main" label="Main" />
+          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.final} name="final" label="Final" />
+        </FormControl>
+        <IconContainer>
+          <IconButton
+            color="primary"
+            onClick={() => {
+              confirmDelete(deleteSection, section, project, setProject);
+            }}
+          >
+            <DeleteForeverIcon />
+          </IconButton>
+          <IconButton color="primary" onClick={handleClick}>
+            <CheckBoxIcon />
+          </IconButton>
+        </IconContainer>
+      </FormContainer>
+    </>
   );
 }
 

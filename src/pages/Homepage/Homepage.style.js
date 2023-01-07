@@ -18,7 +18,7 @@ export const consulting =
 
 export const TopSection = styled.section`
   box-sizing: border-box;
-  border: 0.5rem solid white;
+  border: 0.5rem solid #fff;
   background-color: #3d8b48;
   border-radius: 1rem;
   width: 100%;
@@ -183,6 +183,7 @@ export const MidSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f5f5dc;
   #heading {
     font-size: 2.5rem;
     margin: 2rem 0;
