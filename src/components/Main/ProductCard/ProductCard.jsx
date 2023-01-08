@@ -1,5 +1,4 @@
 import { SingleProductCardContainer, Icon, Content } from './ProductCard.style';
-import { shadows } from '@mui/system';
 
 function ProductCard({ icon, heading, content, width }) {
   return (

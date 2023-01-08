@@ -1,14 +1,12 @@
-import Box from '@mui/material/Box';
 import { useState } from 'react';
-import { updateSection, deleteSection, confirmDelete } from '../../../utils';
 import { useContext } from 'react';
 import { ProjectContext } from '../../../context/ProjectContext';
+import { updateSection, deleteSection, confirmDelete } from '../../../utils';
 
 import { FormControl, TextField, IconButton } from '@mui/material';
-
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { IconContainer, FormContainer, HeadTextField } from './UpdateSectionForm.style';
+import { IconContainer, FormContainer } from './UpdateSectionForm.style';
 
 function UpdateSectionForm({ section }) {
   const { project, setProject } = useContext(ProjectContext);
@@ -32,7 +30,6 @@ function UpdateSectionForm({ section }) {
   };
 
   const handleClick = (e) => {
-    // e.preventDefault();
     updateSection(state, section, project, setProject);
   };
 

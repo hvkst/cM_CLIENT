@@ -1,8 +1,8 @@
 import * as React from 'react';
-import CardContent from '@mui/material/CardContent';
 import UpdateSectionForm from '../UpdateSectionForm/UpdateSectionForm';
 import CommentDiv from '../../Main/Comments/Comments';
 import CommentForm from '../../Main/CommentForm/CommentForm';
+import CardContent from '@mui/material/CardContent';
 import { InnerSectionContainer, SectionPaper } from './SectionCard.styles';
 
 export default function SectionCard({ section, project, setProject }) {
@@ -10,7 +10,9 @@ export default function SectionCard({ section, project, setProject }) {
     <InnerSectionContainer>
       <SectionPaper elevation={5}>
         <UpdateSectionForm key={section._id} {...{ section, project, setProject }} />
+        {/* HERE###################################################### */}
         <CardContent>
+          {/* HERE */}
           <p>Comments:</p>
           <div>
             {section.comments.map((comment) => {

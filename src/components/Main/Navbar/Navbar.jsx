@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import {
   NavbarContainer,
@@ -16,18 +17,14 @@ import {
 import LogoImg from './logo.png';
 import LogoutForm from '../LogoutForm/LogoutForm';
 import { UserContext } from '../../../context/UserContext';
-// import { useTheme } from '@mui/material';
 import { IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Link } from 'react-router-dom';
 
 function Navbar() {
   const { user } = useContext(UserContext);
 
   const [extendNavbar, setExtendNavbar] = useState(false);
-
-  // const theme = useTheme();
 
   return (
     <>
@@ -36,9 +33,7 @@ function Navbar() {
           <LeftContainer>
             <NavbarLinkContainer>
               <NavbarLink to="/"> Home</NavbarLink>
-              {/* <NavbarLink to="/products"> Products</NavbarLink> */}
               <NavbarLink to="/contactform"> Contact Us</NavbarLink>
-              {/* <NavbarLink to="/about"> About Us</NavbarLink> */}
               {user && user.isAdmin && <NavbarLink to="/adminbackend"> Dashboard</NavbarLink>}
               {user && !user.isAdmin && <NavbarLink to="/userbackend"> Dashboard</NavbarLink>}
 
@@ -59,19 +54,16 @@ function Navbar() {
         {extendNavbar && (
           <NavbarExtendedContainer>
             <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
-            {/* <NavbarLinkExtended to="#products"> Products</NavbarLinkExtended> */}
             <NavbarLinkExtended to="/contact"> Contact Us</NavbarLinkExtended>
-            {/* <NavbarLinkExtended to="/about"> About Us</NavbarLinkExtended> */}
           </NavbarExtendedContainer>
         )}
       </NavbarContainer>
-      {/* <LogoutForm /> */}
       <Outlet />
       <Footer>
         <IconButton component={Link} to="http://www.github.com" color="primary">
           <GitHubIcon />
         </IconButton>
-        <IconButton component={Link} to="http://www.github.com" color="primary">
+        <IconButton component={Link} to="http://www.linkedin.com" color="primary">
           <LinkedInIcon />
         </IconButton>
       </Footer>

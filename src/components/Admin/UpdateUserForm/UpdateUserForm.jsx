@@ -1,14 +1,12 @@
-import { TextField, IconButton, FormControl } from '@mui/material';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-
 import { useState } from 'react';
 import { updateUser } from '../../../utils';
 import moment from 'moment/moment';
-import { FormContainer } from './UpdateUserForm.style';
-
+import { TextField, IconButton, FormControl } from '@mui/material';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { FormContainer } from './UpdateUserForm.style';
 
 function UpdateUserForm({ fullUserData, setFullUserdata, setProject }) {
   const defaultState = {
@@ -40,7 +38,6 @@ function UpdateUserForm({ fullUserData, setFullUserdata, setProject }) {
   };
 
   const handleClick = (e) => {
-    // e.preventDefault();
     updateUser(userDataUpdate, setFullUserdata, setProject);
   };
 

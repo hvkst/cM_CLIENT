@@ -38,7 +38,6 @@ export async function logout(logoutUser) {
       credentials: 'include',
     });
     logoutUser();
-    // navigate('/');
   } catch (error) {
     console.warn(error.message);
   }
@@ -102,7 +101,6 @@ export async function updateSection(newSectionData, section, project, setProject
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    // console.log('server ANSWER', data.updatedProject[0]);
     setProject(data.updatedProject[0]);
 
     console.log('Section updated on Clientside');

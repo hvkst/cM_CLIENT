@@ -1,19 +1,18 @@
-import { confirmDelete, useDeleteUser } from '../../../utils';
+import { confirmDelete } from '../../../utils';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { IconButton } from '@mui/material';
 import { useContext } from 'react';
 import { AllUserContext } from '../../../context/AllUserContext';
 import Paper from '@mui/material/Paper';
-import SimplePaper from '../../Main/SimplePaper/SimplePaper';
-import { TextField, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function DeleteUser({ user }) {
-  const { allUsers, setAllUsers } = useContext(AllUserContext);
+  const { setAllUsers } = useContext(AllUserContext);
   const deleteWho = `Delete ${user.username}`;
   const navigate = useNavigate();
 

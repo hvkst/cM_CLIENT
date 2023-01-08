@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const UserData = styled.div`
   & .timeLeftSpan {
@@ -8,4 +9,8 @@ export const UserData = styled.div`
   & p {
     margin: 4px 0;
   }
+`;
+
+export const UserCardLink = styled(Link)`
+  text-decoration: none;
 `;

@@ -1,26 +1,24 @@
 // import axios from 'axios';
 import { useState } from 'react';
-// import { BASE_URL } from '../../../consts';
 import { FormContainer } from './CreateUserForm.style';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
-import { FormControl, TextField, IconButton } from '@mui/material';
+import CustomAlert from '../../Main/Alert/Alert';
 
+import moment from 'moment/moment';
+
+import { FormControl, TextField, IconButton } from '@mui/material';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import moment from 'moment/moment';
-import Alert from '../../Main/Alert/Alert';
-import CustomAlert from '../../Main/Alert/Alert';
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const emptyNewUserState = {
   username: '',
   password: '',
   project: '',
 };
-
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);
@@ -38,8 +36,6 @@ function CreateUserForm({ setAllUsers }) {
   };
 
   const sendToServer = async (e) => {
-    // e.preventDefault(); // ?
-
     try {
       if (newUserState.username === '' || newUserState.project === '') return;
 

@@ -3,13 +3,11 @@ import Box from '@mui/material/Box';
 export const SingleProductCardContainer = styled(Box)`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   min-width: 320px;
   width: ${(props) => props.width};
   background-color: #f5f5dc;
   margin: 25px 10px;
-  /* border-radius: 10px; */
   h2 {
     margin: 0;
   }
@@ -24,7 +22,6 @@ export const Icon = styled.p`
 `;
 
 export const Content = styled.p`
-  /* color: #fff; */
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   margin: 20px;
 `;

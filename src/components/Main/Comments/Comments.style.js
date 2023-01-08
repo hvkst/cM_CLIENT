@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const SingleCommentContainer = styled.div`
   font-size: 12px;
-  /* align-self: flex-start; */
   display: flex;
-  /* width: 100%; */
   word-break: break-word;
   justify-content: space-between;
   border: 1px solid lightgrey;

@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from 'react';
-// import { BASE_URL } from '../hooks/config';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 

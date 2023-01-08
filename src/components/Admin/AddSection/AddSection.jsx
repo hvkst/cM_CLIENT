@@ -1,9 +1,7 @@
 // import axios from 'axios';
-import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
-
-// import { BASE_URL } from '../../../consts'; //FIX THIS!
+import { Button, TextField } from '@mui/material';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -12,16 +10,16 @@ const emptySectionState = {
 };
 
 function EditSection({ project, setProject }) {
-  const [sectionState, setSectionState] = useState(emptySectionState);
+  const [newSectionState, setNewSectionState] = useState(emptySectionState);
 
   const handleChange = (e) => {
-    setSectionState((old) => ({ ...old, [e.target.name]: e.target.value }));
+    setNewSectionState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
   const sendToServer = async () => {
     try {
-      if (sectionState.section === '') return;
-      const formBody = { ...sectionState, projectId: project._id };
+      if (newSectionState.section === '') return;
+      const formBody = { ...newSectionState, projectId: project._id };
       console.log(formBody);
 
       const url = `${BASE_URL}/admin/user/section/add`;
@@ -37,19 +35,17 @@ function EditSection({ project, setProject }) {
       console.log('data:', data);
       setProject(data.project);
       console.log('Project edited on Client');
-
-      // navigate();
     } catch (err) {
       console.error(err);
     }
 
     console.log('We reach here... AddSectionForm');
-    setSectionState(emptySectionState);
+    setNewSectionState(emptySectionState);
   };
 
   return (
     <SimplePaper>
-      <TextField variant="standard" type="text" name="section" value={sectionState.section} placeholder="new section" onChange={handleChange} />
+      <TextField variant="standard" type="text" name="section" value={newSectionState.section} placeholder="new section" onChange={handleChange} />
       <Button onClick={sendToServer}>Add</Button>
     </SimplePaper>
   );

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { device } from '../../utils/mediaQueries';
-import Box from '@mui/material/Box';
 
 export const lorem25 =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
@@ -72,14 +71,6 @@ export const HeroContainer = styled.div`
     align-self: flex-end;
     border-radius: 0;
     padding: 0.6rem 1.5rem;
-    /* transition: all 0.5s ease-in-out; */
-
-    /* &:hover { */
-    /* background-color: #3d8b48; */
-    /* border-color: white; */
-    /* color: white; */
-    /* box-shadow: inset 0 -3rem 0 #3d8b48; */
-    /* } */
   }
   &:after {
     width: 100%;
@@ -95,7 +86,6 @@ export const HeroContainer = styled.div`
   }
   &:hover:after {
     transform: rotate(0deg);
-    /* border: 0.2rem solid white; */
   }
 
   @media ${device.mobile} {
@@ -180,57 +170,6 @@ export const ImageContainer = styled.div`
   }
 `;
 
-// export const HeadingContainer = styled.div`
-//   position: relative;
-//   background-color: #ffc071;
-//   margin: 3rem 0 1rem;
-//   border-bottom: 3px solid #222;
-//   border-top: 3px solid transparent;
-//   transition: all 0.5s ease-in-out;
-//   #heading {
-//     font-size: 2.5rem;
-//     padding: 0 10px;
-//     margin: 0.2rem;
-//   }
-//   &:hover {
-//     border-bottom: 3px solid transparent;
-//     border-top: 3px solid #000;
-//   }
-// `;
-// export const HeadingContainer = styled.div`
-//   position: relative;
-//   &:after {
-//     width: 100%;
-//     height: 60%;
-//     background-color: #ffc071;
-//     transform: rotate(2deg);
-//     position: absolute;
-//     left: 0;
-//     top: 22%;
-//     z-index: -1;
-//     content: '';
-//     transition: all 0.5s ease-in-out;
-//     border-bottom: 0.2em solid transparent;
-//   }
-//   &:hover:after {
-//     transform: rotate(0deg);
-//     border-bottom: 0.3em solid rgba(0, 0, 0, 0.87);
-//     background-color: #f5f5dc;
-//     top: 15%;
-//   }
-//   #heading {
-//     font-size: 2.5rem;
-//     padding: 0 10px;
-//     /* box-shadow: inset 0 -0.2em 0 darkslateblue; */
-//     transition: all 0.5s ease-in-out;
-//     &:hover {
-//       /* box-shadow: inset 0 -1.5em 0 #f5f5dc; */
-//       /* border-bottom: 0.2em solid darkslateblue; */
-//       /* box-shadow: inset 0 -0.1em 0 #999; */
-//       /* background-color: white; */
-//     }
-//   }
-// `;
 export const HeadingContainer = styled.div`
   position: relative;
   &:after {
@@ -247,12 +186,6 @@ export const HeadingContainer = styled.div`
     transition: all 0.5s ease-in-out;
     border-bottom: 0.2em solid transparent;
   }
-  /* &:hover:after {
-    transform: rotate(0deg);
-    border-bottom: 0.3em solid rgba(0, 0, 0, 0.87);
-    background-color: #f5f5dc;
-    top: 15%;
-  } */
   #heading {
     font-size: 2.5rem;
     padding: 0 10px;
@@ -263,7 +196,6 @@ export const MidSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* z-index: -1; */
 `;
 
 export const ProductCardsContainer = styled.div`

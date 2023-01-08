@@ -1,9 +1,8 @@
 // import axios from 'axios';
-import { Button, Checkbox, FormControl, FormControlLabel, MenuItem, TextField } from '@mui/material';
 import { useState } from 'react';
+import { Button, Checkbox, FormControl, FormControlLabel, MenuItem, TextField } from '@mui/material';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
-// import { BASE_URL } from '../../../consts';
-import { PageContainer, ContactPaper } from './ContactForm.style';
+import { PageContainer } from './ContactForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 

@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { styled } from '@mui/system';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { confirmDelete, germanDate } from '../../../utils';
-import SimplePaper from '../../Main/SimplePaper/SimplePaper';
-import { UserData } from './UserCard.style';
+import { germanDate } from '../../../utils';
 import moment from 'moment/moment';
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { UserData, UserCardLink } from './UserCard.style';
 
 export default function UserCard({ user, setAllUsers }) {
   const projectLink = `/adminbackend/user/${user._id}`;
@@ -14,7 +10,7 @@ export default function UserCard({ user, setAllUsers }) {
   const timeLeft = new moment().to(moment(user.projects[0].dueDate), true);
 
   return (
-    <MyLink to={projectLink}>
+    <UserCardLink to={projectLink}>
       <SimplePaper>
         <UserData {...{ timeLeft }}>
           <h3>{user.username}</h3>
@@ -25,20 +21,7 @@ export default function UserCard({ user, setAllUsers }) {
             <span className="timeLeftSpan">{timeLeft} left.</span>
           </p>
         </UserData>
-
-        {/* <IconButton
-          color="primary"
-          onClick={() => {
-            confirmDelete(deleteUser, user._id, setAllUsers);
-          }}
-        >
-          <DeleteForeverIcon />
-        </IconButton> */}
       </SimplePaper>
-    </MyLink>
+    </UserCardLink>
   );
 }
-
-const MyLink = styled(Link)`
-  text-decoration: none;
-`;

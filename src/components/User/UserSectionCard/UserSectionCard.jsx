@@ -1,7 +1,7 @@
-import { Paper } from '@mui/material';
 import * as React from 'react';
 import CommentForm from '../../Main/CommentForm/CommentForm';
 import CommentContainer from '../../Main/Comments/Comments';
+import { Paper } from '@mui/material';
 import { InnerSectionContainer, DataContainer, CommentsContainer } from './UserSectionCard.style';
 
 const checkForContent = (str) => {

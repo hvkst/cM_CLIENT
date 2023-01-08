@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import { BASE_URL } from '../../../consts';
-import { UserContext } from '../../../context/UserContext';
-import { LoginFormContainer, PageContainer } from './LoginForm.style';
-import { Button, FormControl, TextField } from '@mui/material';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { UserContext } from '../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import { Button, FormControl, TextField } from '@mui/material';
+import { LoginFormContainer, PageContainer } from './LoginForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 

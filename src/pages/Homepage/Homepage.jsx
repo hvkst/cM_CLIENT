@@ -1,4 +1,15 @@
 import ProductCard from '../../components/Main/ProductCard/ProductCard';
+import { Link } from 'react-router-dom';
+
+import Button from '@mui/material/Button';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import WebIcon from '@mui/icons-material/Web';
+import Groups3Icon from '@mui/icons-material/Groups3';
+import CallIcon from '@mui/icons-material/Call';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+
 import {
   TopSection,
   HeroContainer,
@@ -14,18 +25,6 @@ import {
   consulting,
   HeadingContainer,
 } from './Homepage.style';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
-
-import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import WebIcon from '@mui/icons-material/Web';
-import Groups3Icon from '@mui/icons-material/Groups3';
-import CallIcon from '@mui/icons-material/Call';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 
 function Homepage() {
   return (

@@ -1,9 +1,10 @@
-import { Box, Button, IconButton, TextField } from '@mui/material';
 import { useContext, useState } from 'react';
-import { ProjectContext } from '../../../context/ProjectContext';
 import { UserContext } from '../../../context/UserContext';
-import SendIcon from '@mui/icons-material/Send'; // import { BASE_URL } from '../../../consts';
+import { ProjectContext } from '../../../context/ProjectContext';
+import { Box, IconButton, TextField } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 import styled from 'styled-components';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const emptyCommentState = {
@@ -14,15 +15,12 @@ function CommentForm({ section }) {
   const [commentState, setCommentState] = useState('');
   const { project, setProject } = useContext(ProjectContext);
   const { user } = useContext(UserContext);
-  // const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCommentState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
   const sendToServer = async (e) => {
-    e.preventDefault(); // ?
-
     try {
       if (commentState.content === '' || commentState.content === undefined) return;
       const formBody = { ...commentState, projectId: project._id, sectionId: section._id, UserId: user.id };

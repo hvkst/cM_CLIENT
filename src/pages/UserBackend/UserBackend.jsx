@@ -1,11 +1,11 @@
-import { AlertTitle } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
+import { ProjectContext } from '../../context/ProjectContext';
+import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
 import UserDataContainer from '../../components/User/UserDataContainer/UserDataContainer';
 import UserSectionCard from '../../components/User/UserSectionCard/UserSectionCard';
-import { ProjectContext } from '../../context/ProjectContext';
-import { UserContext } from '../../context/UserContext';
+import { AlertTitle } from '@mui/material';
 import { UserBackendContainer, UpperContainer, SectionsContainer, UserAlert, UserAlertInnerContainer } from './UserBackend.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;

@@ -1,14 +1,13 @@
-// import { styled } from '@mui/system';
 import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import { AllUserContext } from '../../context/AllUserContext';
+import { useNavigate } from 'react-router-dom';
+import { useGetFetch } from '../../hooks/useGetFetch';
 import UserCard from '../../components/Admin/UserCard/UserCard';
 import CreateUserForm from '../../components/Admin/CreateUserForm/CreateUserForm';
-import { useGetFetch } from '../../hooks/useGetFetch';
-import { AllUserContext } from '../../context/AllUserContext';
-import { PageContainer, UserCardContainer } from './BackendAdmin.style';
+import { PageContainer, UserCardContainer } from './AdminBackend.style';
 
-function BackendAdmin() {
+function AdminBackend() {
   const { user } = useContext(UserContext);
   const { allUsers, setAllUsers } = useContext(AllUserContext);
 
@@ -47,4 +46,4 @@ function BackendAdmin() {
   );
 }
 
-export default BackendAdmin;
+export default AdminBackend;

@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
-
-import { LogoutFormContainer } from './LogoutForm.style';
 import { IconButton, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
+import { LogoutFormContainer } from './LogoutForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
