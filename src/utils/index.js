@@ -1,9 +1,7 @@
 // import { BASE_URL } from '../hooks/config';
 
-import moment from 'moment/moment';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -28,7 +26,7 @@ export function commentTime(str) {
   const newOrder = str.split('-');
   const day = newOrder[2].substring(0, 2);
   const month = newOrder[1];
-  const year = newOrder[0];
+  // const year = newOrder[0];
   const time = newOrder[2].substring(3, 8);
   return `${day}.${month} - ${time}`;
 }
@@ -131,8 +129,10 @@ export async function updateUser(updatedUserData, setFullUserdata, setProject) {
     });
     const data = await res.json();
 
+    // if (setFullUserdata !== undefined && setProject !== undefined) {
     setProject(data.updatedUser.projects[0]);
     setFullUserdata(data.updatedUser);
+    // }
 
     console.log('Section updated on Clientside');
   } catch (err) {
@@ -141,5 +141,3 @@ export async function updateUser(updatedUserData, setFullUserdata, setProject) {
 
   console.log('The end of...USER update');
 }
-
-// export { shorterTime, confirmDelete, deleteSection, updateSection };

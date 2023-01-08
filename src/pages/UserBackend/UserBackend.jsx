@@ -1,15 +1,12 @@
-import { Alert, AlertTitle, Typography } from '@mui/material';
+import { AlertTitle } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CustomAlert from '../../components/Main/Alert/Alert';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
+import UserDataContainer from '../../components/User/UserDataContainer/UserDataContainer';
 import UserSectionCard from '../../components/User/UserSectionCard/UserSectionCard';
 import { ProjectContext } from '../../context/ProjectContext';
-// import { BASE_URL } from '../../consts';
 import { UserContext } from '../../context/UserContext';
-// import { useGetFetch } from '../../hooks/useGetFetch';
-import { FlexDiv } from '../../styles';
-import { UserBackendContainer, UserPaper, UpperContainer } from './UserBackend.style';
+import { UserBackendContainer, UpperContainer, SectionsContainer, UserAlert, UserAlertInnerContainer } from './UserBackend.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -18,6 +15,7 @@ function BackendUser() {
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
   const [showAlert, setShowAlert] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,11 +28,6 @@ function BackendUser() {
     }
   }, [user, navigate]);
 
-  // Get full user
-  // const data = useGetFetch('/admin/user/' + user.id);
-  // console.log(user.id);
-  // console.log('DATA', data);
-
   useEffect(() => {
     if (user) {
       const { id } = user;
@@ -46,7 +39,7 @@ function BackendUser() {
           });
 
           const resData = await res.json();
-          console.log(resData);
+
           if (res.ok) {
             setFullUserdata(resData.user[0]);
             setProject(resData.user[0].projects[0]);
@@ -72,27 +65,29 @@ function BackendUser() {
         {fullUserData && (
           <>
             <UpperContainer>
-              {/* <SimplePaper>
-                <Typography variant="h5"></Typography>
-                <Typography variant="h5">{fullUserData.username}</Typography>
-              </SimplePaper> */}
               {showAlert && (
                 <SimplePaper>
-                  <Alert severity="info" onClose={closeAlert}>
-                    <AlertTitle>Welcome, {fullUserData.username}!</AlertTitle>
-                    This is your backend.
-                  </Alert>
+                  <UserAlert severity="info" onClose={closeAlert}>
+                    <UserAlertInnerContainer>
+                      <AlertTitle>Welcome, {fullUserData.username}!</AlertTitle>
+                      <p>
+                        This is your backend. <br /> Here you can track our progress and comment on different parts of the project.
+                      </p>
+                      <p>In future releases this will also be the place to upload texts and images.</p>
+                    </UserAlertInnerContainer>
+                  </UserAlert>
                 </SimplePaper>
               )}
             </UpperContainer>
             {project && (
               <>
-                <h2> {project.title} </h2>
-                <FlexDiv>
+                <UserDataContainer {...{ fullUserData }} />
+
+                <SectionsContainer>
                   {project.sections.map((section) => {
-                    return <UserSectionCard key={section._id} {...{ section }}></UserSectionCard>; // No need for full project here
+                    return <UserSectionCard key={section._id} {...{ section }}></UserSectionCard>;
                   })}
-                </FlexDiv>
+                </SectionsContainer>
               </>
             )}
           </>

@@ -1,52 +1,37 @@
+import { Paper } from '@mui/material';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { styled } from '@mui/system';
 import CommentForm from '../../Main/CommentForm/CommentForm';
-import CommentDiv from '../../Main/Comments/Comments';
-import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import CommentContainer from '../../Main/Comments/Comments';
+import { InnerSectionContainer, DataContainer, CommentsContainer } from './UserSectionCard.style';
+
+const checkForContent = (str) => {
+  if (str === undefined) return null;
+  return <p>{str}</p>;
+};
 
 export default function UserSectionCard({ section }) {
   return (
-    <SimplePaper>
-      <CardContent>
+    <Paper sx={{ padding: '10px', marginRight: '20px', marginBottom: '20px' }}>
+      <InnerSectionContainer>
         <h4>{section.title}</h4>
-        <Udiv>
-          <p>- {section.description}</p>
-          <p>- {section.prep}</p>
-          <p>- {section.main}</p>
-          <p>- {section.final}</p>
-        </Udiv>
-
-        <p>Comments:</p>
-        <div>
+        <DataContainer>
+          {checkForContent(section.description)}
+          {checkForContent(section.prep)}
+          {checkForContent(section.main)}
+          {checkForContent(section.final)}
+        </DataContainer>
+        <CommentsContainer>
+          <p>Comments:</p>
           {section.comments.map((comment) => {
             return (
               <div key={comment.id}>
-                <CommentDiv {...{ comment }}></CommentDiv>
+                <CommentContainer {...{ comment }}></CommentContainer>
               </div>
             );
           })}
-        </div>
+        </CommentsContainer>
         <CommentForm {...{ section }} />
-        <br />
-      </CardContent>
-    </SimplePaper>
+      </InnerSectionContainer>
+    </Paper>
   );
 }
-
-const UCard = styled(Card)`
-  width: fit-content;
-  margin: 10px;
-`;
-
-const Udiv = styled('div')`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Li = styled('li')`
-  text-decoration: none;
-  list-style-type: none;
-  margin: 0;
-`;

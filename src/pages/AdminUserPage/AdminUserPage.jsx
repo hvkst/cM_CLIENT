@@ -12,7 +12,6 @@ import DeleteUser from '../../components/Admin/DeleteUser/DeleteUser';
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
-  // const [projectData, setProjectData] = useState();
   const params = useParams();
 
   // Get full user

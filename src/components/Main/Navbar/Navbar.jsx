@@ -36,9 +36,9 @@ function Navbar() {
           <LeftContainer>
             <NavbarLinkContainer>
               <NavbarLink to="/"> Home</NavbarLink>
-              <NavbarLink to="/products"> Products</NavbarLink>
+              {/* <NavbarLink to="/products"> Products</NavbarLink> */}
               <NavbarLink to="/contactform"> Contact Us</NavbarLink>
-              <NavbarLink to="/about"> About Us</NavbarLink>
+              {/* <NavbarLink to="/about"> About Us</NavbarLink> */}
               {user && user.isAdmin && <NavbarLink to="/adminbackend"> Dashboard</NavbarLink>}
               {user && !user.isAdmin && <NavbarLink to="/userbackend"> Dashboard</NavbarLink>}
 
@@ -59,9 +59,9 @@ function Navbar() {
         {extendNavbar && (
           <NavbarExtendedContainer>
             <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
-            <NavbarLinkExtended to="#products"> Products</NavbarLinkExtended>
+            {/* <NavbarLinkExtended to="#products"> Products</NavbarLinkExtended> */}
             <NavbarLinkExtended to="/contact"> Contact Us</NavbarLinkExtended>
-            <NavbarLinkExtended to="/about"> About Us</NavbarLinkExtended>
+            {/* <NavbarLinkExtended to="/about"> About Us</NavbarLinkExtended> */}
           </NavbarExtendedContainer>
         )}
       </NavbarContainer>

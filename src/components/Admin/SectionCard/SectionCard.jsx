@@ -1,17 +1,13 @@
 import * as React from 'react';
 import CardContent from '@mui/material/CardContent';
-import { deleteSection, confirmDelete } from '../../../utils';
 import UpdateSectionForm from '../UpdateSectionForm/UpdateSectionForm';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { IconButton } from '@mui/material';
 import CommentDiv from '../../Main/Comments/Comments';
 import CommentForm from '../../Main/CommentForm/CommentForm';
-import { SectionContainer, SectionPaper } from './SectionCard.styles';
-import SimpleAccordion from '../../Main/SimpleAccordion/SimpleAccordion';
+import { InnerSectionContainer, SectionPaper } from './SectionCard.styles';
 
 export default function SectionCard({ section, project, setProject }) {
   return (
-    <SectionContainer>
+    <InnerSectionContainer>
       <SectionPaper elevation={5}>
         <UpdateSectionForm key={section._id} {...{ section, project, setProject }} />
         <CardContent>
@@ -28,6 +24,6 @@ export default function SectionCard({ section, project, setProject }) {
           <CommentForm {...{ section }} />
         </CardContent>
       </SectionPaper>
-    </SectionContainer>
+    </InnerSectionContainer>
   );
 }

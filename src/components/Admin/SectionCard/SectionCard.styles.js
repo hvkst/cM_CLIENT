@@ -5,7 +5,7 @@ export const SectionPaper = styled(Paper)`
   padding: 10px;
 `;
 
-export const SectionContainer = styled.div`
+export const InnerSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: fit-content;

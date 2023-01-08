@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const CommentContainer = styled.div`
+export const SingleCommentContainer = styled.div`
   font-size: 12px;
-  align-self: flex-start;
+  /* align-self: flex-start; */
   display: flex;
-  max-width: 200px;
+  /* width: 100%; */
   word-break: break-word;
   justify-content: space-between;
   border: 1px solid lightgrey;
@@ -24,7 +24,7 @@ export const CommentContainer = styled.div`
 export const NameAndTimeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 100%;
   word-break: keep-all;
   & p {
     font-size: 10px;

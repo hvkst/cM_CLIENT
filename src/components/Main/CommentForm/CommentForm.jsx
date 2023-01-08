@@ -24,7 +24,7 @@ function CommentForm({ section }) {
     e.preventDefault(); // ?
 
     try {
-      if (commentState.content === '') return;
+      if (commentState.content === '' || commentState.content === undefined) return;
       const formBody = { ...commentState, projectId: project._id, sectionId: section._id, UserId: user.id };
       console.log(formBody);
 

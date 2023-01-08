@@ -8,8 +8,8 @@ import Homepage from '../../pages/Homepage/Homepage';
 import ErrorBoundary from '../Main/ErrorBoundary/ErrorBoundary';
 import AdminUserPage from '../../pages/AdminUserPage/AdminUserPage';
 import ContactForm from '../../pages/ContactForm/Contactform';
-import Products from '../../pages/Products/Products';
-import AboutUs from '../../pages/AboutUs/AboutUs';
+// import Products from '../../pages/Products/Products';
+// import AboutUs from '../../pages/AboutUs/AboutUs';
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
       { path: '/adminbackend/user/:id', element: <AdminUserPage /> },
       { path: '/userbackend', element: <UserBackend /> },
       { path: '/contactform', element: <ContactForm /> },
-      { path: '/products', element: <Products /> },
-      { path: '/about', element: <AboutUs /> },
+      // { path: '/products', element: <Products /> },
+      // { path: '/about', element: <AboutUs /> },
     ],
   },
 ]);
