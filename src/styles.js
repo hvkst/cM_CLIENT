@@ -26,4 +26,12 @@ const FlexDiv = styled('div')`
   }
 `;
 
+export const SectionsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px 0;
+  align-items: flex-start;
+  flex-wrap: wrap;
+`;
+
 export { FlexDiv };

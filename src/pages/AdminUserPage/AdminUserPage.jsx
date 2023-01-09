@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useGetFetch } from '../../hooks/useGetFetch';
 import { ProjectContext } from '../../context/ProjectContext';
 import AddSection from '../../components/Admin/AddSection/AddSection';
-// import SectionCard from '../../components/Admin/SectionCard/SectionCard';
 import UpdateUserForm from '../../components/Admin/UpdateUserForm/UpdateUserForm';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
 import DeleteUser from '../../components/Admin/DeleteUser/DeleteUser';
-import { AdminUserPageContainer, SectionContainer, UpperContainer, RightContainer } from './AdminUserPage.style';
+import { AdminUserPageContainer, UpperContainer, RightContainer } from './AdminUserPage.style';
 import SectionCard from '../../components/Main/SectionCard/SectionCard';
+import { SectionsContainer } from '../../styles';
 
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
@@ -44,11 +44,11 @@ function AdminUserPage() {
             </UpperContainer>
             {project.sections && (
               <>
-                <SectionContainer>
+                <SectionsContainer>
                   {project.sections.map((section) => {
                     return <SectionCard key={section._id} {...{ section, project, setProject }} />;
                   })}
-                </SectionContainer>
+                </SectionsContainer>
               </>
             )}
           </>

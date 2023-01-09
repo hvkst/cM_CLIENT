@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
 import UserDataContainer from '../../components/User/UserDataContainer/UserDataContainer';
 import { AlertTitle } from '@mui/material';
-import { UserBackendContainer, UpperContainer, SectionsContainer, UserAlert, UserAlertInnerContainer } from './UserBackend.style';
+import { UserBackendContainer, UpperContainer, UserAlert } from './UserBackend.style';
 import SectionCard from '../../components/Main/SectionCard/SectionCard';
+import { SectionsContainer } from '../../styles';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -68,13 +69,11 @@ function BackendUser() {
               {showAlert && (
                 <SimplePaper>
                   <UserAlert severity="info" onClose={closeAlert}>
-                    {/* <UserAlertInnerContainer> */}
                     <AlertTitle>Welcome, {fullUserData.username}!</AlertTitle>
                     <p>
                       This is your backend. <br /> Here you can track our progress and comment on different parts of the project.
                     </p>
                     <p>In future releases this will also be the place to upload texts and images.</p>
-                    {/* </UserAlertInnerContainer> */}
                   </UserAlert>
                 </SimplePaper>
               )}
