@@ -24,7 +24,7 @@ export const SectionsContainer = styled.div`
 `;
 
 export const UserAlertInnerContainer = styled.div`
-  width: fit-content;
+  /* width: fit-content; */
 `;
 
 export const UserAlert = styled(Alert)`

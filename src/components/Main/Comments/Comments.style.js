@@ -1,17 +1,15 @@
+import { Box } from '@mui/material';
 import styled from 'styled-components';
 
-export const SingleCommentContainer = styled.div`
+export const SingleCommentContainer = styled(Box)`
   font-size: 12px;
   display: flex;
-  word-break: break-word;
   justify-content: space-between;
   border: 1px solid lightgrey;
   border-radius: 5px;
-  margin: 2px;
-  background-color: ${(props) => (props.commentIsAdmin ? 'lightgreen' : 'lightblue')};
-
-  margin-left: ${(props) => (props.commentIsAdmin ? '20px' : '0')};
-  margin-right: ${(props) => (props.commentIsAdmin ? '0' : '20px')};
+  margin: 4px;
+  margin-left: ${(props) => (props.commentIsAdmin ? '10px' : '0')};
+  margin-right: ${(props) => (props.commentIsAdmin ? '0' : '10px')};
   background-color: ${(props) => (props.commentIsAdmin ? 'lightgreen' : 'lightblue')};
 
   & p {
@@ -19,11 +17,15 @@ export const SingleCommentContainer = styled.div`
   }
 `;
 
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+`;
 export const NameAndTimeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  word-break: keep-all;
+  flex: 0 0 auto;
   & p {
     font-size: 10px;
     align-self: flex-end;
