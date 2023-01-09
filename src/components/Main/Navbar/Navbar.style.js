@@ -88,10 +88,9 @@ export const NavbarExtendedContainer = styled.div`
 `;
 
 export const Footer = styled.section`
-  background-color: #ffc071;
-  /* margin-top: 100px; */
-  /* border-top: 1px solid rgba(0, 0, 0, 0.5); */
+  background-color: rgba(255, 192, 113, 0.5);
   box-shadow: 0px 12px 37px -4px #000000;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   position: relative;

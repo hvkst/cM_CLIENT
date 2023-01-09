@@ -5,12 +5,13 @@ export const SingleCommentContainer = styled(Box)`
   font-size: 12px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid lightgrey;
+  /* border: 1px solid lightgrey; */
+  padding: 2px;
   border-radius: 5px;
-  margin: 4px;
-  margin-left: ${(props) => (props.commentIsAdmin ? '10px' : '0')};
-  margin-right: ${(props) => (props.commentIsAdmin ? '0' : '10px')};
-  background-color: ${(props) => (props.commentIsAdmin ? 'lightgreen' : 'lightblue')};
+  margin: 5px 0 5px;
+  margin-left: ${(props) => (props.comment.isAdmin ? '10px' : '0')};
+  margin-right: ${(props) => (props.comment.isAdmin ? '0' : '10px')};
+  background-color: ${(props) => (props.comment.isAdmin ? 'rgba(144,238,144,0.5)' : 'rgba(173,216,230,0.5)')};
 
   & p {
     margin: 2px 5px;

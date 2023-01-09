@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { IconButton, Tooltip } from '@mui/material';
+import { IconButton, Popover, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import { LogoutFormContainer } from './LogoutForm.style';
@@ -38,12 +38,14 @@ function LogoutForm() {
             <LogoutIcon />
           </IconButton>
         ) : (
-          <IconButton component={Link} to="/login">
-            <LoginIcon />
-          </IconButton>
+          <LoginPopover />
         )}
       </Tooltip>
     </LogoutFormContainer>
   );
 }
 export default LogoutForm;
+
+// <IconButton component={Link} to="/login">
+//           <LoginIcon />
+//       </IconButton>

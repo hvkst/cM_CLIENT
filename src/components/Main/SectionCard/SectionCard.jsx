@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import UpdateSectionForm from '../../Admin/UpdateSectionForm/UpdateSectionForm';
-import CommentDiv from '../Comments/Comments';
+import CommentContainer from '../CommentContainer/CommentContainer';
 import CommentForm from '../CommentForm/CommentForm';
 import { CommentsContainer, SectionPaper, DataContainer } from './SectionCard.styles';
 import { UserContext } from '../../../context/UserContext';
@@ -27,10 +27,10 @@ export default function SectionCard({ section, project, setProject }) {
         </DataContainer>
       )}
       <CommentsContainer>
-        <p>Comments:</p>
+        s<p>Comments:</p>
         <div>
           {section.comments.map((comment) => {
-            return <CommentDiv key={comment.id} {...{ comment }}></CommentDiv>;
+            return <CommentContainer key={comment._id} {...{ comment }}></CommentContainer>;
           })}
         </div>
         <CommentForm {...{ section }} />

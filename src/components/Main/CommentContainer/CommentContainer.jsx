@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { commentTime } from '../../../utils';
-import { SingleCommentContainer, NameAndTimeContainer, TextContainer } from './Comments.style';
+import { SingleCommentContainer, NameAndTimeContainer, TextContainer } from './CommentContainer.style';
 
 function CommentContainer({ comment }) {
   const { user } = useContext(UserContext);
@@ -21,7 +21,7 @@ function CommentContainer({ comment }) {
 
   return (
     <>
-      <SingleCommentContainer sx={{ boxShadow: 1 }} $commentIsAdmin={comment.isAdmin}>
+      <SingleCommentContainer sx={{ boxShadow: 1 }} {...{ comment }}>
         <TextContainer>
           <p>{comment.content}</p>
         </TextContainer>

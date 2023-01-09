@@ -11,11 +11,11 @@ export default function confirmDelete(callback, arg1, arg2, arg3) {
           <DeleteContainer className="custom-ui">
             <h1>Confirm to DELETE</h1>
             <p>Are you sure to do this?</p>
-            <Button sx={{ m: 1 }} color="success" variant="contained" onClick={onClose}>
+            <Button sx={{ mx: 5, mt: 2 }} color="success" variant="contained" onClick={onClose}>
               No
             </Button>
             <Button
-              sx={{ m: 1 }}
+              sx={{ mx: 5, mt: 2 }}
               variant="contained"
               color="error"
               onClick={() => {

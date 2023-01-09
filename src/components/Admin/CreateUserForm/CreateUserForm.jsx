@@ -23,31 +23,35 @@ const emptyNewUserState = {
 function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);
   const [dateValue, setDateValue] = useState();
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState('');
+
+  const alertData = {
+    show: false,
+    alertMessage: '',
+  };
+
+  const [showAlert, setShowAlert] = useState(alertData);
+
+  const closeAlert = () => {
+    setShowAlert(alertData);
+  };
 
   const handleChange = (e) => {
     setNewUserState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
-  const closeAlert = () => {
-    setShowAlert(false);
-    setAlertMessage('');
+  const newUserData = {
+    username: newUserState.username,
+    project: newUserState.project,
+    password: newUserState.password,
+    duedate: moment(dateValue).format('YYYY-MM-DD'),
   };
 
   const sendToServer = async (e) => {
     try {
       if (newUserState.username === '' || newUserState.project === '') return;
 
-      const newUserData = {
-        username: newUserState.username,
-        project: newUserState.project,
-        password: newUserState.password,
-        duedate: moment(dateValue).format('YYYY-MM-DD'),
-      };
-
-      const formBody = newUserData;
-      console.log(formBody);
+      const body = newUserData;
+      console.log(body);
 
       const url = BASE_URL + '/admin/user/new';
 
@@ -57,15 +61,15 @@ function CreateUserForm({ setAllUsers }) {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(formBody),
+        body: JSON.stringify(body),
       });
       console.log(res.ok);
       const data = await res.json();
       if (res.ok) {
         setAllUsers(data.allUsers);
       } else {
-        setShowAlert(true);
-        setAlertMessage(data.error);
+        setShowAlert({ show: true, alertMessage: data.error });
+        // setAlertMessage(data.error);
         console.log(data.error);
       }
 
@@ -81,7 +85,7 @@ function CreateUserForm({ setAllUsers }) {
   return (
     <>
       <SimplePaper>
-        {showAlert && <CustomAlert alertMessage={alertMessage} {...{ closeAlert }} />}
+        {showAlert.show && <CustomAlert alertMessage={showAlert.alertMessage} {...{ closeAlert }} />}
         <FormContainer>
           <FormControl
             sx={{
