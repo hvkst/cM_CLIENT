@@ -13,7 +13,7 @@ const emptyLoginState = {
   password: '',
 };
 
-export default function LoginFormTest() {
+export default function LoginFormTest({ handleClose }) {
   const [loginState, setLoginState] = useState(emptyLoginState);
   const navigate = useNavigate();
   const { loginUser, user } = useContext(UserContext);
@@ -61,13 +61,24 @@ export default function LoginFormTest() {
       });
 
       const data = await res.json();
+
       if (res.ok) {
         console.log('data.user:', data.user);
         console.log('Login success');
+
+        if (data.user.isdmin) {
+          console.log('try admin backend...');
+          navigate('/adminbackend');
+        } else if (!data.user.isAdmin) {
+          navigate('/userbackend');
+        }
       } else {
         setShowAlert({ show: true, alertMessage: data.error });
         console.log(data.error);
       }
+
+      loginUser(data.user);
+      handleClose();
     } catch (err) {
       console.error(err);
     }
@@ -83,7 +94,6 @@ export default function LoginFormTest() {
           '& .MuiTextField-root': { m: 1, width: '20ch', minWidth: '30ch' },
         }}
       >
-        <h2>Login</h2>
         <TextField size="small" type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
         <TextField size="small" type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
         <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} variant="outlined" onClick={sendToServer}>

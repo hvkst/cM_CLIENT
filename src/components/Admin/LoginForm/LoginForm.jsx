@@ -61,6 +61,7 @@ function LoginForm() {
       });
 
       const data = await res.json();
+      loginUser(data.user);
       if (res.ok) {
         console.log('data.user:', data.user);
         console.log('Login success');

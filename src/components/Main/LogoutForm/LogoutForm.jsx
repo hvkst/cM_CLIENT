@@ -5,7 +5,7 @@ import { IconButton, Popover, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import { LogoutFormContainer } from './LogoutForm.style';
-import LoginPopover from '../LoginPopover/LoginPopover';
+import LoginPopover from '../AlertDialogSlide/AlertDialogSlide';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -15,7 +15,7 @@ function LogoutForm() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      await fetch(BASE_URL + '/auth/logout', {
+      await fetch(`${BASE_URL}/auth/logout`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -26,11 +26,6 @@ function LogoutForm() {
       console.warn(error.message);
     }
   };
-
-  // Wrong, has to be in logoutForm
-  // const showLogin = () => {
-  //   return <LoginPopover />;
-  // };
 
   useEffect(() => {
     user && setWhoIsLoggedIn(`Logged in as ${user.username} ${user.isAdmin ? ', Admin' : ''}`);
