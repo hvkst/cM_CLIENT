@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-export const FormContainer = styled.div`
-  & .timeLeftSpan {
+export const ControlsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  .timeLeftSpan {
     padding: 2px;
     border-radius: 4px;
     background-color: ${(props) => (props.timeLeft.substring(0, 2) * 1 > 10 ? 'lightgreen' : 'red')};

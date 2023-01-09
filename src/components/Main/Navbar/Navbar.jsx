@@ -26,6 +26,10 @@ function Navbar() {
 
   const [extendNavbar, setExtendNavbar] = useState(false);
 
+  const toggleNav = () => {
+    setExtendNavbar((curr) => !curr);
+  };
+
   return (
     <>
       <NavbarContainer extendNavbar={extendNavbar}>
@@ -37,13 +41,7 @@ function Navbar() {
               {user && user.isAdmin && <NavbarLink to="/adminbackend"> Dashboard</NavbarLink>}
               {user && !user.isAdmin && <NavbarLink to="/userbackend"> Dashboard</NavbarLink>}
 
-              <OpenLinksButton
-                onClick={() => {
-                  setExtendNavbar((curr) => !curr);
-                }}
-              >
-                {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
-              </OpenLinksButton>
+              <OpenLinksButton onClick={toggleNav}>{extendNavbar ? <>&#10005;</> : <> &#8801;</>}</OpenLinksButton>
             </NavbarLinkContainer>
           </LeftContainer>
           <RightContainer>
@@ -53,8 +51,12 @@ function Navbar() {
         </NavbarInnerContainer>
         {extendNavbar && (
           <NavbarExtendedContainer>
-            <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
-            <NavbarLinkExtended to="/contact"> Contact Us</NavbarLinkExtended>
+            <NavbarLinkExtended onClick={toggleNav} to="/">
+              Home
+            </NavbarLinkExtended>
+            <NavbarLinkExtended onClick={toggleNav} to="/contactform">
+              Contact Us
+            </NavbarLinkExtended>
           </NavbarExtendedContainer>
         )}
       </NavbarContainer>

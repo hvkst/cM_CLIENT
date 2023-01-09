@@ -14,18 +14,15 @@ export const AdminUserPageContainer = styled.div`
 `;
 
 export const UpperContainer = styled.div`
+  /* border: 1px solid red; */
   display: flex;
-  align-items: flex-end;
+  flex-wrap: wrap;
 `;
 
 export const RightContainer = styled.div`
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-`;
-
-export const SectionContainer = styled.div`
-  display: flex;
+  justify-content: flex-end;
   flex-wrap: wrap;
 `;

@@ -1,24 +1,25 @@
+import { useContext, useState } from 'react';
+import { AllUserContext } from '../../../context/AllUserContext';
 import { confirmDelete } from '../../../utils';
 
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { IconButton } from '@mui/material';
-import { useContext } from 'react';
-import { AllUserContext } from '../../../context/AllUserContext';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+import { IconButton } from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
+import { OptionPaper } from '../../../styles';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function DeleteUser({ user }) {
+function DeleteUser({ userName, userId }) {
   const { setAllUsers } = useContext(AllUserContext);
-  const deleteWho = `Delete ${user.username}`;
+  const deleteWho = `Delete ${userName}`;
   const navigate = useNavigate();
 
   async function deleteUser(id, setAllUsers) {
     try {
-      const body = { userId: id };
+      const body = { userId: userId };
       console.log('delete this', body);
 
       const url = BASE_URL + '/admin/user/remove';
@@ -43,25 +44,18 @@ function DeleteUser({ user }) {
   }
 
   return (
-    <DeletePaper>
-      <Typography variant="h5">{deleteWho}</Typography>
+    <OptionPaper elevation={5}>
+      {/* <Typography variant="h5">{deleteWho}</Typography> */}
+      <Typography variant="h5">{deleteWho}?</Typography>
       <IconButton
         color="primary"
         onClick={() => {
-          confirmDelete(deleteUser, user._id, setAllUsers);
+          confirmDelete(deleteUser, userId, setAllUsers);
         }}
       >
         <DeleteForeverIcon />
       </IconButton>
-    </DeletePaper>
+    </OptionPaper>
   );
 }
 export default DeleteUser;
-
-const DeletePaper = styled(Paper)`
-  margin: 20px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-`;

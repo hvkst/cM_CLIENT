@@ -21,7 +21,7 @@ function CommentContainer({ comment }) {
 
   return (
     <>
-      <SingleCommentContainer sx={{ boxShadow: 1 }} commentIsAdmin={comment.isAdmin}>
+      <SingleCommentContainer sx={{ boxShadow: 1 }} $commentIsAdmin={comment.isAdmin}>
         <TextContainer>
           <p>{comment.content}</p>
         </TextContainer>

@@ -1,7 +1,10 @@
 // import axios from 'axios';
 import { useState } from 'react';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, IconButton } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import styled from 'styled-components';
+import { OptionPaper } from '../../../styles';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -44,10 +47,12 @@ function EditSection({ project, setProject }) {
   };
 
   return (
-    <SimplePaper>
+    <OptionPaper>
       <TextField variant="standard" type="text" name="section" value={newSectionState.section} placeholder="new section" onChange={handleChange} />
-      <Button onClick={sendToServer}>Add</Button>
-    </SimplePaper>
+      <IconButton color="success" onClick={sendToServer}>
+        <AddCircleIcon />
+      </IconButton>
+    </OptionPaper>
   );
 }
 export default EditSection;

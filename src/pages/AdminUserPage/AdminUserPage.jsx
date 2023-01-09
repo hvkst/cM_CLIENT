@@ -4,7 +4,6 @@ import { useGetFetch } from '../../hooks/useGetFetch';
 import { ProjectContext } from '../../context/ProjectContext';
 import AddSection from '../../components/Admin/AddSection/AddSection';
 import UpdateUserForm from '../../components/Admin/UpdateUserForm/UpdateUserForm';
-import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
 import DeleteUser from '../../components/Admin/DeleteUser/DeleteUser';
 import { AdminUserPageContainer, UpperContainer, RightContainer } from './AdminUserPage.style';
 import SectionCard from '../../components/Main/SectionCard/SectionCard';
@@ -13,6 +12,9 @@ import { SectionsContainer } from '../../styles';
 function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
+  const [showDeleteOption, setShowDeleteOption] = useState(false);
+  const [showAddSectionOption, setShowAddSectionOption] = useState(false);
+
   const params = useParams();
 
   // Get full user
@@ -34,12 +36,10 @@ function AdminUserPage() {
         {fullUserData && (
           <>
             <UpperContainer>
-              <SimplePaper>
-                <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject }} />
-              </SimplePaper>
+              <UpdateUserForm {...{ fullUserData, setFullUserdata, setProject, setShowDeleteOption, setShowAddSectionOption }} />
               <RightContainer>
-                <DeleteUser user={fullUserData} />
-                <AddSection {...{ project, setProject }} />
+                {showDeleteOption && <DeleteUser showDeleteOption={showDeleteOption} userId={fullUserData._id} userName={fullUserData.username} />}
+                {showAddSectionOption && <AddSection {...{ project, setProject }} />}
               </RightContainer>
             </UpperContainer>
             {project.sections && (
