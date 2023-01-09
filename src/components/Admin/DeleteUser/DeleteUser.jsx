@@ -1,15 +1,14 @@
 import { useContext, useState } from 'react';
 import { AllUserContext } from '../../../context/AllUserContext';
-import { confirmDelete } from '../../../utils';
+// import { confirmDelete } from '../../../utils';
 
-import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
 import { IconButton } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
 import { OptionPaper } from '../../../styles';
+import confirmDelete from '../../Main/CustomConfirmAlert/CustomConfirmAlert';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function DeleteUser({ userName, userId }) {
