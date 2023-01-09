@@ -5,6 +5,7 @@ import { IconButton, Popover, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import { LogoutFormContainer } from './LogoutForm.style';
+import LoginPopover from '../LoginPopover/LoginPopover';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -26,19 +27,27 @@ function LogoutForm() {
     }
   };
 
+  // Wrong, has to be in logoutForm
+  // const showLogin = () => {
+  //   return <LoginPopover />;
+  // };
+
   useEffect(() => {
     user && setWhoIsLoggedIn(`Logged in as ${user.username} ${user.isAdmin ? ', Admin' : ''}`);
   }, [user]);
 
   return (
     <LogoutFormContainer>
+      {/* <LoginPopover/> */}
       <Tooltip title={whoIsLoggedIn}>
         {user ? (
           <IconButton onClick={logout}>
             <LogoutIcon />
           </IconButton>
         ) : (
-          <LoginPopover />
+          <IconButton component={Link} to="/login">
+            <LoginIcon />
+          </IconButton>
         )}
       </Tooltip>
     </LogoutFormContainer>

@@ -3,7 +3,7 @@ import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 import { UserContext } from '../../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { Button, FormControl, TextField } from '@mui/material';
-import { LoginFormContainer, PageContainer } from './LoginForm.style';
+import { LoginFormContainer, PageContainer } from './LoginFormTest.style';
 import CustomAlert from '../../Main/Alert/Alert';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -13,7 +13,7 @@ const emptyLoginState = {
   password: '',
 };
 
-function LoginForm() {
+export default function LoginFormTest() {
   const [loginState, setLoginState] = useState(emptyLoginState);
   const navigate = useNavigate();
   const { loginUser, user } = useContext(UserContext);
@@ -77,26 +77,22 @@ function LoginForm() {
   };
 
   return (
-    <PageContainer>
-      <SimplePaper>
-        <LoginFormContainer>
-          <FormControl
-            sx={{
-              '& .MuiTextField-root': { m: 1, width: '20vw', minWidth: '30ch' },
-            }}
-          >
-            <h2>Login</h2>
-            <TextField type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
-            <TextField type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
-            <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} variant="outlined" onClick={sendToServer}>
-              Login
-            </Button>
-          </FormControl>
-        </LoginFormContainer>
-      </SimplePaper>
+    <SimplePaper>
+      <FormControl
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '20ch', minWidth: '30ch' },
+        }}
+      >
+        <h2>Login</h2>
+        <TextField size="small" type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
+        <TextField size="small" type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
+        <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} variant="outlined" onClick={sendToServer}>
+          Login
+        </Button>
+      </FormControl>
       {showAlert.show && <CustomAlert alertMessage={showAlert.alertMessage} {...{ closeAlert }} />}
-    </PageContainer>
+    </SimplePaper>
   );
 }
 
-export default LoginForm;
+// export default LoginFormTest;

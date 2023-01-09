@@ -25,6 +25,7 @@ import {
   consulting,
   HeadingContainer,
 } from './Homepage.style';
+import LoginPopover from '../../components/Main/LoginPopover/LoginPopover';
 
 function Homepage() {
   return (
@@ -83,6 +84,7 @@ function Homepage() {
           <ProductCard icon={<InsertEmoticonIcon color="primary" />} heading="More Content" content="content"></ProductCard>
         </ProductCardsContainer>
       </LowerMidSection>
+      <LoginPopover />
     </div>
   );
 }
