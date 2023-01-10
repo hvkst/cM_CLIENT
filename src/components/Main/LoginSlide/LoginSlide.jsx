@@ -4,13 +4,14 @@ import { IconButton, Tooltip } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 
 import Slide from '@mui/material/Slide';
-import LoginFormTest from '../../Admin/LoginFormTest/LoginFormTest';
+import LoginForm from '../LoginForm/LoginForm';
+// import LoginForm from '../../../pages/LoginPage/LoginPage';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="left" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide() {
+export default function LoginSlide() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -33,11 +34,11 @@ export default function AlertDialogSlide() {
         PaperProps={{ sx: { position: 'fixed', top: 10, right: 10, m: 0 } }}
         open={open}
         TransitionComponent={Transition}
-        // keepMounted
+        keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <LoginFormTest {...{ handleClose }} />
+        <LoginForm size="small" handleClose={handleClose} />
       </Dialog>
     </div>
   );

@@ -2,7 +2,6 @@
 import { useContext, useState } from 'react';
 import { FormContainer } from './CreateUserForm.style';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
-import CustomAlert from '../../Main/Alert/Alert';
 
 import moment from 'moment/moment';
 

@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { Button, FormControl, TextField } from '@mui/material';
-import { LoginFormContainer } from './LoginFormTest.style';
 import { ErrorContext } from '../../../context/ErrorContext';
-import AlertSlide from '../../Main/AlertSlide/AlertSlide';
+import { LoginFormContainer } from './LoginForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -13,11 +12,11 @@ const emptyLoginState = {
   password: '',
 };
 
-export default function LoginFormTest({ handleClose }) {
+export default function LoginForm({ handleClose, size }) {
   const [loginState, setLoginState] = useState(emptyLoginState);
   const navigate = useNavigate();
   const { loginUser } = useContext(UserContext);
-  const { error, setError, setErrorMessage } = useContext(ErrorContext);
+  const { setError, setErrorMessage } = useContext(ErrorContext);
 
   const handleChange = (e) => {
     setLoginState((old) => ({ ...old, [e.target.name]: e.target.value }));
@@ -47,12 +46,13 @@ export default function LoginFormTest({ handleClose }) {
         console.log('data.user:', data.user);
         console.log('Login success');
 
-        if (data.user.isAdmin) {
-          console.log('try admin backend...');
-          navigate('/adminbackend');
-        } else if (!data.user.isAdmin) {
-          navigate('/userbackend');
-        }
+        navigate('/');
+
+        // if (data.user.isAdmin) {
+        //   navigate('/adminbackend');
+        // } else if (!data.user.isAdmin) {
+        //   navigate('/userbackend');
+        // }
       } else {
         setError(true);
         setErrorMessage(data.error);
@@ -60,7 +60,7 @@ export default function LoginFormTest({ handleClose }) {
       }
 
       loginUser(data.user);
-      handleClose();
+      if (handleClose !== undefined) handleClose();
     } catch (err) {
       console.error(err);
     }
@@ -71,7 +71,7 @@ export default function LoginFormTest({ handleClose }) {
 
   return (
     <>
-      {error && <AlertSlide severity="error" />}
+      {/* {error && <AlertSlide severity="error" />} */}
 
       <LoginFormContainer>
         <FormControl
@@ -79,9 +79,9 @@ export default function LoginFormTest({ handleClose }) {
             '& .MuiTextField-root': { m: 1, width: '20ch', minWidth: '30ch' },
           }}
         >
-          <TextField size="small" type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
-          <TextField size="small" type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
-          <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} size="small" variant="outlined" onClick={sendToServer}>
+          <TextField size={size} type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
+          <TextField size={size} type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
+          <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} size={size} variant="outlined" onClick={sendToServer}>
             Login
           </Button>
         </FormControl>

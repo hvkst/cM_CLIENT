@@ -5,7 +5,7 @@ import { IconButton, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { LogoutFormContainer } from './LogoutForm.style';
 
-import AlertDialogSlide from '../AlertDialogSlide/AlertDialogSlide';
+import LoginSlide from '../LoginSlide/LoginSlide';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -40,7 +40,7 @@ function LogoutForm() {
           </IconButton>
         </Tooltip>
       ) : (
-        <AlertDialogSlide />
+        <LoginSlide />
       )}
     </LogoutFormContainer>
   );
