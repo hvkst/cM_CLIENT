@@ -11,7 +11,7 @@ const emptyCommentState = {
   content: '',
 };
 
-function CommentForm({ section }) {
+export default function CommentForm({ section }) {
   const [commentState, setCommentState] = useState('');
   const { project, setProject } = useContext(ProjectContext);
   const { user } = useContext(UserContext);
@@ -68,7 +68,6 @@ function CommentForm({ section }) {
     </>
   );
 }
-export default CommentForm;
 
 const CommentFormContainer = styled.div`
   display: flex;

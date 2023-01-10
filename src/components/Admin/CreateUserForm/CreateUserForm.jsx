@@ -1,7 +1,5 @@
-// import axios from 'axios';
 import { useContext, useState } from 'react';
-import { FormContainer } from './CreateUserForm.style';
-import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { ErrorContext } from '../../../context/ErrorContext';
 
 import moment from 'moment/moment';
 
@@ -10,7 +8,9 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { ErrorContext } from '../../../context/ErrorContext';
+
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { FormContainer } from './CreateUserForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -100,7 +100,6 @@ function CreateUserForm({ setAllUsers }) {
                   renderInput={(params) => <TextField sx={{ width: '32%' }} variant="standard" {...params} />}
                 />
               </LocalizationProvider>
-
               <IconButton sx={{ marginTop: '23px' }} color="primary" onClick={sendToServer}>
                 <CheckBoxIcon />
               </IconButton>

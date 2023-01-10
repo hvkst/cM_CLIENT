@@ -1,6 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { UserContext } from '../../../context/UserContext';
+import { IconButton } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+import LogoutForm from '../LogoutForm/LogoutForm';
+import AlertSlide from '../AlertSlide/AlertSlide';
+import { ErrorContext } from '../../../context/ErrorContext';
+
+import LogoImg from './logo.png';
+
 import {
   NavbarContainer,
   LeftContainer,
@@ -14,14 +25,6 @@ import {
   NavbarLinkExtended,
   Footer,
 } from './Navbar.style';
-import LogoImg from './logo.png';
-import LogoutForm from '../LogoutForm/LogoutForm';
-import { UserContext } from '../../../context/UserContext';
-import { IconButton } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import AlertSlide from '../AlertSlide/AlertSlide';
-import { ErrorContext } from '../../../context/ErrorContext';
 
 function Navbar() {
   const { user } = useContext(UserContext);

@@ -7,7 +7,7 @@ import UserCard from '../../components/Admin/UserCard/UserCard';
 import CreateUserForm from '../../components/Admin/CreateUserForm/CreateUserForm';
 import { PageContainer, UserCardContainer } from './AdminBackend.style';
 
-function AdminBackend() {
+export default function AdminBackend() {
   const { user } = useContext(UserContext);
   const { allUsers, setAllUsers } = useContext(AllUserContext);
 
@@ -36,14 +36,12 @@ function AdminBackend() {
       <PageContainer>
         {user && (
           <>
+            <h1>AdminBackend</h1>
             <CreateUserForm {...{ setAllUsers }} />
             <UserCardContainer>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</UserCardContainer>
           </>
         )}
-        {/* <h1>AdminBackend</h1> */}
       </PageContainer>
     </div>
   );
 }
-
-export default AdminBackend;

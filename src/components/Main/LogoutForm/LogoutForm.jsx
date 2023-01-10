@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+
 import { IconButton, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { LogoutFormContainer } from './LogoutForm.style';
 
 import LoginSlide from '../LoginSlide/LoginSlide';
+import { LogoutFormContainer } from './LogoutForm.style';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function LogoutForm() {
+export default function LogoutForm() {
   const [whoIsLoggedIn, setWhoIsLoggedIn] = useState('Log in');
   const { user, logoutUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -45,8 +46,3 @@ function LogoutForm() {
     </LogoutFormContainer>
   );
 }
-export default LogoutForm;
-
-// <IconButton component={Link} to="/login">
-//           <LoginIcon />
-//       </IconButton>

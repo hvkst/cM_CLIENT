@@ -1,14 +1,16 @@
 import { useState } from 'react';
+
 import { TextField, IconButton } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { OptionPaper } from '../../../styles';
+
 import { addSection } from '../../../utils';
+import { OptionPaper } from '../../../styles';
 
 const emptySectionState = {
   section: '',
 };
 
-function EditSection({ project, setProject }) {
+export default function AddSection({ project, setProject }) {
   const [newSectionState, setNewSectionState] = useState(emptySectionState);
 
   const handleChange = (e) => {
@@ -28,4 +30,3 @@ function EditSection({ project, setProject }) {
     </OptionPaper>
   );
 }
-export default EditSection;

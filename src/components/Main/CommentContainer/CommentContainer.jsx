@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { commentTime } from '../../../utils';
+
 import { SingleCommentContainer, NameAndTimeContainer, TextContainer } from './CommentContainer.style';
 
-function CommentContainer({ comment }) {
+export default function CommentContainer({ comment }) {
   const { user } = useContext(UserContext);
 
   const displayName = () => {
@@ -33,4 +34,3 @@ function CommentContainer({ comment }) {
     </>
   );
 }
-export default CommentContainer;

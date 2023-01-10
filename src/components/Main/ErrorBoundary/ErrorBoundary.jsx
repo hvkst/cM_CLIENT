@@ -1,7 +1,7 @@
 import { useRouteError } from 'react-router-dom';
 import styled from 'styled-components';
 
-function ErrorBoundary() {
+export default function ErrorBoundary() {
   let error = useRouteError();
   console.error(error);
   return (
@@ -11,7 +11,6 @@ function ErrorBoundary() {
     </Wrapper>
   );
 }
-export default ErrorBoundary;
 
 const Wrapper = styled.div`
   width: 100vw;

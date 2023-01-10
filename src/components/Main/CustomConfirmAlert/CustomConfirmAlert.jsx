@@ -37,6 +37,5 @@ const DeleteContainer = styled.div`
     width: 400px;
     height: 200px;
     text-align: center;
-    /* color: white; */
   }
 `;

@@ -2,10 +2,9 @@ import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import { IconButton, Tooltip } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
-
 import Slide from '@mui/material/Slide';
+
 import LoginForm from '../LoginForm/LoginForm';
-// import LoginForm from '../../../pages/LoginPage/LoginPage';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;

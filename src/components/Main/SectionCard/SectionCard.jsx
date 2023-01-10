@@ -1,9 +1,11 @@
 import { useContext } from 'react';
+import { UserContext } from '../../../context/UserContext';
+
 import UpdateSectionForm from '../../Admin/UpdateSectionForm/UpdateSectionForm';
 import CommentContainer from '../CommentContainer/CommentContainer';
 import CommentForm from '../CommentForm/CommentForm';
+
 import { CommentsContainer, SectionPaper, DataContainer } from './SectionCard.styles';
-import { UserContext } from '../../../context/UserContext';
 
 const checkForContent = (str) => {
   if (str === undefined) return null;

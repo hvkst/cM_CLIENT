@@ -1,6 +1,6 @@
 import { SingleProductCardContainer, Icon, Content } from './ProductCard.style';
 
-function ProductCard({ icon, heading, content, width }) {
+export default function ProductCard({ icon, heading, content, width }) {
   return (
     <SingleProductCardContainer sx={{ boxShadow: 5 }} width={width}>
       <Icon className="icon">{icon}</Icon>
@@ -9,4 +9,3 @@ function ProductCard({ icon, heading, content, width }) {
     </SingleProductCardContainer>
   );
 }
-export default ProductCard;

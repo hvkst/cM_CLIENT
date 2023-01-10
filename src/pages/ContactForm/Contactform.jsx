@@ -14,7 +14,7 @@ const defaultState = {
   message: '',
 };
 
-function ContactForm() {
+export default function ContactForm() {
   const [state, setState] = useState(defaultState);
   const [checked, setChecked] = useState(false);
   const [isValid, setIsValid] = useState(false);
@@ -115,5 +115,3 @@ function ContactForm() {
     </div>
   );
 }
-
-export default ContactForm;

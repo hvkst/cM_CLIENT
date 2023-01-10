@@ -46,20 +46,22 @@ export default function LoginForm({ handleClose, size }) {
         console.log('data.user:', data.user);
         console.log('Login success');
 
-        navigate('/');
-
-        // if (data.user.isAdmin) {
-        //   navigate('/adminbackend');
-        // } else if (!data.user.isAdmin) {
-        //   navigate('/userbackend');
-        // }
+        loginUser(data.user);
+        if (data.user.isAdmin) {
+          setTimeout(() => {
+            navigate('/adminbackend');
+          }, '500');
+        } else if (!data.user.isAdmin) {
+          setTimeout(() => {
+            navigate('/userbackend');
+          }, '500');
+        }
       } else {
         setError(true);
         setErrorMessage(data.error);
         console.log(data.error);
       }
 
-      loginUser(data.user);
       if (handleClose !== undefined) handleClose();
     } catch (err) {
       console.error(err);
@@ -71,8 +73,6 @@ export default function LoginForm({ handleClose, size }) {
 
   return (
     <>
-      {/* {error && <AlertSlide severity="error" />} */}
-
       <LoginFormContainer>
         <FormControl
           sx={{
@@ -92,5 +92,3 @@ export default function LoginForm({ handleClose, size }) {
     </>
   );
 }
-
-// export default LoginFormTest;

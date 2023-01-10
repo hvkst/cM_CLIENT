@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { ProjectContext } from '../../../context/ProjectContext';
 import { updateSection, deleteSection } from '../../../utils';
 
 import { FormControl, TextField, IconButton } from '@mui/material';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { IconContainer, FormContainer } from './UpdateSectionForm.style';
-import confirmDelete from '../../Main/CustomConfirmAlert/CustomConfirmAlert';
 
-function UpdateSectionForm({ section }) {
+import confirmDelete from '../../Main/CustomConfirmAlert/CustomConfirmAlert';
+import { IconContainer, FormContainer } from './UpdateSectionForm.style';
+
+export default function UpdateSectionForm({ section }) {
   const { project, setProject } = useContext(ProjectContext);
 
   const defaultState = {
@@ -78,5 +78,3 @@ function UpdateSectionForm({ section }) {
     </>
   );
 }
-
-export default UpdateSectionForm;

@@ -11,7 +11,7 @@ import { SectionsContainer } from '../../styles';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function BackendUser() {
+export default function BackendUser() {
   const { user, loading } = useContext(UserContext);
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
@@ -95,4 +95,3 @@ function BackendUser() {
     </div>
   );
 }
-export default BackendUser;

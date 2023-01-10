@@ -1,17 +1,17 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AllUserContext } from '../../../context/AllUserContext';
-// import { confirmDelete } from '../../../utils';
+import { useNavigate } from 'react-router-dom';
 
 import { Typography } from '@mui/material';
 import { IconButton } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-import { useNavigate } from 'react-router-dom';
-import { OptionPaper } from '../../../styles';
 import confirmDelete from '../../Main/CustomConfirmAlert/CustomConfirmAlert';
+import { OptionPaper } from '../../../styles';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function DeleteUser({ userName, userId }) {
+export default function DeleteUser({ userName, userId }) {
   const { setAllUsers } = useContext(AllUserContext);
   const deleteWho = `Delete ${userName}`;
   const navigate = useNavigate();
@@ -57,4 +57,3 @@ function DeleteUser({ userName, userId }) {
     </OptionPaper>
   );
 }
-export default DeleteUser;

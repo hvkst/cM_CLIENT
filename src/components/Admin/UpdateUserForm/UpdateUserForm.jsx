@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { updateUser } from '../../../utils';
+
 import moment from 'moment/moment';
 import { TextField, IconButton, FormControl } from '@mui/material';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -8,10 +9,11 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { ControlsContainer } from './UpdateUserForm.style';
-import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 
-function UpdateUserForm({ fullUserData, setFullUserdata, setProject, setShowDeleteOption, setShowAddSectionOption }) {
+import SimplePaper from '../../Main/SimplePaper/SimplePaper';
+import { ControlsContainer } from './UpdateUserForm.style';
+
+export default function UpdateUserForm({ fullUserData, setFullUserdata, setProject, setShowDeleteOption, setShowAddSectionOption }) {
   const [dateValue, setDateValue] = useState(fullUserData.projects[0].dueDate);
 
   const defaultState = {
@@ -101,5 +103,3 @@ function UpdateUserForm({ fullUserData, setFullUserdata, setProject, setShowDele
     </SimplePaper>
   );
 }
-
-export default UpdateUserForm;

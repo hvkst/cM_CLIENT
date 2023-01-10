@@ -9,7 +9,7 @@ import { AdminUserPageContainer, UpperContainer, RightContainer } from './AdminU
 import SectionCard from '../../components/Main/SectionCard/SectionCard';
 import { SectionsContainer } from '../../styles';
 
-function AdminUserPage() {
+export default function AdminUserPage() {
   const { project, setProject } = useContext(ProjectContext);
   const [fullUserData, setFullUserdata] = useState();
   const [showDeleteOption, setShowDeleteOption] = useState(false);
@@ -57,5 +57,3 @@ function AdminUserPage() {
     </div>
   );
 }
-
-export default AdminUserPage;

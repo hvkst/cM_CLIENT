@@ -25,9 +25,8 @@ import {
   consulting,
   HeadingContainer,
 } from './Homepage.style';
-import AlertSlide from '../../components/Main/AlertSlide/AlertSlide';
 
-function Homepage() {
+export default function Homepage() {
   return (
     <div className="content-container">
       <TopSection>
@@ -86,4 +85,3 @@ function Homepage() {
     </div>
   );
 }
-export default Homepage;

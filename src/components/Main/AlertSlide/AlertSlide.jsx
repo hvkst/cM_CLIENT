@@ -1,17 +1,18 @@
-import * as React from 'react';
-import Alert from '@mui/material/Alert';
+import { useState, useContext, useEffect } from 'react';
 import { ErrorContext } from '../../../context/ErrorContext';
+
+import Alert from '@mui/material/Alert';
 import { Fade, Slide } from '@mui/material';
 
 export default function AlertSlide({ severity }) {
-  const { setError, errorMessage, setErrorMessage } = React.useContext(ErrorContext);
-  const [showThis, setShowThis] = React.useState(false);
+  const { setError, errorMessage, setErrorMessage } = useContext(ErrorContext);
+  const [showThis, setShowThis] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setShowThis(true);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       setShowThis(false);
       setTimeout(() => {
