@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
-import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 import { UserContext } from '../../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { Button, FormControl, TextField } from '@mui/material';
-import { LoginFormContainer, PageContainer } from './LoginFormTest.style';
-import CustomAlert from '../../Main/Alert/Alert';
+import { LoginFormContainer } from './LoginFormTest.style';
+import { ErrorContext } from '../../../context/ErrorContext';
+import AlertSlide from '../../Main/AlertSlide/AlertSlide';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -16,27 +16,8 @@ const emptyLoginState = {
 export default function LoginFormTest({ handleClose }) {
   const [loginState, setLoginState] = useState(emptyLoginState);
   const navigate = useNavigate();
-  const { loginUser, user } = useContext(UserContext);
-
-  useEffect(() => {
-    if (user) {
-      if (user.isAdmin) {
-        navigate('/adminbackend');
-      } else if (!user.isAdmin) {
-        navigate('/userbackend');
-      }
-    }
-  }, [user, navigate]);
-
-  const alertData = {
-    show: false,
-    alertMessage: '',
-  };
-  const [showAlert, setShowAlert] = useState(alertData);
-
-  const closeAlert = () => {
-    setShowAlert(alertData);
-  };
+  const { loginUser } = useContext(UserContext);
+  const { error, setError, setErrorMessage } = useContext(ErrorContext);
 
   const handleChange = (e) => {
     setLoginState((old) => ({ ...old, [e.target.name]: e.target.value }));
@@ -66,14 +47,15 @@ export default function LoginFormTest({ handleClose }) {
         console.log('data.user:', data.user);
         console.log('Login success');
 
-        if (data.user.isdmin) {
+        if (data.user.isAdmin) {
           console.log('try admin backend...');
           navigate('/adminbackend');
         } else if (!data.user.isAdmin) {
           navigate('/userbackend');
         }
       } else {
-        setShowAlert({ show: true, alertMessage: data.error });
+        setError(true);
+        setErrorMessage(data.error);
         console.log(data.error);
       }
 
@@ -88,23 +70,26 @@ export default function LoginFormTest({ handleClose }) {
   };
 
   return (
-    <LoginFormContainer>
-      <FormControl
-        sx={{
-          '& .MuiTextField-root': { m: 1, width: '20ch', minWidth: '30ch' },
-        }}
-      >
-        <TextField size="small" type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
-        <TextField size="small" type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
-        <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} size="small" variant="outlined" onClick={sendToServer}>
-          Login
-        </Button>
-      </FormControl>
-      {showAlert.show && <CustomAlert alertMessage={showAlert.alertMessage} {...{ closeAlert }} />}
-      <p>
-        Not a user yet? <a href="/contactform">Get in touch!</a>{' '}
-      </p>
-    </LoginFormContainer>
+    <>
+      {error && <AlertSlide severity="error" />}
+
+      <LoginFormContainer>
+        <FormControl
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '20ch', minWidth: '30ch' },
+          }}
+        >
+          <TextField size="small" type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
+          <TextField size="small" type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
+          <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} size="small" variant="outlined" onClick={sendToServer}>
+            Login
+          </Button>
+        </FormControl>
+        <p>
+          Not a user yet? <a href="/contactform">Get in touch!</a>{' '}
+        </p>
+      </LoginFormContainer>
+    </>
   );
 }
 

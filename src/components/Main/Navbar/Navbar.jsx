@@ -20,9 +20,12 @@ import { UserContext } from '../../../context/UserContext';
 import { IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AlertSlide from '../AlertSlide/AlertSlide';
+import { ErrorContext } from '../../../context/ErrorContext';
 
 function Navbar() {
   const { user } = useContext(UserContext);
+  const { error } = useContext(ErrorContext);
 
   const [extendNavbar, setExtendNavbar] = useState(false);
 
@@ -60,6 +63,8 @@ function Navbar() {
           </NavbarExtendedContainer>
         )}
       </NavbarContainer>
+      {error && <AlertSlide severity="error" />}
+
       <Outlet />
       <Footer>
         <IconButton component={Link} to="http://www.github.com" color="primary">

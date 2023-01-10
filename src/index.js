@@ -6,6 +6,7 @@ import './index.css';
 import { UserContextProvider } from './context/UserContext';
 import { ProjectContextProvider } from './context/ProjectContext';
 import { AllUserContextProvider } from './context/AllUserContext';
+import { ErrorContextProvider } from './context/ErrorContext';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,7 +17,9 @@ root.render(
     <UserContextProvider>
       <ProjectContextProvider>
         <AllUserContextProvider>
-          <App />
+          <ErrorContextProvider>
+            <App />
+          </ErrorContextProvider>
         </AllUserContextProvider>
       </ProjectContextProvider>
     </UserContextProvider>

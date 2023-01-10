@@ -33,7 +33,7 @@ export default function AlertDialogSlide() {
         PaperProps={{ sx: { position: 'fixed', top: 10, right: 10, m: 0 } }}
         open={open}
         TransitionComponent={Transition}
-        keepMounted
+        // keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >

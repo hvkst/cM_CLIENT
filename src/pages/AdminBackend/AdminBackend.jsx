@@ -36,11 +36,11 @@ function AdminBackend() {
       <PageContainer>
         {user && (
           <>
-            <h1>AdminBackend</h1>
             <CreateUserForm {...{ setAllUsers }} />
             <UserCardContainer>{allUsers && allUsers.map((user) => <UserCard key={user._id} {...{ user, setAllUsers }} />)}</UserCardContainer>
           </>
         )}
+        {/* <h1>AdminBackend</h1> */}
       </PageContainer>
     </div>
   );

@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FormContainer } from './CreateUserForm.style';
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 import CustomAlert from '../../Main/Alert/Alert';
@@ -11,6 +11,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { ErrorContext } from '../../../context/ErrorContext';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -24,16 +25,7 @@ function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);
   const [dateValue, setDateValue] = useState();
 
-  const alertData = {
-    show: false,
-    alertMessage: '',
-  };
-
-  const [showAlert, setShowAlert] = useState(alertData);
-
-  const closeAlert = () => {
-    setShowAlert(alertData);
-  };
+  const { setError, setErrorMessage } = useContext(ErrorContext);
 
   const handleChange = (e) => {
     setNewUserState((old) => ({ ...old, [e.target.name]: e.target.value }));
@@ -68,8 +60,8 @@ function CreateUserForm({ setAllUsers }) {
       if (res.ok) {
         setAllUsers(data.allUsers);
       } else {
-        setShowAlert({ show: true, alertMessage: data.error });
-        // setAlertMessage(data.error);
+        setError(true);
+        setErrorMessage(data.error);
         console.log(data.error);
       }
 
@@ -85,7 +77,6 @@ function CreateUserForm({ setAllUsers }) {
   return (
     <>
       <SimplePaper>
-        {showAlert.show && <CustomAlert alertMessage={showAlert.alertMessage} {...{ closeAlert }} />}
         <FormContainer>
           <FormControl
             sx={{

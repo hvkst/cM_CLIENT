@@ -25,6 +25,7 @@ import {
   consulting,
   HeadingContainer,
 } from './Homepage.style';
+import AlertSlide from '../../components/Main/AlertSlide/AlertSlide';
 
 function Homepage() {
   return (
@@ -57,7 +58,6 @@ function Homepage() {
           <ProductCard icon={<ShoppingCartIcon color="primary" />} heading="E-commerce" content={ecommerce} width="25%"></ProductCard>
         </ProductCardsContainer>
       </MidSection>
-
       <LowerMidSection>
         <HeadingContainer>
           <h2 id="heading">Consulting</h2>
