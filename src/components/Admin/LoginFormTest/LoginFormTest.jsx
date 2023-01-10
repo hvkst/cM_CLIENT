@@ -88,7 +88,7 @@ export default function LoginFormTest({ handleClose }) {
   };
 
   return (
-    <SimplePaper>
+    <LoginFormContainer>
       <FormControl
         sx={{
           '& .MuiTextField-root': { m: 1, width: '20ch', minWidth: '30ch' },
@@ -96,12 +96,15 @@ export default function LoginFormTest({ handleClose }) {
       >
         <TextField size="small" type="text" name="username" value={loginState.username} onChange={handleChange} label="Username" />
         <TextField size="small" type="password" name="password" value={loginState.password} onChange={handleChange} label="Password" />
-        <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} variant="outlined" onClick={sendToServer}>
+        <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} size="small" variant="outlined" onClick={sendToServer}>
           Login
         </Button>
       </FormControl>
       {showAlert.show && <CustomAlert alertMessage={showAlert.alertMessage} {...{ closeAlert }} />}
-    </SimplePaper>
+      <p>
+        Not a user yet? <a href="/contactform">Get in touch!</a>{' '}
+      </p>
+    </LoginFormContainer>
   );
 }
 

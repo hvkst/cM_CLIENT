@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
-import { Link, useNavigate } from 'react-router-dom';
-import { IconButton, Popover, Tooltip } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { IconButton, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import LoginIcon from '@mui/icons-material/Login';
 import { LogoutFormContainer } from './LogoutForm.style';
-import LoginPopover from '../AlertDialogSlide/AlertDialogSlide';
+
+import AlertDialogSlide from '../AlertDialogSlide/AlertDialogSlide';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -28,23 +28,20 @@ function LogoutForm() {
   };
 
   useEffect(() => {
-    user && setWhoIsLoggedIn(`Logged in as ${user.username} ${user.isAdmin ? ', Admin' : ''}`);
+    user && setWhoIsLoggedIn(`Logged in as ${user.username} ${user.isAdmin ? ', Admin' : ''}. Logout?`);
   }, [user]);
 
   return (
     <LogoutFormContainer>
-      {/* <LoginPopover/> */}
-      <Tooltip title={whoIsLoggedIn}>
-        {user ? (
+      {user ? (
+        <Tooltip title={whoIsLoggedIn}>
           <IconButton onClick={logout}>
             <LogoutIcon />
           </IconButton>
-        ) : (
-          <IconButton component={Link} to="/login">
-            <LoginIcon />
-          </IconButton>
-        )}
-      </Tooltip>
+        </Tooltip>
+      ) : (
+        <AlertDialogSlide />
+      )}
     </LogoutFormContainer>
   );
 }

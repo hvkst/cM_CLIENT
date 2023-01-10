@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import { IconButton, Tooltip } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+
 import Slide from '@mui/material/Slide';
 import LoginFormTest from '../../Admin/LoginFormTest/LoginFormTest';
 
@@ -25,10 +23,20 @@ export default function AlertDialogSlide() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Slide in
-      </Button>
-      <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} aria-describedby="alert-dialog-slide-description">
+      <Tooltip title="Login">
+        <IconButton onClick={handleClickOpen}>
+          <LoginIcon />
+        </IconButton>
+      </Tooltip>
+      <Dialog
+        disableScrollLock={true}
+        PaperProps={{ sx: { position: 'fixed', top: 10, right: 10, m: 0 } }}
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
         <LoginFormTest {...{ handleClose }} />
       </Dialog>
     </div>
