@@ -35,7 +35,7 @@ export default function AlertSlide({ severity }) {
   };
 
   return (
-    <Slide sx={{ position: 'fixed', top: 5, left: 5, minWidth: '50vw' }} timeout={500} direction="down" in={showThis} mountOnEnter>
+    <Slide sx={{ position: 'fixed', top: 5, left: 5, minWidth: '30vw' }} timeout={500} direction="down" in={showThis} mountOnEnter>
       <Alert severity={severity} onClose={handleChange}>
         {nicerMessage(errorMessage)}
       </Alert>

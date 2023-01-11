@@ -100,7 +100,7 @@ function CreateUserForm({ setAllUsers }) {
                   renderInput={(params) => <TextField sx={{ width: '32%' }} variant="standard" {...params} />}
                 />
               </LocalizationProvider>
-              <IconButton sx={{ marginTop: '23px' }} color="primary" onClick={sendToServer}>
+              <IconButton sx={{ marginTop: '23px' }} color="secondary" onClick={sendToServer}>
                 <CheckBoxIcon />
               </IconButton>
             </div>

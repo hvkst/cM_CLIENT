@@ -1,5 +1,3 @@
-// import { createTheme } from '@material-ui/core/styles';
-// import {  red } from '@material-ui/core/colors';
 import { createTheme } from '@mui/material';
 import { green, grey, red } from '@mui/material/colors';
 
@@ -12,7 +10,7 @@ const rawTheme = createTheme({
     },
     secondary: {
       light: '#f5f5dc',
-      main: '#3d8b48',
+      main: '#009CAB',
     },
     warning: {
       main: '#ffc071',
@@ -30,7 +28,7 @@ const rawTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Roboto', sans-serif",
+    fontFamily: "'Manrope', sans-serif",
     fontSize: 14,
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans

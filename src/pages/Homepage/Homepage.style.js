@@ -16,10 +16,13 @@ export const maintenance =
 export const consulting =
   "Are you looking to improve your online presence, but not sure where to start? Our team of web consultants can help. With years of experience in the industry, we have the knowledge and expertise to assess your current website and online strategy, and provide actionable recommendations on how to improve. Whether you need help with website design, search engine optimization, social media marketing, or any other aspect of your online presence, we're here to help. Let us help you take your business to the next level with our web consulting services.";
 
+export const call =
+  "Are you looking to improve your online presence, but not sure where to start? Our team of web consultants can help. With years of experience in the industry, we have the knowledge and expertise to assess your current website and online strategy, and provide actionable recommendations on how to improve. Whether you need help with website design, search engine optimization, social media marketing, or any other aspect of your online presence, we're here to help. Let us help you take your business to the next level with our web consulting services.";
+
 export const TopSection = styled.section`
   box-sizing: border-box;
   border: 0.5rem solid #f5f5dc;
-  background-color: #3d8b48;
+  background-color: #009cab;
   border-radius: 1rem;
   width: 100%;
   height: 100vh;
@@ -172,19 +175,46 @@ export const ImageContainer = styled.div`
 
 export const HeadingContainer = styled.div`
   position: relative;
+  margin: 40px 0 20px;
   &:after {
-    width: 50%;
-    height: 70%;
-    background-color: #ffc071;
+    width: 100%;
+    height: 3%;
+    background-color: #009cab;
     position: absolute;
-    transform: rotate(2deg);
-
+    transform: rotate(0deg);
     right: 0;
-    top: 20%;
+    bottom: 25%;
+    z-index: -2;
+    content: '';
+    transition: all 0.5s ease-in-out;
+  }
+
+  &:hover:after {
+    transform: rotate(0deg);
+  }
+  #heading {
+    font-size: 2.5rem;
+    padding: 0 10px;
+  }
+`;
+export const InnerHeadingContainer = styled.div`
+  position: relative;
+  &:after {
+    width: 6em;
+    height: 6em;
+    background-color: #ffc071;
+    /* border: 0.2em solid #009cab; */
+    position: absolute;
+    /* transform: rotate(20deg); */
+    right: ${(props) => props.position};
+    bottom: -1.4em;
     z-index: -1;
     content: '';
     transition: all 0.5s ease-in-out;
-    border-bottom: 0.2em solid transparent;
+    border-radius: 50%;
+  }
+  &:hover:after {
+    /* transform: rotate(0deg); */
   }
   #heading {
     font-size: 2.5rem;
