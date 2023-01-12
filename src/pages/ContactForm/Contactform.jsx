@@ -6,7 +6,7 @@ import { ErrorContext } from '../../context/ErrorContext';
 import { PageContainer, ContactFormContainer } from './ContactForm.style';
 
 import Alert from '@mui/material/Alert';
-import { Fade, Slide } from '@mui/material';
+import { Fade } from '@mui/material';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -32,9 +32,9 @@ export default function ContactForm() {
       setIsValid(false);
     }
 
-    const handleClose = () => {
-      setSuccess((curr) => !curr);
-    };
+    // const handleClose = () => {
+    //   setSuccess((curr) => !curr);
+    // };
 
     setState((old) => {
       let newValue = event.target.value;

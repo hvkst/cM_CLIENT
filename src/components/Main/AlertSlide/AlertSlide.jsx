@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { ErrorContext } from '../../../context/ErrorContext';
 
 import Alert from '@mui/material/Alert';
-import { Fade, Slide } from '@mui/material';
+import { Slide } from '@mui/material';
 
 export default function AlertSlide({ severity }) {
   const { setError, errorMessage, setErrorMessage } = useContext(ErrorContext);
