@@ -20,7 +20,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm i -f
       - name: create build
         run: npm run build
   show:
