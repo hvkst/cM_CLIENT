@@ -16,7 +16,7 @@ export default function AdminBackend() {
   // Check if user is Admin
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate('/');
     } else if (user) {
       if (!user.isAdmin) {
         navigate('/userbackend');

@@ -21,10 +21,13 @@ export default function BackendUser() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate('/');
     } else if (user) {
       if (user.isAdmin) {
         navigate('/adminbackend');
+      }
+      if (!user.isAdmin) {
+        navigate('/userbackend');
       }
     }
   }, [user, navigate]);

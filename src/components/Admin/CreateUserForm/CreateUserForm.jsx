@@ -54,7 +54,7 @@ function CreateUserForm({ setAllUsers }) {
         credentials: 'include',
         body: JSON.stringify(body),
       });
-      console.log(res.ok);
+      console.log('res.ok', res.ok);
       const data = await res.json();
       if (res.ok) {
         setAllUsers(data.allUsers);
