@@ -25,6 +25,9 @@ import {
   consulting,
   HeadingContainer,
   InnerHeadingContainer,
+  call,
+  work,
+  happy,
 } from './Homepage.style';
 
 export default function Homepage() {
@@ -84,9 +87,9 @@ export default function Homepage() {
           </InnerHeadingContainer>
         </HeadingContainer>
         <ProductCardsContainer>
-          <ProductCard icon={<CallIcon color="secondary" />} heading="Get in touch" content="content"></ProductCard>
-          <ProductCard icon={<EngineeringIcon color="secondary" />} heading="More Content" content="content"></ProductCard>
-          <ProductCard icon={<InsertEmoticonIcon color="secondary" />} heading="More Content" content="content"></ProductCard>
+          <ProductCard icon={<CallIcon color="secondary" />} heading="Get in touch" content={call} width="25%"></ProductCard>
+          <ProductCard icon={<EngineeringIcon color="secondary" />} heading="We do the work" content={work} width="25%"></ProductCard>
+          <ProductCard icon={<InsertEmoticonIcon color="secondary" />} heading="You're happy" content={happy} width="25%"></ProductCard>
         </ProductCardsContainer>
       </LowerMidSection>
     </div>

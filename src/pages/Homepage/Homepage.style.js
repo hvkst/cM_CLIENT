@@ -17,7 +17,11 @@ export const consulting =
   "Are you looking to improve your online presence, but not sure where to start? Our team of web consultants can help. With years of experience in the industry, we have the knowledge and expertise to assess your current website and online strategy, and provide actionable recommendations on how to improve. Whether you need help with website design, search engine optimization, social media marketing, or any other aspect of your online presence, we're here to help. Let us help you take your business to the next level with our web consulting services.";
 
 export const call =
-  "Are you looking to improve your online presence, but not sure where to start? Our team of web consultants can help. With years of experience in the industry, we have the knowledge and expertise to assess your current website and online strategy, and provide actionable recommendations on how to improve. Whether you need help with website design, search engine optimization, social media marketing, or any other aspect of your online presence, we're here to help. Let us help you take your business to the next level with our web consulting services.";
+  "Please feel free to browse our site and learn more about what we have to offer, and don't hesitate to get in touch if you have any questions or would like to discuss a potential project. We look forward to working with you!";
+export const work =
+  "Whether you're looking for assistance with a business project, personal endeavor, or creative concept, we're here to help. Our team is comprised of experts in various fields who are dedicated to making sure your vision becomes a reality.";
+export const happy =
+  "It can be argued that happiness is a state of mind and can be experienced differently by different individuals. It can also be influenced by various internal and external factors, including one's personal values, beliefs, and life experiences.";
 
 export const TopSection = styled.section`
   box-sizing: border-box;
@@ -148,11 +152,11 @@ export const HeroContent = styled.div`
 
 export const ImageContainer = styled.div`
   z-index: 0;
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 5%;
 
   & img {
     width: 115%;
@@ -176,22 +180,6 @@ export const ImageContainer = styled.div`
 export const HeadingContainer = styled.div`
   position: relative;
   margin: 40px 0 20px;
-  /* &:after {
-    width: 100%;
-    height: 3%;
-    background-color: #009cab;
-    position: absolute;
-    transform: rotate(0deg);
-    right: 0;
-    bottom: 25%;
-    z-index: -2;
-    content: '';
-    transition: all 0.5s ease-in-out;
-  }
-
-  &:hover:after {
-    transform: rotate(0deg);
-  } */
 `;
 export const InnerHeadingContainer = styled.div`
   position: relative;

@@ -2,11 +2,11 @@ import { useState, useContext } from 'react';
 import { ProjectContext } from '../../../context/ProjectContext';
 import { updateSection, deleteSection } from '../../../utils';
 
-import { FormControl, TextField, IconButton, Button } from '@mui/material';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { FormControl, TextField, Button } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-import confirmDelete from '../../Main/CustomConfirmAlert/CustomConfirmAlert';
+import { confirmDelete } from '../../../utils';
+
 import { IconContainer, FormContainer } from './UpdateSectionForm.style';
 
 export default function UpdateSectionForm({ section }) {
@@ -43,7 +43,7 @@ export default function UpdateSectionForm({ section }) {
       <FormContainer>
         <FormControl>
           <TextField
-            inputProps={{ style: { fontSize: 25, lineHeight: 1.2, disableUnderline: true } }}
+            inputProps={{ style: { fontSize: 25, lineHeight: 1.2 } }}
             InputProps={{ disableUnderline: true }}
             sx={{ m: 2 }}
             multiline

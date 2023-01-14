@@ -2,11 +2,9 @@ import { useContext } from 'react';
 import { AllUserContext } from '../../../context/AllUserContext';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Typography } from '@mui/material';
-import { IconButton } from '@mui/material';
+import { Button } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-// import confirmDelete from '../../Main/CustomConfirmAlert/CustomConfirmAlert';
 import { OptionPaper } from '../../../styles';
 import { confirmDelete } from '../../../utils';
 

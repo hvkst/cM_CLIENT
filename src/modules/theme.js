@@ -1,4 +1,3 @@
-import { SportsRugbySharp } from '@mui/icons-material';
 import { createTheme } from '@mui/material';
 import { green, grey, red } from '@mui/material/colors';
 
@@ -15,8 +14,6 @@ const rawTheme = createTheme({
     },
     warning: {
       main: '#ff6f6f',
-      // main: '#ffc071',
-      // dark: '#ffb25e',
     },
     error: {
       xLight: red[50],

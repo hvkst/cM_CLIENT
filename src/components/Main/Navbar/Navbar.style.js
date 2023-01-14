@@ -39,7 +39,7 @@ export const NavbarLinkContainer = styled.div`
 
 export const NavbarLink = styled(Link)`
   color: white;
-  font-size: large;
+  font-size: medium;
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   margin: 10px;
@@ -57,19 +57,24 @@ export const NavbarLinkExtended = styled(Link)`
   margin: 10px;
 `;
 
-export const Logo = styled.img`
-  margin: auto 0;
-  max-width: 180px;
-  height: 50%;
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  img {
+    max-width: 180px;
+    height: 70%;
+  }
 `;
 
 export const OpenLinksButton = styled.button`
-  width: 70px;
-  height: 50px;
+  /* width: 70px;
+  height: 50px; */
   background: none;
   border: none;
   color: white;
-  font-size: 45px;
+  font-size: 35px;
   cursor: pointer;
 
   @media (min-width: 700px) {

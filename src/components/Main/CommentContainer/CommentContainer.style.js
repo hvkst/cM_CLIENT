@@ -11,7 +11,7 @@ export const SingleCommentContainer = styled(Box)`
   margin: 5px 0 5px;
   margin-left: ${(props) => (props.comment.isAdmin ? '10px' : '0')};
   margin-right: ${(props) => (props.comment.isAdmin ? '0' : '10px')};
-  background-color: ${(props) => (props.comment.isAdmin ? 'rgba(144,238,144,0.5)' : 'rgba(173,216,230,0.5)')};
+  background-color: ${(props) => (props.comment.isAdmin ? '#d6c8df' : '#F9F6FA')};
 
   & p {
     margin: 2px 5px;

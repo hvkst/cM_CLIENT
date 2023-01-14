@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { ProjectContext } from '../../../context/ProjectContext';
-import { Box, IconButton, TextField } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
+import { Box, Button, TextField } from '@mui/material';
 import styled from 'styled-components';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -15,8 +14,10 @@ export default function CommentForm({ section }) {
   const [commentState, setCommentState] = useState('');
   const { project, setProject } = useContext(ProjectContext);
   const { user } = useContext(UserContext);
+  const [changed, setChanged] = useState(false);
 
   const handleChange = (e) => {
+    setChanged(true);
     setCommentState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
@@ -46,6 +47,7 @@ export default function CommentForm({ section }) {
 
     console.log('We reach here...CommentForm');
     setCommentState(emptyCommentState);
+    setChanged(false);
   };
 
   return (
@@ -59,10 +61,24 @@ export default function CommentForm({ section }) {
         autoComplete="off"
       >
         <CommentFormContainer>
-          <TextField multiline size="small" type="text" name="content" value={commentState.content} onChange={handleChange} placeholder="Comment" />
-          <IconButton color="primary" onClick={sendToServer}>
-            <SendIcon />
-          </IconButton>
+          <TextField
+            multiline
+            variant="standard"
+            type="text"
+            name="content"
+            value={commentState.content}
+            onChange={handleChange}
+            placeholder="Comment"
+          />
+          {changed ? (
+            <Button sx={{ m: 1 }} color="primary" size="small" onClick={sendToServer}>
+              send
+            </Button>
+          ) : (
+            <Button sx={{ m: 1 }} variant="outlined" disabled color="primary" size="small" onClick={sendToServer}>
+              send
+            </Button>
+          )}
         </CommentFormContainer>
       </Box>
     </>
@@ -70,6 +86,7 @@ export default function CommentForm({ section }) {
 }
 
 const CommentFormContainer = styled.div`
+  margin-top: 30px;
   display: flex;
   align-items: center;
 `;
