@@ -240,4 +240,6 @@ export const ProductCardsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const LowerMidSection = styled(MidSection)``;
+export const LowerMidSection = styled(MidSection)`
+  margin-bottom: 150px;
+`;

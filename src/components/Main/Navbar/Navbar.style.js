@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const NavbarContainer = styled.nav`
   width: 100%;
-  height: ${(props) => (props.extendNavbar ? '100vh' : '80px')};
+  height: ${(props) => (props.extendNavbar ? 'fit-aontent' : '80px')};
   background-color: #6d00aa;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ export const NavbarLinkContainer = styled.div`
 export const NavbarLink = styled(Link)`
   color: white;
   font-size: medium;
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
   text-decoration: none;
   margin: 10px;
 
@@ -52,7 +52,6 @@ export const NavbarLink = styled(Link)`
 export const NavbarLinkExtended = styled(Link)`
   color: white;
   font-size: x-large;
-  font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   margin: 10px;
 `;
@@ -69,8 +68,6 @@ export const Logo = styled.div`
 `;
 
 export const OpenLinksButton = styled.button`
-  /* width: 70px;
-  height: 50px; */
   background: none;
   border: none;
   color: white;

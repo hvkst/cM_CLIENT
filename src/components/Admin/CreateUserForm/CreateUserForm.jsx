@@ -3,7 +3,7 @@ import { ErrorContext } from '../../../context/ErrorContext';
 
 import moment from 'moment/moment';
 
-import { FormControl, TextField, IconButton } from '@mui/material';
+import { FormControl, TextField, IconButton, Button } from '@mui/material';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -23,10 +23,12 @@ const emptyNewUserState = {
 function CreateUserForm({ setAllUsers }) {
   const [newUserState, setNewUserState] = useState(emptyNewUserState);
   const [dateValue, setDateValue] = useState();
+  const [changed, setChanged] = useState(false);
 
   const { setError, setErrorMessage } = useContext(ErrorContext);
 
   const handleChange = (e) => {
+    setChanged(true);
     setNewUserState((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
 
@@ -71,6 +73,7 @@ function CreateUserForm({ setAllUsers }) {
 
     console.log('We reach here...newUserForm');
     setNewUserState(emptyNewUserState);
+    setChanged(false);
   };
 
   return (
@@ -100,9 +103,16 @@ function CreateUserForm({ setAllUsers }) {
                   renderInput={(params) => <TextField sx={{ width: '32%' }} variant="standard" {...params} />}
                 />
               </LocalizationProvider>
-              <IconButton sx={{ marginTop: '23px' }} color="secondary" onClick={sendToServer}>
-                <CheckBoxIcon />
-              </IconButton>
+
+              {changed ? (
+                <Button sx={{ m: 1, mt: 2 }} color="primary" variant="outlined" onClick={sendToServer}>
+                  save
+                </Button>
+              ) : (
+                <Button sx={{ m: 1, mt: 2 }} variant="outlined" disabled color="primary" onClick={sendToServer}>
+                  save
+                </Button>
+              )}
             </div>
           </FormControl>
         </FormContainer>
