@@ -1,4 +1,6 @@
 import moment from 'moment/moment';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export function germanDate(str) {
@@ -7,6 +9,22 @@ export function germanDate(str) {
 
 export function commentTime(str) {
   return moment(str).format('DD-MM - HH:MM');
+}
+
+export async function confirmDelete(callback, arg1, arg2, arg3) {
+  confirmAlert({
+    title: 'Confirm to DELETE',
+    message: 'Are you sure to do this?',
+    buttons: [
+      {
+        label: 'Yes',
+        onClick: () => callback(arg1, arg2, arg3),
+      },
+      {
+        label: 'No',
+      },
+    ],
+  });
 }
 
 export async function logout(logoutUser) {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { TextField, IconButton } from '@mui/material';
+import { TextField, IconButton, Button } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import { addSection } from '../../../utils';
@@ -24,9 +24,9 @@ export default function AddSection({ project, setProject }) {
   return (
     <OptionPaper>
       <TextField variant="standard" type="text" name="section" value={newSectionState.section} placeholder="new section" onChange={handleChange} />
-      <IconButton color="success" onClick={handleClick}>
-        <AddCircleIcon />
-      </IconButton>
+      <Button sx={{ m: 1 }} color="success" size="small" startIcon={<AddCircleIcon />} onClick={handleClick}>
+        Save
+      </Button>
     </OptionPaper>
   );
 }

@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { ProjectContext } from '../../../context/ProjectContext';
 import { updateSection, deleteSection } from '../../../utils';
 
-import { FormControl, TextField, IconButton } from '@mui/material';
+import { FormControl, TextField, IconButton, Button } from '@mui/material';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
@@ -11,6 +11,7 @@ import { IconContainer, FormContainer } from './UpdateSectionForm.style';
 
 export default function UpdateSectionForm({ section }) {
   const { project, setProject } = useContext(ProjectContext);
+  const [changed, setChanged] = useState(false);
 
   const defaultState = {
     title: section.title,
@@ -23,6 +24,8 @@ export default function UpdateSectionForm({ section }) {
   const [state, setState] = useState(defaultState);
 
   const handleChange = (event) => {
+    setChanged(true);
+
     setState((old) => {
       let newValue = event.target.value;
 
@@ -32,6 +35,7 @@ export default function UpdateSectionForm({ section }) {
 
   const handleClick = (e) => {
     updateSection(state, section, project, setProject);
+    setChanged(false);
   };
 
   return (
@@ -39,7 +43,8 @@ export default function UpdateSectionForm({ section }) {
       <FormContainer>
         <FormControl>
           <TextField
-            inputProps={{ style: { fontSize: 25, lineHeight: 1.2 } }}
+            inputProps={{ style: { fontSize: 25, lineHeight: 1.2, disableUnderline: true } }}
+            InputProps={{ disableUnderline: true }}
             sx={{ m: 2 }}
             multiline
             variant="standard"
@@ -62,17 +67,26 @@ export default function UpdateSectionForm({ section }) {
           <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.final} name="final" label="Final" />
         </FormControl>
         <IconContainer>
-          <IconButton
-            color="primary"
+          <Button
+            sx={{ m: 1 }}
+            color="warning"
+            size="small"
+            startIcon={<DeleteForeverIcon />}
             onClick={() => {
               confirmDelete(deleteSection, section, project, setProject);
             }}
           >
-            <DeleteForeverIcon />
-          </IconButton>
-          <IconButton color="primary" onClick={handleClick}>
-            <CheckBoxIcon />
-          </IconButton>
+            Section
+          </Button>
+          {changed ? (
+            <Button sx={{ m: 1 }} color="primary" size="small" onClick={handleClick}>
+              save
+            </Button>
+          ) : (
+            <Button sx={{ m: 1 }} variant="outlined" disabled color="primary" size="small" onClick={handleClick}>
+              save
+            </Button>
+          )}
         </IconContainer>
       </FormContainer>
     </>

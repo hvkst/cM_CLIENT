@@ -6,7 +6,7 @@ export const SingleProductCardContainer = styled(Box)`
   align-items: center;
   min-width: 320px;
   width: ${(props) => props.width};
-  background-color: #f5f5f5;
+  background-color: #f9f6fa;
   margin: 30px 30px;
   h2 {
     margin: 0;
@@ -17,7 +17,7 @@ export const Icon = styled.p`
   margin: 40px auto 0;
   height: auto;
   & svg {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 `;
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const NavbarContainer = styled.nav`
   width: 100%;
   height: ${(props) => (props.extendNavbar ? '100vh' : '80px')};
-  background-color: darkslateblue;
+  background-color: #6d00aa;
   display: flex;
   flex-direction: column;
 
@@ -88,7 +88,7 @@ export const NavbarExtendedContainer = styled.div`
 `;
 
 export const Footer = styled.section`
-  background-color: rgba(255, 192, 113, 0.5);
+  background-color: #d6c8df;
   box-shadow: 0px 12px 37px -4px #000000;
   margin-top: 20px;
   display: flex;

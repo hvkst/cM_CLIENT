@@ -49,7 +49,7 @@ export default function Homepage() {
       </TopSection>
       <MidSection>
         <HeadingContainer>
-          <InnerHeadingContainer position="80%">
+          <InnerHeadingContainer position="70%">
             <h2 id="heading">Products & Services</h2>
           </InnerHeadingContainer>
         </HeadingContainer>
@@ -79,7 +79,7 @@ export default function Homepage() {
 
       <LowerMidSection>
         <HeadingContainer>
-          <InnerHeadingContainer position="-5%">
+          <InnerHeadingContainer position="10%">
             <h2 id="heading">How it works</h2>
           </InnerHeadingContainer>
         </HeadingContainer>

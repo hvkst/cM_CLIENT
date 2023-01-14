@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { updateUser } from '../../../utils';
 
 import moment from 'moment/moment';
-import { TextField, IconButton, FormControl } from '@mui/material';
+import { TextField, IconButton, FormControl, Button } from '@mui/material';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -15,6 +15,7 @@ import { ControlsContainer } from './UpdateUserForm.style';
 
 export default function UpdateUserForm({ fullUserData, setFullUserdata, setProject, setShowDeleteOption, setShowAddSectionOption }) {
   const [dateValue, setDateValue] = useState(fullUserData.projects[0].dueDate);
+  const [changed, setChanged] = useState(false);
 
   const defaultState = {
     username: fullUserData.username,
@@ -27,6 +28,7 @@ export default function UpdateUserForm({ fullUserData, setFullUserdata, setProje
   const timeLeft = new moment().to(moment(fullUserData.projects[0].dueDate), true);
 
   const handleChange = (event) => {
+    setChanged(true);
     setState((old) => {
       let newValue = event.target.value;
 
@@ -44,6 +46,7 @@ export default function UpdateUserForm({ fullUserData, setFullUserdata, setProje
 
   const handleClick = (e) => {
     updateUser(userDataUpdate, setFullUserdata, setProject);
+    setChanged(false);
   };
 
   return (
@@ -68,6 +71,7 @@ export default function UpdateUserForm({ fullUserData, setFullUserdata, setProje
             name="dueDate"
             value={dateValue}
             onChange={(newValue) => {
+              setChanged(true);
               setDateValue(newValue);
             }}
             renderInput={(params) => <TextField variant="standard" {...params} />}
@@ -76,27 +80,39 @@ export default function UpdateUserForm({ fullUserData, setFullUserdata, setProje
         <ControlsContainer timeLeft={timeLeft}>
           <div>
             <span className="timeLeftSpan">{timeLeft} left.</span>
-            <IconButton color="primary" onClick={handleClick}>
-              <CheckBoxIcon />
-            </IconButton>
+            {changed ? (
+              <Button sx={{ m: 1 }} color="primary" size="small" onClick={handleClick}>
+                save
+              </Button>
+            ) : (
+              <Button sx={{ m: 1 }} variant="outlined" disabled color="primary" size="small" onClick={handleClick}>
+                save
+              </Button>
+            )}
           </div>
           <div>
-            <IconButton
-              color="primary"
+            <Button
+              sx={{ m: 1 }}
+              color="warning"
+              size="small"
+              startIcon={<DeleteForeverIcon />}
               onClick={() => {
                 setShowDeleteOption((curr) => !curr);
               }}
             >
-              <DeleteForeverIcon />
-            </IconButton>
-            <IconButton
+              User
+            </Button>
+            <Button
+              sx={{ m: 1 }}
               color="success"
+              size="small"
+              startIcon={<AddCircleIcon />}
               onClick={() => {
                 setShowAddSectionOption((curr) => !curr);
               }}
             >
-              <AddCircleIcon />
-            </IconButton>
+              Section
+            </Button>
           </div>
         </ControlsContainer>
       </FormControl>

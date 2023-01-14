@@ -10,7 +10,7 @@ export const PageContainer = styled.div`
 export const ContactFormContainer = styled.div`
   position: relative;
   &:after {
-    background-color: #009cab;
+    background-color: #d6c8df;
     width: 92%;
     height: 92%;
     /* border: 0.1rem solid black; */

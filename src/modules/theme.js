@@ -1,3 +1,4 @@
+import { SportsRugbySharp } from '@mui/icons-material';
 import { createTheme } from '@mui/material';
 import { green, grey, red } from '@mui/material/colors';
 
@@ -5,16 +6,17 @@ const rawTheme = createTheme({
   palette: {
     primary: {
       light: '#6a5db8',
-      main: '#483d8b',
+      main: '#6D00AA',
       dark: '#2c2656',
     },
     secondary: {
-      light: '#f5f5dc',
-      main: '#009CAB',
+      light: '#f9f6fa',
+      main: '#d6c8df',
     },
     warning: {
-      main: '#ffc071',
-      dark: '#ffb25e',
+      main: '#ff6f6f',
+      // main: '#ffc071',
+      // dark: '#ffb25e',
     },
     error: {
       xLight: red[50],
@@ -26,14 +28,19 @@ const rawTheme = createTheme({
       main: green[500],
       dark: green[700],
     },
+    text: {
+      primary: 'rgba(51,51,51,1)',
+      secondary: 'rgba(51,51,51,0.6)',
+      disabled: 'rgba(51,51,51,0.3)',
+    },
   },
   typography: {
-    fontFamily: "'Manrope', sans-serif",
+    fontFamily: "'Montserrat', sans-serif",
     fontSize: 14,
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans
     fontWeightMedium: 700, // Roboto Condensed
-    fontFamilySecondary: "'Roboto Condensed', sans-serif",
+    fontFamilySecondary: "'Manrope', sans-serif",
   },
 });
 

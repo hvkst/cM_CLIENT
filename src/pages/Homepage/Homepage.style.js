@@ -21,8 +21,8 @@ export const call =
 
 export const TopSection = styled.section`
   box-sizing: border-box;
-  border: 0.5rem solid #f5f5dc;
-  background-color: #009cab;
+  border: 0.5rem solid #f9f6fa;
+  background-color: #f9f6fa;
   border-radius: 1rem;
   width: 100%;
   height: 100vh;
@@ -66,7 +66,7 @@ export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #ffc071;
+  background-color: #6d00aa;
   padding: 3.5rem;
 
   & #herobutton {
@@ -78,7 +78,7 @@ export const HeroContainer = styled.div`
   &:after {
     width: 100%;
     height: 100%;
-    border: 0.3rem solid white;
+    border: 0.3rem solid #ff6f6f;
     transform: rotate(4deg);
     position: absolute;
     left: 0;
@@ -104,14 +104,14 @@ export const HeroContainer = styled.div`
 
 export const HeroContent = styled.div`
   & h2 {
-    color: #222;
+    color: #fff;
     font-size: 2.5em;
     font-weight: 700;
     margin: 0;
   }
   & p {
     letter-spacing: 1px;
-    color: #222;
+    color: #fff;
     font-size: 1.2em;
     margin: 0;
     margin-top: 10px;
@@ -176,7 +176,7 @@ export const ImageContainer = styled.div`
 export const HeadingContainer = styled.div`
   position: relative;
   margin: 40px 0 20px;
-  &:after {
+  /* &:after {
     width: 100%;
     height: 3%;
     background-color: #009cab;
@@ -191,34 +191,52 @@ export const HeadingContainer = styled.div`
 
   &:hover:after {
     transform: rotate(0deg);
-  }
-  #heading {
-    font-size: 2.5rem;
-    padding: 0 10px;
-  }
+  } */
 `;
 export const InnerHeadingContainer = styled.div`
   position: relative;
   &:after {
     width: 6em;
     height: 6em;
-    background-color: #ffc071;
-    /* border: 0.2em solid #009cab; */
+    background-color: #ff6f6f;
     position: absolute;
-    /* transform: rotate(20deg); */
     right: ${(props) => props.position};
-    bottom: -1.4em;
+    bottom: -1.2em;
     z-index: -1;
     content: '';
     transition: all 0.5s ease-in-out;
     border-radius: 50%;
   }
-  &:hover:after {
-    /* transform: rotate(0deg); */
-  }
   #heading {
     font-size: 2.5rem;
     padding: 0 10px;
+  }
+  @media ${device.mobile} {
+    &:after {
+      width: 3em;
+      height: 3em;
+    }
+    #heading {
+      font-size: 1.2rem;
+    }
+  }
+  @media ${device.tablet} {
+    &:after {
+      width: 4em;
+      height: 4em;
+    }
+    #heading {
+      font-size: 1.6rem;
+    }
+  }
+  @media ${device.laptop} {
+    &:after {
+      width: 5em;
+      height: 5em;
+    }
+    #heading {
+      font-size: 2rem;
+    }
   }
 `;
 

@@ -29,7 +29,7 @@ export default function SectionCard({ section, project, setProject }) {
         </DataContainer>
       )}
       <CommentsContainer>
-        s<p>Comments:</p>
+        <p>Comments:</p>
         <div>
           {section.comments.map((comment) => {
             return <CommentContainer key={comment._id} {...{ comment }}></CommentContainer>;

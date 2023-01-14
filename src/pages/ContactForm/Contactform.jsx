@@ -127,7 +127,7 @@ export default function ContactForm() {
                       setSuccess((curr) => !curr);
                     }}
                   >
-                    This is a success alert — check it out!
+                    Contactform sent! Awesome!
                   </Alert>
                 </Fade>
               ) : (
@@ -140,7 +140,7 @@ export default function ContactForm() {
                     label="I wish to be called back by phone."
                   />
                   {isValid && (
-                    <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} onClick={sendToServer} variant="outlined">
+                    <Button sx={{ m: 1, px: 4, alignSelf: 'flex-end' }} onClick={sendToServer} variant="contained" color="secondary">
                       send
                     </Button>
                   )}
