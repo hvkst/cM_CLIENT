@@ -13,7 +13,6 @@ export const ContactFormContainer = styled.div`
     background-color: #d6c8df;
     width: 92%;
     height: 92%;
-    /* border: 0.1rem solid black; */
     transform: rotate(5deg);
     position: absolute;
     left: 4%;
@@ -21,8 +20,5 @@ export const ContactFormContainer = styled.div`
     z-index: -1;
     content: '';
     transition: all 0.5s ease-in-out;
-  }
-  &:hover:after {
-    /* transform: rotate(0deg); */
   }
 `;

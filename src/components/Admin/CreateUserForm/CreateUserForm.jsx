@@ -3,11 +3,10 @@ import { ErrorContext } from '../../../context/ErrorContext';
 
 import moment from 'moment/moment';
 
-import { FormControl, TextField, IconButton, Button } from '@mui/material';
+import { FormControl, TextField, Button } from '@mui/material';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 import SimplePaper from '../../Main/SimplePaper/SimplePaper';
 import { FormContainer } from './CreateUserForm.style';

@@ -5,6 +5,8 @@ import Alert from '@mui/material/Alert';
 import { Slide } from '@mui/material';
 
 export default function AlertSlide({ severity }) {
+  // This broke after deployment most likely because error handling on server:
+  // I think my error500 response loses it´s cors header and with that no error or message arrives here...
   const { setError, errorMessage, setErrorMessage } = useContext(ErrorContext);
   const [showThis, setShowThis] = useState(false);
 

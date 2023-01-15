@@ -25,9 +25,9 @@ export const happy =
 
 export const TopSection = styled.section`
   box-sizing: border-box;
-  border: 0.5rem solid #f9f6fa;
+  border: 0.7rem solid #f9f6fa;
   background-color: #d6c8df;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   width: 100%;
   height: 100vh;
   display: flex;

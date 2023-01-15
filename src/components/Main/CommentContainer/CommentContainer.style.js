@@ -5,7 +5,6 @@ export const SingleCommentContainer = styled(Box)`
   font-size: 12px;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid lightgrey; */
   padding: 2px;
   border-radius: 5px;
   margin: 5px 0 5px;

@@ -13,7 +13,7 @@ export const useGetFetch = (url) => {
         });
         const resData = await res.json();
         if (res.ok) {
-          console.log('resData from GetFetch after res.ok', resData);
+          // console.log('resData from GetFetch after res.ok', resData);
           setData(resData);
         } else {
           throw new Error(resData.error);

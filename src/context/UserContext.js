@@ -16,7 +16,7 @@ export function UserContextProvider({ children }) {
     const getUser = async () => {
       try {
         const url = BASE_URL + '/auth/verify';
-        console.log('url:', url);
+        // console.log('url:', url);
 
         const res = await fetch(url, {
           method: 'GET',
@@ -26,11 +26,11 @@ export function UserContextProvider({ children }) {
           credentials: 'include',
         });
         const data = await res.json();
-        console.log('data.user:', data.user);
+        // console.log('data.user:', data.user);
 
         setUser(data.user);
         setLoading(false);
-        console.log('Found User (from Context)');
+        // console.log('Found User (from Context)');
       } catch (err) {
         console.error('UserContext', err);
       }

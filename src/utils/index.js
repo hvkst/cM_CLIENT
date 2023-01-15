@@ -45,7 +45,7 @@ export async function loginUser(loginState, loginUser, project, setProject) {
     const body = loginState;
 
     const url = BASE_URL + '/auth/login';
-    console.log('url:', url);
+    // console.log('url:', url);
 
     const res = await fetch(url, {
       method: 'POST',
@@ -62,7 +62,7 @@ export async function loginUser(loginState, loginUser, project, setProject) {
     console.error(err);
   }
 
-  console.log('We reach here...LOGIN_CLIENT');
+  // console.log('We reach here...LOGIN_CLIENT');
   // setLoginState(emptyLoginState);
 }
 
@@ -80,9 +80,9 @@ export async function addSection(newSectionState, project, setProject) {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    console.log('data:', data);
+    // console.log('data:', data);
     setProject(data.project);
-    console.log('Project edited on Clientside');
+    // console.log('Project edited on Clientside');
   } catch (err) {
     console.error(err);
   }
@@ -126,7 +126,7 @@ export async function deleteSection(section, project, setProject) {
     const data = await res.json();
     setProject(data.updatedProject);
 
-    console.log('Section deleted on Clientside');
+    // console.log('Section deleted on Clientside');
   } catch (err) {
     console.error(err);
   }
@@ -150,7 +150,7 @@ export async function updateUser(updatedUserData, setFullUserdata, setProject) {
     setProject(data.updatedUser.projects[0]);
     setFullUserdata(data.updatedUser);
 
-    console.log('User updated on Clientside');
+    // console.log('User updated on Clientside');
   } catch (err) {
     console.error(err);
   }

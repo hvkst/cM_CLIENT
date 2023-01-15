@@ -26,10 +26,10 @@ export default function LoginForm({ handleClose, size }) {
     try {
       if (loginState.username === '' || loginState.password === '') return;
       const formBody = loginState;
-      console.log(formBody);
+      // console.log(formBody);
 
       const url = BASE_URL + '/auth/login';
-      console.log('url:', url);
+      // console.log('url:', url);
 
       const res = await fetch(url, {
         method: 'POST',
@@ -43,7 +43,7 @@ export default function LoginForm({ handleClose, size }) {
       const data = await res.json();
 
       if (res.ok) {
-        console.log('data.user:', data.user);
+        // console.log('data.user:', data.user);
         console.log('Login success');
 
         loginUser(data.user);
@@ -67,7 +67,7 @@ export default function LoginForm({ handleClose, size }) {
       console.error(err);
     }
 
-    console.log('We reach here...LOGIN_CLIENT');
+    // console.log('We reach here...LOGIN_CLIENT');
     setLoginState(emptyLoginState);
   };
 

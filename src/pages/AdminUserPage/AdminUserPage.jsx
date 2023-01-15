@@ -22,7 +22,7 @@ export default function AdminUserPage() {
 
   useEffect(() => {
     data && setFullUserdata(data.user[0]);
-    console.log('data', data);
+    // console.log('data', data);
   }, [data]);
 
   useEffect(() => {

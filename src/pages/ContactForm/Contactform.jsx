@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import { useContext, useState } from 'react';
 import { Button, Checkbox, FormControl, FormControlLabel, MenuItem, TextField } from '@mui/material';
 import SimplePaper from '../../components/Main/SimplePaper/SimplePaper';
@@ -32,10 +31,6 @@ export default function ContactForm() {
       setIsValid(false);
     }
 
-    // const handleClose = () => {
-    //   setSuccess((curr) => !curr);
-    // };
-
     setState((old) => {
       let newValue = event.target.value;
       return { ...old, [event.target.name]: newValue };
@@ -56,12 +51,12 @@ export default function ContactForm() {
         message: state.message,
         callback: checked,
       };
-      console.log(formBody);
+      // console.log(formBody);
 
       const url = `${BASE_URL}/contact/sendform`;
-      console.log('url:', url);
+      // console.log('url:', url);
 
-      console.log('sending');
+      // console.log('sending');
 
       const res = await fetch(url, {
         method: 'POST',
@@ -72,25 +67,23 @@ export default function ContactForm() {
         body: JSON.stringify(formBody),
       });
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
 
       if (res.ok) {
-        console.log('here');
+        // console.log('here');
         setSuccess(true);
-        // setError(true);
-        // setErrorMessage('This is a message');
       } else {
         setError(true);
         setErrorMessage(data.error);
         console.log(data.error);
       }
 
-      console.log('contact form send');
+      // console.log('contact form send');
     } catch (err) {
       console.error(err);
     }
 
-    console.log('We reach here...CONTACT_FORM');
+    // console.log('We reach here...CONTACT_FORM');
     setState(defaultState);
     setChecked(false);
     setIsValid(false);

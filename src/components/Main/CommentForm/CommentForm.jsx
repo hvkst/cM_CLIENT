@@ -25,7 +25,7 @@ export default function CommentForm({ section }) {
     try {
       if (commentState.content === '' || commentState.content === undefined) return;
       const formBody = { ...commentState, projectId: project._id, sectionId: section._id, UserId: user.id };
-      console.log(formBody);
+      // console.log(formBody);
 
       const url = BASE_URL + '/comment/new';
 
@@ -38,14 +38,13 @@ export default function CommentForm({ section }) {
         body: JSON.stringify(formBody),
       });
       const data = await res.json();
-      console.log('data:', data);
+      // console.log('data:', data);
       setProject(data.currentProject[0]);
-      console.log('Comment Saved on Client', data);
+      // console.log('Comment Saved on Client', data);
     } catch (err) {
       console.error(err);
     }
-
-    console.log('We reach here...CommentForm');
+    // console.log('We reach here...CommentForm');
     setCommentState(emptyCommentState);
     setChanged(false);
   };

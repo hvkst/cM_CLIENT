@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { updateUser } from '../../../utils';
 
 import moment from 'moment/moment';
-import { TextField, IconButton, FormControl, Button } from '@mui/material';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { TextField, FormControl, Button } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
