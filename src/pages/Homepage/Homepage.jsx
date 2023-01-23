@@ -36,13 +36,22 @@ export default function Homepage() {
       <TopSection>
         <HeroOuterContainer>
           <ImageContainer>
-            <img src="/pictures/lights.jpg" alt="lights" />
+            <img src="/pictures/data.jpg" alt="lights" />
           </ImageContainer>
           <HeroContainer>
             <HeroContent>
-              <h2>Let's build your DREAM!</h2>
-              <p>Are you looking to improve your online presence, but not sure where to start?</p>
-              <p>Elevate your business and stand out online with our top-quality website development, design, and marketing services.</p>
+              {/* Keeping your users' data in safe hands. Yours. */}
+              {/* Your users' data is in safe hands. yours. */}
+              {/* <h2>Let's build your DREAM!</h2> */}
+              {/* <p>Are you looking to improve your online presence, but not sure where to start?</p> */}
+              <h2>
+                Your customer data is in a <span className="red">safe place.</span>
+              </h2>
+              <h2 id="yours">
+                <span className="red"> Your place.</span>
+              </h2>
+              {/* <p>Do you want to be less worried about data that is saved on another continent?</p> */}
+              <p>Set your business apart and stand out online with our complete one-stop website solutions.</p>
             </HeroContent>
             <Button component={Link} to="/contactform" variant="contained" color="secondary" id="herobutton">
               Start Today

@@ -70,12 +70,18 @@ function Navbar() {
 
       <Outlet />
       <Footer>
-        <IconButton component={Link} to="http://www.github.com" color="primary">
-          <GitHubIcon />
-        </IconButton>
-        <IconButton component={Link} to="http://www.linkedin.com" color="primary">
-          <LinkedInIcon />
-        </IconButton>
+        <div>
+          <IconButton component={Link} to="http://www.github.com" color="primary">
+            <GitHubIcon />
+          </IconButton>
+          <IconButton component={Link} to="http://www.linkedin.com" color="primary">
+            <LinkedInIcon />
+          </IconButton>
+        </div>
+        <div>
+          <a href="https://hvkst.com/impressum.html">Impressum</a>
+          <a href="https://hvkst.com">Back to hvkst</a>
+        </div>
       </Footer>
     </>
   );

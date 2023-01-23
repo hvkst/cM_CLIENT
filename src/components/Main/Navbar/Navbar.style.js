@@ -90,6 +90,8 @@ export const NavbarExtendedContainer = styled.div`
 `;
 
 export const Footer = styled.section`
+  display: flex;
+  justify-content: space-between;
   background-color: #d6c8df;
   box-shadow: 0px 12px 37px -4px #000000;
   margin-top: 20px;
@@ -99,4 +101,8 @@ export const Footer = styled.section`
   width: 100%;
   left: 0;
   bottom: 0;
+  div a {
+    text-decoration: none;
+    margin-right: 20px;
+  }
 `;

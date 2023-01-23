@@ -25,8 +25,8 @@ export const happy =
 
 export const TopSection = styled.section`
   box-sizing: border-box;
-  border: 0.7rem solid #f9f6fa;
-  background-color: #d6c8df;
+  /* border: 0.7rem solid #d6c8df; */
+  background-color: #f9f6fa;
   /* border-radius: 1rem; */
   width: 100%;
   height: 100vh;
@@ -45,7 +45,7 @@ export const TopSection = styled.section`
 `;
 
 export const HeroOuterContainer = styled.div`
-  width: 500px;
+  width: 530px;
   aspect-ratio: 1 / 1;
   position: relative;
   margin-right: 12.5rem;
@@ -72,6 +72,8 @@ export const HeroContainer = styled.div`
   align-items: flex-start;
   background-color: #6d00aa;
   padding: 3.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.33);
+  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.4), 0 15px 12px rgba(0, 0, 0, 0.32); */
 
   & #herobutton {
     background-color: white;
@@ -79,11 +81,23 @@ export const HeroContainer = styled.div`
     align-self: flex-end;
     border-radius: 0;
     padding: 0.6rem 1.5rem;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: #ff6f6f;
+      color: #fff;
+    }
+  }
+  &:hover {
+    .red {
+      border-bottom: 3px solid #ff6f6f;
+    }
   }
   &:after {
     width: 100%;
     height: 100%;
     border: 0.3rem solid #ff6f6f;
+    /* border: 0.3rem solid #d6c8df; */
     transform: rotate(4deg);
     position: absolute;
     left: 0;
@@ -108,18 +122,27 @@ export const HeroContainer = styled.div`
 `;
 
 export const HeroContent = styled.div`
-  & h2 {
+  h2 {
     color: #fff;
     font-size: 2.5em;
     font-weight: 700;
     margin: 0;
   }
-  & p {
+  p {
     letter-spacing: 1px;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin: 0;
-    margin-top: 10px;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .red {
+    border-bottom: 3px solid #fff;
+    transition: all 0.5s ease-in-out;
+  }
+  #yours {
+    text-align: right;
   }
 
   @media ${device.mobile} {
@@ -163,6 +186,9 @@ export const ImageContainer = styled.div`
     width: 115%;
     height: 115%;
     object-fit: cover;
+    filter: grayscale(100%) blur(2px);
+    /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   }
 
   @media ${device.mobile} {
