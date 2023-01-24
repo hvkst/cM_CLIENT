@@ -62,9 +62,9 @@ export default function UpdateSectionForm({ section }) {
             name="description"
             label="Description"
           />
-          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.prep} name="prep" label="Prep" />
+          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.prep} name="prep" label="Preperation" />
           <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.main} name="main" label="Main" />
-          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.final} name="final" label="Final" />
+          <TextField multiline variant="standard" onChange={handleChange} sx={{ m: 1 }} value={state.final} name="final" label="Review" />
         </FormControl>
         <IconContainer>
           <Button

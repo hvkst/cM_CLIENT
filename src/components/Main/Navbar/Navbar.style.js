@@ -29,7 +29,7 @@ export const RightContainer = styled.div`
 
 export const NavbarInnerContainer = styled.div`
   width: 100%;
-  height: 80px;
+  height: 100%;
   display: flex;
 `;
 
@@ -62,8 +62,8 @@ export const Logo = styled.div`
   margin: 0;
   padding: 0;
   img {
-    max-width: 180px;
-    height: 70%;
+    max-width: 150px;
+    height: 80%;
   }
 `;
 
