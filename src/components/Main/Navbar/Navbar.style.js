@@ -17,14 +17,14 @@ export const LeftContainer = styled.div`
   flex: 70%;
   display: flex;
   align-items: center;
-  padding-left: 5%;
+  padding-left: 10%;
 `;
 
 export const RightContainer = styled.div`
   flex: 30%;
   display: flex;
   justify-content: flex-end;
-  padding-right: 50px;
+  padding-right: 5%;
 `;
 
 export const NavbarInnerContainer = styled.div`
