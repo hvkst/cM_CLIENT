@@ -74,9 +74,9 @@ export default function BackendUser() {
                   <UserAlert severity="info" onClose={closeAlert}>
                     <AlertTitle>Welcome, {fullUserData.username}!</AlertTitle>
                     <p>
-                      This is your backend. <br /> Here you can track our progress and comment on different parts of the project.
+                      This is your backend. <br /> Here you can track our progress and chat with me about our progress.
                     </p>
-                    <p>In future releases this will also be the place to upload texts and images.</p>
+                    <p>Please remember to upload texts and images in time ;)</p>
                   </UserAlert>
                 </SimplePaper>
               )}
